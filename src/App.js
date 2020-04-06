@@ -1,13 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/layouts/Navbar";
+import Footer from "./components/layouts/Footer";import Home from './components/pages/Home';
 
+
+
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-     Retry
-    </div>
+ 
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container">
+          <Switch>
+            
+             <Route exact path = '/' component={Home} />
+             
+              {/* <Route exact path = '/user/:login' component={User} /> */}
+           
+          </Switch>
+         
+          </div>
+          <Footer />
+        </div>
+      </Router>
+  
   );
 }
 

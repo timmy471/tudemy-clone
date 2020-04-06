@@ -1,0 +1,38 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john@yahoo.com",
+        "image_url": "imagur.com"
+      },
+      {
+        "id": 2,
+        "first_name": "Sarah",
+        "last_name": "Wilson",
+        "email": "sarahn@yahoo.com",
+        "image_url": "imagur.com"
+      }
+    ],
+    "courses": [
+      {
+        "id": 1,
+        "user_id": 2,
+        "title": "Learn react",
+        "category": "development",
+        "what_will_be_learnt": "everything you desire in this life",
+        "course_requirement": "you have to know the basics of javascript",
+        "video_url": "api.youtube.com"
+      },
+      {
+        "id": 2,
+        "user_id": 1,
+        "title": "Begin Angular",
+        "category": "artistry",
+        "what_will_be_learnt": "end to beginning of angular",
+        "course_requirement": "Be very sound in programming",
+        "video_url": "api.youtube.com"
+      }
+    ]
+  }

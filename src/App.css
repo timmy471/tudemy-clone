@@ -1,32 +1,92 @@
-.App {
-  text-align: center;
+
+nav, .footer{
+  background-color: #3f4145;
+  height:5rem;
+  width:auto;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+nav ul {
+  float:right;
+  display:flex;
+  padding-right:2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+nav ul li{
+ 
+  list-style-type:none;
+  margin: 1rem;
+  padding-top:0.5rem;
+  color:white;
+}
+
+.search{
+  width:"80%";
+   margin:"0 auto";
+    padding:"20px";
+}
+
+.jumbotron {
+  height:25rem;
+  background:url("./images/teach4.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+}
+
+.textbox{
+  background-color: rgba(91, 83, 83, 0.3);
+  margin-right:2rem;
+  height:70%;
+  float:right;
+  max-width:30%;
+  width:auto;
+  padding: 4rem 0;
+  text-align:center;
+}
+
+.textbox h2{
+
+  color:white;
+  padding: 0 2rem
+}
+
+.textbox button {
+  position:relative;
+  top:1rem;
+  width: 50%;
+  background-color: #f01662;
+  border:none;
+  color:white;
+  padding: 1rem 0;
+  border-radius: 4rem;
+}
+
+.footer{
+  background-color: #3f4145;
+  height:5rem;
+  width:100%;
+  text-align:center;
+ position:absolute;
+ top:100%;
+}
+
+.footer p{
+  color:white;
+   padding-top:1.5rem
+}
+
+
+
+
+@media screen and (max-width: 760px) {
+ 
+  .textbox{
+    display:none;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
