@@ -1,10 +1,12 @@
 import React from "react";
 import GoogleLogin from 'react-google-login';
+import { Redirect } from 'react-router-dom';
 
 const Login = () => {
 
   const responseGoogle = (response) => {
     console.log(response);
+    <Redirect to="/dashboard" />
   }
 
  
