@@ -85,6 +85,10 @@ nav ul li{
   .textbox{
     display:none;
   }
+
+  .jumbotron{
+    height:15rem
+  }
 }
 
 
