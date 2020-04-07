@@ -40,7 +40,7 @@ const AuthState = (props) => {
       });
 
       const res = await axios.get(
-        `http://tudemy-clone.herokuapp.com/users?q=${user.email}`
+        `http://localhost:5000/users?q=${user.email}`
       );
 
     
@@ -69,7 +69,7 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.post("http://tudemy-clone.herokuapp.com/users", user, {
+      const res = await axios.post("http://localhost:5000/users", user, {
         headers: {
           "Content-Type": "application/json",
         },
