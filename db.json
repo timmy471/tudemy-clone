@@ -1,38 +1,48 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "first_name": "John",
-        "last_name": "Doe",
-        "email": "john@yahoo.com",
-        "image_url": "imagur.com"
-      },
-      {
-        "id": 2,
-        "first_name": "Sarah",
-        "last_name": "Wilson",
-        "email": "sarahn@yahoo.com",
-        "image_url": "imagur.com"
-      }
-    ],
-    "courses": [
-      {
-        "id": 1,
-        "user_id": 2,
-        "title": "Learn react",
-        "category": "development",
-        "what_will_be_learnt": "everything you desire in this life",
-        "course_requirement": "you have to know the basics of javascript",
-        "video_url": "api.youtube.com"
-      },
-      {
-        "id": 2,
-        "user_id": 1,
-        "title": "Begin Angular",
-        "category": "artistry",
-        "what_will_be_learnt": "end to beginning of angular",
-        "course_requirement": "Be very sound in programming",
-        "video_url": "api.youtube.com"
-      }
-    ]
-  }
+  "users": [
+    {
+      "id": 1,
+      "google_Id": 4533453454353425400,
+      "email": "john@yahoo.com",
+      "first_name": "John",
+      "last_name": "Doe",
+      "image_url": "imagur.com"
+    },
+    {
+      "id": 2,
+      "google_Id": 94745458458594,
+      "first_name": "Sarah",
+      "last_name": "Wilson",
+      "email": "sarahn@yahoo.com",
+      "image_url": "imagur.com"
+    },
+    {
+      "googleId": "104603840349259720000",
+      "email": "ayantunjitimilehin@gmail.com",
+      "first_name": "Timilehin",
+      "last_name": "Micheal",
+      "image_url": "imageur.com",
+      "id": 3
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "title": "Learn react",
+      "category": "development",
+      "what_will_be_learnt": "everything you desire in this life",
+      "course_requirement": "you have to know the basics of javascript",
+      "video_url": "api.youtube.com"
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "title": "Begin Angular",
+      "category": "artistry",
+      "what_will_be_learnt": "end to beginning of angular",
+      "course_requirement": "Be very sound in programming",
+      "video_url": "api.youtube.com"
+    }
+  ]
+}

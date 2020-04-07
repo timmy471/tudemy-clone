@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import GoogleLogin from "react-google-login";
-import { Redirect } from 'react-router-dom';
+
+
+import AuthContext from "../../context/auth/authContext";
 
 const Login = (props) => {
-  const responseGoogle = (response) => {
-    console.log(response);
+  const authContext = useContext(AuthContext);
+
+  const { checkUser } = authContext;
+
+  const responseGoogle = (res) => {
+    const { googleId, email, givenName, familyName } = res.profileObj;
+
+    const user = {
+      googleId,
+      email,
+      first_name: givenName,
+      last_name: familyName,
+      image_url: "imageur.com",
+    };
+
+    const token = res.tokenId;
+
+ 
+    checkUser(user, token)
     
-    // return <Redirect to="/dashboard" />
   };
 
+ 
   return (
     <div className="modal fade" id="loginModal">
       <div className="modal-dialog modal-dialog-centered">
@@ -37,6 +56,7 @@ const Login = (props) => {
       </div>
     </div>
   );
+  // }
 };
 
 export default Login;

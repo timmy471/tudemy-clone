@@ -6,12 +6,15 @@ import Home from './components/pages/Home';
 import Dashboard from './components/pages/Dashboard';
 
 
+import AuthState from './context/auth/AuthState';
+
+
 
 import "./App.css";
 
 function App() {
   return (
- 
+    <AuthState>
       <Router>
         <div className="App">
           <Navbar />
@@ -29,6 +32,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+      </AuthState>
   
   );
 }
