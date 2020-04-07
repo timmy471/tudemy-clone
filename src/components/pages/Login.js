@@ -5,15 +5,9 @@ import { Redirect } from 'react-router-dom';
 const Login = (props) => {
   const responseGoogle = (response) => {
     console.log(response);
-    //  props.history.push('/dashboard');
-   
+    
+    // return <Redirect to="/dashboard" />
   };
-
-  const realCall = async () => {
-    await responseGoogle();
-
-    return <Redirect to="/dashboard" />
-  }
 
   return (
     <div className="modal fade" id="loginModal">
@@ -26,7 +20,7 @@ const Login = (props) => {
             <GoogleLogin
               clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
               buttonText="Login"
-              onSuccess={realCall}
+              onSuccess={responseGoogle}
               onFailure={responseGoogle}
               cookiePolicy={"single_host_origin"}
             />
