@@ -7,6 +7,8 @@ import Alert from "./components/layouts/Alert";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import NotFound from "./components/pages/NotFound";
+import AddCourse from "./components/pages/AddCourse";
+
 
 import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alert/AlertState";
@@ -25,6 +27,7 @@ function App() {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path ="/addcourse" component={AddCourse} />
 
                 {/* <Route exact path = '/user/:login' component={User} /> */}
                 <Route component={NotFound} />

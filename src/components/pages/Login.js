@@ -3,7 +3,6 @@ import GoogleLogin from "react-google-login";
 
 
 import AuthContext from "../../context/auth/authContext";
-import AlertContext from "../../context/alert/alertContext";
 
 
 const Login = (props) => {

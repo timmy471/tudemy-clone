@@ -42,6 +42,7 @@ const AuthState = (props) => {
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
   const alertContext = useContext(AlertContext);
+ 
 
   const checkUser = async (user, token) => {
     try {
@@ -67,7 +68,8 @@ const AuthState = (props) => {
       }
     } catch (error) {
       console.log(error);
-      alertContext.setAlert('all fine', 'success');
+      alert(error)
+      alertContext.setAlert(error, 'danger');
       dispatch({
         type: CHECK_FAIL,
         payload: error
