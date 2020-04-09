@@ -1,7 +1,7 @@
 
 nav, .footer{
   background-color: #3f4145;
-  height:5rem;
+  height:50px;
   width:auto;
   margin-bottom: 2rem;
 }
@@ -10,7 +10,7 @@ nav, .footer{
 nav ul {
   float:right;
   display:flex;
-  padding-right:8rem;
+  padding-right:50px;
 }
 
 nav ul li{
