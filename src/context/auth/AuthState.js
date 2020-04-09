@@ -64,7 +64,7 @@ const AuthState = (props) => {
         registerUser(user, token);
       }
     } catch (error) {
-      
+      console.log(error);
       dispatch({
         type: CHECK_FAIL,
         payload: error
