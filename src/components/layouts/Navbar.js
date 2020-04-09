@@ -14,8 +14,13 @@ const Navbar = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/" style={linkStyle}>
+            <Link to="/addcourse" style={linkStyle}>
               Become a Tutor
+            </Link>
+          </li>
+           <li>
+            <Link to="/courses" style={linkStyle}>
+              Courses
             </Link>
           </li>
           {isAuthenticated ? (

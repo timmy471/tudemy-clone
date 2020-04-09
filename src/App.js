@@ -17,8 +17,9 @@ import "./App.css";
 
 function App() {
   return (
+    <AlertState>
     <AuthState>
-      <AlertState>
+      
         <Router>
           <div className="App">
             <Navbar />
@@ -36,8 +37,9 @@ function App() {
             {/* <Footer /> */}
           </div>
         </Router>
-      </AlertState>
+     
     </AuthState>
+    </AlertState>
   );
 }
 
