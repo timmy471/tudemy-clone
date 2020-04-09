@@ -6,7 +6,7 @@
       "email": "john@yahoo.com",
       "first_name": "John",
       "last_name": "Doe",
-      "image_url": "imagur.com"
+      "image_url": "https://i.imgur.com/IyNqeHv.png?1"
     },
     {
       "id": 2,
@@ -14,14 +14,14 @@
       "first_name": "Sarah",
       "last_name": "Wilson",
       "email": "sarahn@yahoo.com",
-      "image_url": "imagur.com"
+      "image_url": "https://i.imgur.com/IyNqeHv.png?1"
     },
     {
       "googleId": "104603840349259720000",
       "email": "ayantunjitimilehin@gmail.com",
       "first_name": "Timilehin",
       "last_name": "Micheal",
-      "image_url": "imageur.com",
+      "image_url": "https://i.imgur.com/GomuB5I.png",
       "id": 3
     }
   ],

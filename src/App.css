@@ -3,7 +3,7 @@ nav, .footer{
   background-color: #3f4145;
   height:5rem;
   width:auto;
-
+  margin-bottom: 2rem;
 }
 
 
@@ -63,13 +63,23 @@ nav ul li{
   border-radius: 4rem;
 }
 
+.profile{
+  display:"flex"; 
+  margin-top:"2rem";
+  background-color:"white";
+  width:"auto";
+   padding:"10rem";
+   
+}
+
 .footer{
   background-color: #3f4145;
   height:5rem;
   width:100%;
   text-align:center;
- position:absolute;
- top:100%;
+  position: relative;
+  top:5rem;
+ 
 }
 
 .footer p{
@@ -81,7 +91,9 @@ nav ul li{
 
 
 @media screen and (max-width: 760px) {
- 
+ body{
+   width:100%;
+ }
   .textbox{
     display:none;
   }
