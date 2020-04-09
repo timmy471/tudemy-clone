@@ -23,6 +23,14 @@
       "last_name": "Micheal",
       "image_url": "https://i.imgur.com/HlKPRUg.jpg",
       "id": 3
+    },
+    {
+      "googleId": "113321855827693925088",
+      "email": "karriecarter97@gmail.com",
+      "first_name": "Karrie",
+      "last_name": "Carter",
+      "image_url": "https://i.imgur.com/4ukP0CW.png",
+      "id": 4
     }
   ],
   "courses": [
