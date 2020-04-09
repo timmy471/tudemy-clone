@@ -8,8 +8,6 @@ import AlertContext from "../../context/alert/alertContext";
 
 const Login = (props) => {
   const authContext = useContext(AuthContext);
-    const alertContext = useContext(AlertContext);
-
 
   const { checkUser } = authContext;
 
@@ -26,16 +24,8 @@ const Login = (props) => {
 
     const token = res.tokenId;
 
- 
-    
-
-    try {
-      checkUser(user, token)
-      alertContext.setAlert('all fine', 'success');
-    } catch (error) {
-      alertContext.setAlert(error, 'danger');
-    }
-    
+    checkUser(user, token)
+   
   };
 
  

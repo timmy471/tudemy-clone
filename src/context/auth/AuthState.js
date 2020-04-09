@@ -1,7 +1,9 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 import axios from "axios";
 import AuthReducer from "./authReducer";
 import AuthContext from "./authContext";
+import AlertContext from "../alert/alertContext";
+
 
 import {
   REGISTER_SUCCESS,
@@ -39,7 +41,7 @@ const AuthState = (props) => {
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
-  
+  const alertContext = useContext(AlertContext);
 
   const checkUser = async (user, token) => {
     try {
@@ -65,6 +67,7 @@ const AuthState = (props) => {
       }
     } catch (error) {
       console.log(error);
+      alertContext.setAlert('all fine', 'success');
       dispatch({
         type: CHECK_FAIL,
         payload: error
@@ -93,7 +96,7 @@ const AuthState = (props) => {
       });
     } catch (error) {
       console.log(error);
-      
+
       dispatch({
         type: REGISTER_FAIL,
         payload: error
