@@ -69,9 +69,9 @@ const AuthState = (props) => {
         registerUser(user, token);
       }
     } catch (error) {
-      console.log(error);
+      
       alert(error)
-      alertContext.setAlert(error.error, 'danger');
+      alertContext.setAlert(error.Error, 'danger');
       dispatch({
         type: CHECK_FAIL,
         payload: error
