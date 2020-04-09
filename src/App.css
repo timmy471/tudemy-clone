@@ -10,7 +10,7 @@ nav, .footer{
 nav ul {
   float:right;
   display:flex;
-  padding-right:2rem;
+  padding-right:8rem;
 }
 
 nav ul li{

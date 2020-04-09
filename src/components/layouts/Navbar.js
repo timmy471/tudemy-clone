@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { GoogleLogout } from 'react-google-login';
+import { GoogleLogout } from "react-google-login";
 
 import AuthContext from "../../context/auth/authContext";
 
@@ -8,7 +8,6 @@ const Navbar = () => {
   const authContext = useContext(AuthContext);
 
   const { isAuthenticated, logOut, user } = authContext;
-
 
   return (
     <div>
@@ -47,19 +46,16 @@ const Navbar = () => {
                       Dashboard
                     </Link>
                   </span>
-                  <span className="dropdown-item" onClick={logOut}>
-                    Sign Out <i className="fa fa-sign-out alt"></i>{" "}
-                  
+                  <span className="dropdown-item">
+                    <GoogleLogout
+                      clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
+                      buttonText="Logout"
+                      onLogoutSuccess={logOut}
+                      
+                    ></GoogleLogout>
                   </span>
-                  <GoogleLogout
-      clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-      buttonText="Logout"
-      className="dropdown-item"
-      // onLogoutSuccess={logout}
-    ></GoogleLogout>
                 </div>
               </li>
-              
             </div>
           ) : (
             <li style={linkStyle} data-toggle="modal" data-target="#loginModal">

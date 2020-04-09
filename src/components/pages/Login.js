@@ -3,9 +3,13 @@ import GoogleLogin from "react-google-login";
 
 
 import AuthContext from "../../context/auth/authContext";
+import AlertContext from "../../context/alert/alertContext";
+
 
 const Login = (props) => {
   const authContext = useContext(AuthContext);
+    const alertContext = useContext(AlertContext);
+
 
   const { checkUser } = authContext;
 
@@ -23,7 +27,13 @@ const Login = (props) => {
     const token = res.tokenId;
 
  
-    checkUser(user, token)
+    
+
+    try {
+      checkUser(user, token)
+    } catch (error) {
+      alertContext.setAlert(error, 'danger');
+    }
     
   };
 
