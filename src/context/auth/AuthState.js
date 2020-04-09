@@ -54,6 +54,8 @@ const AuthState = (props) => {
         `http://localhost:5000/users?q=${user.email}`
       );
 
+      console.log(res)
+
       if (res.data.length === 1) {
         localStorage.setItem("user_id", res.data[0].id);
         localStorage.setItem("userToken", token);
@@ -69,7 +71,7 @@ const AuthState = (props) => {
     } catch (error) {
       console.log(error);
       alert(error)
-      alertContext.setAlert(error, 'danger');
+      alertContext.setAlert(error.error, 'danger');
       dispatch({
         type: CHECK_FAIL,
         payload: error
