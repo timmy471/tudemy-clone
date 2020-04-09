@@ -31,6 +31,7 @@ const Login = (props) => {
 
     try {
       checkUser(user, token)
+      alertContext.setAlert('all fine', 'success');
     } catch (error) {
       alertContext.setAlert(error, 'danger');
     }

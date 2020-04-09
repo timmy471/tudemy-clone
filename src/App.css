@@ -1,16 +1,16 @@
 
 nav, .footer{
   background-color: #3f4145;
-  height:50px;
+  height:60px;
   width:auto;
-  margin-bottom: 2rem;
+
 }
 
 
 nav ul {
   float:right;
   display:flex;
-  padding-right:50px;
+  margin-right:9rem;
 }
 
 nav ul li{

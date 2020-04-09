@@ -46,6 +46,7 @@ const Dashboard = () => {
                 backgroundColor: "white",
                 width: "auto",
                 padding: "2rem",
+                marginTop: "2rem"
               }}
             >
               <span>
