@@ -28,21 +28,23 @@ nav ul li{
 }
 
 .jumbotron {
-  height:25rem;
-  background:url("./images/teach4.jpg") no-repeat;
-  background-size: cover;
-  background-position: center center;
+  height:32rem;
+  background:url("./images/teach7.jpg") no-repeat;
+  /* background-position: center center; */
+  background-color: rgba(0, 0, 0, 0.828); 
+  background-size: 100% 100%;
 
 }
 
 .textbox{
   background-color: rgba(91, 83, 83, 0.3);
-  margin-right:2rem;
-  height:70%;
   float:right;
   max-width:30%;
+  position:relative;
+  top:2rem;
+  right:8rem;
   width:auto;
-  padding: 4rem 0;
+  padding: 4rem 2rem 5rem 2rem;
   text-align:center;
 }
 

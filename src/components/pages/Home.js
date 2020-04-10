@@ -25,6 +25,9 @@ const Home = () => {
       <div>
         <Login />
         <Jumbotron />
+        <div className="container">
+          
+        </div>
       </div>
     );
   }

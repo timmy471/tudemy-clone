@@ -37,7 +37,7 @@ const Dashboard = () => {
   return (
     <>
       {!loading && user !== null ? (
-        <div>
+        <div className="container">
           <div className="profile ">
             <div
               className="profile-details"
@@ -68,7 +68,7 @@ const Dashboard = () => {
                       type="file"
                       accept="image/*"
                       data-max-size="5000"
-                      name="uploads"
+                      name="image"
                       onChange={onChange}
                     />
                     <div className ="row " style={{margin:"1rem 0 1rem 0"}}>

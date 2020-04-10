@@ -1,8 +1,7 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer } from "react";
 import axios from "axios";
 import AuthReducer from "./authReducer";
 import AuthContext from "./authContext";
-import AlertContext from "../alert/alertContext";
 
 
 import {
@@ -41,7 +40,6 @@ const AuthState = (props) => {
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
-  const alertContext = useContext(AlertContext);
  
 
   const checkUser = async (user, token) => {
@@ -54,7 +52,6 @@ const AuthState = (props) => {
         `http://localhost:5000/users?q=${user.email}`
       );
 
-      console.log(res)
 
       if (res.data.length === 1) {
         localStorage.setItem("user_id", res.data[0].id);
@@ -68,10 +65,8 @@ const AuthState = (props) => {
       } else {
         registerUser(user, token);
       }
-    } catch (error) {
-      
+    } catch (error) {  
       alert(error)
-      alertContext.setAlert(error.Error, 'danger');
       dispatch({
         type: CHECK_FAIL,
         payload: error

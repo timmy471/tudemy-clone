@@ -46,19 +46,21 @@
       "id": 1,
       "user_id": 2,
       "title": "Learn react",
-      "category": "development",
+      "category": "Development",
       "what_will_be_learnt": "everything you desire in this life",
       "course_requirement": "you have to know the basics of javascript",
-      "video_url": "api.youtube.com"
+      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
+      "image_url": "https://i.imgur.com/IyNqeHv.png?"
     },
     {
       "id": 2,
       "user_id": 1,
       "title": "Begin Angular",
-      "category": "artistry",
+      "category": "Artistry",
       "what_will_be_learnt": "end to beginning of angular",
       "course_requirement": "Be very sound in programming",
-      "video_url": "api.youtube.com"
+      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
+      "image_url": "https://i.imgur.com/0t6WswG.jpgg"
     }
   ]
 }
