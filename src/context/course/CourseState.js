@@ -3,12 +3,13 @@ import axios from 'axios';
 import courseReducer from './courseReducer';
 import courseContext from './courseContext';
 
-import { ADD_COURSE, GET_COURSES, SEARCH_COURSES, SET_CURRENT, CLEAR_CURRENT, UPDATE_COURSE, DELETE_COURSE, OURSE_ERROR, SET_LOADING, COURSE_ERROR } from '../types';
+import { ADD_COURSE, GET_COURSES, SET_AUTHOR, SEARCH_COURSES, SET_CURRENT, CLEAR_CURRENT, UPDATE_COURSE, DELETE_COURSE, OURSE_ERROR, SET_LOADING, COURSE_ERROR } from '../types';
 
 const CourseState = props => {
 
     const initialState = {
         courses: [],
+        authors:[],
         course: {},
         loading:false
     }
@@ -29,12 +30,11 @@ const CourseState = props => {
 
         try {
             const res = await axios.post("https://www.googleapis.com/youtube/v3/videos?key=AIzaSyBKkwlF_Fd2TgBp2VVIq_x5x5-4JdcTIBEi", video, {
-                // headers: {
-                //   Authorization: "Client-ID bc314740cabd71c",
+                 headers: {
+                   'Authorization': 'Client-ID bc314740cabd71c',
                   'Access-Control-Allow-Origin': '*',
-                // //   'Access-Control-Allow-Origin':'http://localhost:3000',
-                //   'Content-Type': 'application/json'
-                // },
+                  'Content-Type': 'application/json'
+                 },
               })
               console.log(res);
          } catch (error) {
@@ -52,11 +52,24 @@ const CourseState = props => {
                 type: SET_LOADING
             })
             const res = await axios.get('http://localhost:5000/courses');
-            res.data.map(course => console.log(course.user_id) );
-            const id = res.data.user_id;
+
+            const getUserData = async (id) => {
+                const userData = await axios.get(`http://localhost:5000/users/${id}`);
+                console.log(userData.data);
+                 dispatch({
+                     type:SET_AUTHOR,
+                     payload:userData.data
+                 })
+                 console.log(userData.data);
+
+            }
+             res.data.map(course => {
+                getUserData(course.user_id);
+               
+            } );
+           
             console.log(res)
-            const userData = await axios.get(`http://localhost:5000/users/${id}`);
-            console.log(userData);
+           
             
             dispatch({
                 type:GET_COURSES,

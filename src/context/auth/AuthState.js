@@ -1,7 +1,8 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 import axios from "axios";
 import AuthReducer from "./authReducer";
 import AuthContext from "./authContext";
+
 
 
 import {
@@ -40,7 +41,7 @@ const AuthState = (props) => {
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
- 
+ const authContext = useContext(AuthContext);
 
   const checkUser = async (user, token) => {
     try {
@@ -66,6 +67,7 @@ const AuthState = (props) => {
         registerUser(user, token);
       }
     } catch (error) {  
+      alert(authContext.isAuthenticated);
       alert(error)
       dispatch({
         type: CHECK_FAIL,

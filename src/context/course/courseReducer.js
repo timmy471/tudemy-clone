@@ -1,6 +1,7 @@
 import {
   ADD_COURSE,
   GET_COURSES,
+  SET_AUTHOR,
   SEARCH_COURSES,
   SET_CURRENT,
   CLEAR_CURRENT,
@@ -26,6 +27,13 @@ const courseReducer = (state, action) => {
             courses:action.payload,
             loading: false
         }
+
+    case SET_AUTHOR:
+        return{
+             ...state,
+             authors:action.payload,
+            loading: false
+            }
  
 
 
