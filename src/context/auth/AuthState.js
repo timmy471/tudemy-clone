@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer } from "react";
 import axios from "axios";
 import AuthReducer from "./authReducer";
 import AuthContext from "./authContext";
@@ -41,7 +41,7 @@ const AuthState = (props) => {
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
- const authContext = useContext(AuthContext);
+ 
 
   const checkUser = async (user, token) => {
     try {
@@ -57,7 +57,7 @@ const AuthState = (props) => {
       if (res.data.length === 1) {
         localStorage.setItem("user_id", res.data[0].id);
         localStorage.setItem("userToken", token);
-
+        console.log(state.isAuthenticated);
         dispatch({
           type: CHECK_SUCCESS,
           payload: res.data,
@@ -67,7 +67,7 @@ const AuthState = (props) => {
         registerUser(user, token);
       }
     } catch (error) {  
-      alert(authContext.isAuthenticated);
+      alert(state.isAuthenticated);
       alert(error)
       dispatch({
         type: CHECK_FAIL,
