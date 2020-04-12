@@ -26,7 +26,7 @@ function App() {
     <CourseState>
         <Router>
           <div className="App">
-            <Navbar />
+            {/* <Navbar /> */}
             <>
               <Alert />
               <Switch>

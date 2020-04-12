@@ -24,6 +24,7 @@ const Courses = () => {
   } else {
     return (
       <div className='container'>
+         <div className='container'>
         <div className="text-center mt-5">
         <h2>All Courses</h2>
         </div>
@@ -33,7 +34,7 @@ const Courses = () => {
         {authors.map((author, index) => {
           const course = courses[index];
           return (
-            <div className="col-xs-6 col-sm-6 col-md-3"  key={course.id}>
+            <div className="col-xs-12 col-sm-12 col-md-3"  key={course.id}>
              
               <CourseItem course={course} author={author} btnStyle={btnStyle} />
               
@@ -41,9 +42,10 @@ const Courses = () => {
           );
         })}
       </div>
-        <div className="text-center mt-4"> 
+        <div className="text-center mt-4 mb-4"> 
           <button className="btn btn-info" onClick={getNextPage}>Previous</button> &nbsp; <button className="btn btn-info" >Next</button>
         </div>
+      </div>
       </div>
     );
   }
