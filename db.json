@@ -45,22 +45,92 @@
     {
       "id": 1,
       "user_id": 2,
-      "title": "Learn react",
+      "title": "The complete guide to becomming a react developer",
       "category": "Development",
       "what_will_be_learnt": "everything you desire in this life",
       "course_requirement": "you have to know the basics of javascript",
       "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
-      "image_url": "https://i.imgur.com/IyNqeHv.png?"
+      "pic_url": "https://i.imgur.com/IyNqeHv.png?"
     },
     {
       "id": 2,
       "user_id": 1,
-      "title": "Begin Angular",
+      "title": "Learn Angular in 2020 - front to back",
       "category": "Artistry",
       "what_will_be_learnt": "end to beginning of angular",
       "course_requirement": "Be very sound in programming",
       "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
-      "image_url": "https://i.imgur.com/0t6WswG.jpgg"
+      "pic_url": "https://i.imgur.com/0t6WswG.jpgg"
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "title": "The complete guide to becomming a react developer",
+      "category": "Development",
+      "what_will_be_learnt": "everything you desire in this life",
+      "course_requirement": "you have to know the basics of javascript",
+      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/IyNqeHv.png?"
+    },
+    {
+      "id": 4,
+      "user_id": 1,
+      "title": "The complete guide to becomming a react developer",
+      "category": "Development",
+      "what_will_be_learnt": "everything you desire in this life",
+      "course_requirement": "you have to know the basics of javascript",
+      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/IyNqeHv.png?"
+    },
+    {
+      "id": 5,
+      "user_id": 1,
+      "title": "The complete guide to becomming a react developer",
+      "category": "Development",
+      "what_will_be_learnt": "everything you desire in this life",
+      "course_requirement": "you have to know the basics of javascript",
+      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/IyNqeHv.png?"
+    },
+    {
+      "id": 6,
+      "user_id": 1,
+      "title": "The complete guide to becomming a react developer",
+      "category": "Development",
+      "what_will_be_learnt": "everything you desire in this life",
+      "course_requirement": "you have to know the basics of javascript",
+      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/IyNqeHv.png?"
+    },
+    {
+      "id": 7,
+      "user_id": 2,
+      "title": "The complete guide to becomming a react developer",
+      "category": "Development",
+      "what_will_be_learnt": "everything you desire in this life",
+      "course_requirement": "you have to know the basics of javascript",
+      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/IyNqeHv.png?"
+    },
+    {
+      "id": 8,
+      "user_id": 2,
+      "title": "The complete guide to becomming a react developer",
+      "category": "Development",
+      "what_will_be_learnt": "everything you desire in this life",
+      "course_requirement": "you have to know the basics of javascript",
+      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/IyNqeHv.png?"
+    },
+    {
+      "id": 9,
+      "user_id": 2,
+      "title": "The complete guide to becomming a react developer",
+      "category": "Development",
+      "what_will_be_learnt": "everything you desire in this life",
+      "course_requirement": "you have to know the basics of javascript",
+      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/IyNqeHv.png?"
     }
   ]
 }

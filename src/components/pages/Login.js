@@ -23,8 +23,8 @@ const Login = (props) => {
 
     const token = res.tokenId;
 
-    checkUser(user, token)
-   
+   checkUser(user, token)
+ 
   };
 
  
