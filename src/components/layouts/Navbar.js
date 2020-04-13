@@ -1,29 +1,30 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { GoogleLogout } from "react-google-login";
+import { Link, Redirect } from "react-router-dom";
+import { GoogleLogout } from "react-google-login"
 
 import AuthContext from "../../context/auth/authContext";
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
 
-  const { isAuthenticated, logOut, user } = authContext;
+  const { isAuthenticated, logOut, user, isLoggedOut } = authContext;
 
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/addcourse" style={linkStyle}>
-              Become a Tutor
-            </Link>
-          </li>
-           <li>
-            <Link to="/courses" style={linkStyle}>
-              Courses
-            </Link>
-          </li>
-          {isAuthenticated ? (
+    <nav>
+       
+         <Link to="/" style={logoStyle}>
+             <b>T</b>
+         </Link>
+       
+      <ul style={{display:"flex"}}>
+       
+        <li> <Link to="/addcourse" style={linkStyle}>
+               Teach
+             </Link></li>
+        <li> <Link to="/courses" style={linkStyle}>
+               Learn
+             </Link></li>
+             {isAuthenticated ? (
             <div>
               <li className="dropdown" style={linkStyle}>
                 <span
@@ -38,6 +39,7 @@ const Navbar = () => {
                 <div
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton"
+                  
                 >
                   <span className="dropdown-item">
                     <Link
@@ -51,6 +53,9 @@ const Navbar = () => {
                       Dashboard
                     </Link>
                   </span>
+                  {/* <span className="dropdown-item" data-toggle="modal" data-target="#loginModal">
+                    Log Out &nbsp; <i className="fa fa-sign-out alt"></i>
+                  </span> */}
                   <span className="dropdown-item">
                     <GoogleLogout
                       clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
@@ -67,14 +72,12 @@ const Navbar = () => {
               Login/Register
             </li>
           )}
-        </ul>
-        <div title="Tudemy homepage">
-          <Link to="/" style={logoStyle}>
-            <b>T</b>
-          </Link>
-        </div>
-      </nav>
-    </div>
+       {isLoggedOut && <Redirect to="/" />}
+    
+
+      </ul>
+    </nav>
+   
   );
 };
 
@@ -86,8 +89,7 @@ const linkStyle = {
 
 const logoStyle = {
   fontSize: "3.7rem",
-  marginLeft: "3.5rem",
-  float: "left",
+  marginLeft: "2.5rem",
   fontFamily: "niconne",
   color: "#f01662",
   textDecoration: "none",

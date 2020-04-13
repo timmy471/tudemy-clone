@@ -42,9 +42,9 @@ const AddCourse = () => {
   return (
     <div className="container">
       <div
-        className="add-couse "
+        className="add-course "
         style={{
-          padding: "3rem 5rem",
+          padding: "3rem 3rem",
           marginTop: "2rem",
           backgroundColor: "white",
         }}

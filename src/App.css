@@ -10,13 +10,14 @@ nav, .footer{
 nav ul {
   float:right;
   display:flex;
-  margin-right:9rem;
+  margin:1rem 6rem 1rem 0;
+  /* padding:0.5rem 0; */
 }
 
 nav ul li{
  
   list-style-type:none;
-  margin: 1rem;
+  margin-right: 1rem;
   padding-top:0.5rem;
   color:white;
 }

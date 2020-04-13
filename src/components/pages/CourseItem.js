@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-const CourseItem = ({ course, author, btnStyle }) => {
+const CourseItem = ({ course }) => {
   const { title, category, pic_url } = course;
-  const { first_name, last_name } = author;
+  // const { first_name, last_name } = author;
 
   return (
     <div>
@@ -15,7 +15,7 @@ const CourseItem = ({ course, author, btnStyle }) => {
           
           <div className="card-title">
             <h5>{title}</h5> 
-            <p>{first_name} {last_name}</p>
+            <p>{category}</p>
           </div>
           
           

@@ -73,47 +73,6 @@ const Dashboard = () => {
               </div>
            </div>
          </div>
-           {/* <div className="profile ">
-            <div
-              className="profile-details"
-              style={{
-                display: "flex",
-                backgroundColor: "white",
-                width: "auto",
-                padding: "2rem",
-                marginTop: "2rem"
-              }}
-            >
-              <span>
-                <img
-                  src={user.image_url}
-                 height="20%"
-                 width='20%'
-                  alt="profile"
-                />
-              </span>
-              <div style={{ margin: "1rem 3rem", witdth:"60%" }} >
-                <h3>
-                  {user.first_name} {user.last_name}
-                </h3>
-                <h6>{user.email}</h6>
-                <div style={{ marginTop: "4rem" }}>
-                  <form  encType= 'multipart/form-data'>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      data-max-size="5000"
-                      name="image"
-                      onChange={onChange}
-                    />
-                    <div className ="row " style={{margin:"1rem 0 1rem 0"}}>
-                    <input type="submit" value="save" onClick={callSetProfileImage} className="btn btn-primary" />
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div> 
         </div>
       ) : isLoggedOut ? (

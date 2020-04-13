@@ -9,6 +9,7 @@ import {
   DELETE_COURSE,
   COURSE_ERROR,
   SET_LOADING,
+  UNSET_LOADING
 } from "../types";
 
 const courseReducer = (state, action) => {
@@ -22,18 +23,29 @@ const courseReducer = (state, action) => {
 
 
     case GET_COURSES:
+    case SEARCH_COURSES:
+      console.log(action.payload)
+      
         return{
             ...state,
             courses:action.payload,
             loading: false
         }
-
+      
     case SET_AUTHOR:
+      console.log(action.payload)
         return{
              ...state,
              authors:action.payload,
             loading: false
             }
+      
+    case UNSET_LOADING:
+      return{
+        ...state,
+        loading: false
+      }
+    
  
 
 

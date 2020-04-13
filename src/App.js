@@ -11,7 +11,6 @@ import AddCourse from "./components/pages/AddCourse";
 import Courses from "./components/pages/Courses";
 
 
-
 import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alert/AlertState";
 import CourseState from "./context/course/CourseState";
@@ -26,7 +25,7 @@ function App() {
     <CourseState>
         <Router>
           <div className="App">
-            {/* <Navbar /> */}
+            <Navbar />
             <>
               <Alert />
               <Switch>
@@ -34,7 +33,7 @@ function App() {
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path ="/addcourse" component={AddCourse} />
                 <Route exact path ="/courses" component={Courses} />
-
+                
                 {/* <Route exact path = '/user/:login' component={User} /> */}
                 <Route component={NotFound} />
               </Switch>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import GoogleLogin from "react-google-login";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
 
 
 import AuthContext from "../../context/auth/authContext";
@@ -8,7 +8,7 @@ import AuthContext from "../../context/auth/authContext";
 const Login = (props) => {
   const authContext = useContext(AuthContext);
 
-  const { checkUser } = authContext;
+  const { checkUser, isAuthenticated, logOut } = authContext;
 
   const responseGoogle = (res) => {
     const { googleId, email, givenName, familyName } = res.profileObj;
@@ -36,18 +36,42 @@ const Login = (props) => {
           style={{ backgroundColor: " rgba(91, 83, 83, 0.3)" }}
         >
           <div className="modal-header">
-            <span type="button"
-               data-dismiss="modal">
-            <GoogleLogin
-              clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
-              buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              
-              cookiePolicy={"single_host_origin"}
-              
-            />
+              <span type="button"
+              data-dismiss="modal">
+           <GoogleLogin
+             clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
+             buttonText="Login"
+             onSuccess={responseGoogle}
+             onFailure={responseGoogle}
+             
+             cookiePolicy={"single_host_origin"}
+             
+           />
+           </span>
+            {/* {isAuthenticated ? (
+              <span className="dropdown-item" >
+              <GoogleLogout
+                clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
+                buttonText="Logout"
+                onLogoutSuccess={logOut}
+                
+              ></GoogleLogout>
             </span>
+            ):(
+              <span type="button"
+              data-dismiss="modal">
+           <GoogleLogin
+             clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
+             buttonText="Login"
+             onSuccess={responseGoogle}
+             onFailure={responseGoogle}
+             
+             cookiePolicy={"single_host_origin"}
+             
+           />
+           </span>
+            )} */}
+           
             ,
             <button
               type="button"

@@ -6,6 +6,7 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const LOAD_USER = 'LOAD_USER';
 export const LOAD_USER_FAIL = 'LOAD_USER_FAIL';
 export const SET_LOADING = 'SET_LOADING';
+export const UNSET_LOADING = 'UNSET_LOADING';
 export const IMAGE_SUCCESS ='IMAGE_SUCCESS';
 export const IMAGE_FAIL = 'IMAGE_FAIL';
 export const ADD_COURSE = 'ADD_COURSE';
