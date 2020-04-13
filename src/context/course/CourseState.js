@@ -14,6 +14,10 @@ import {
   CLEAR_CURRENT,
   UPDATE_COURSE,
   DELETE_COURSE,
+  GET_LATEST,
+  GET_USER_COURSES,
+  GET_FAVORITES,
+  SET_FAVORITES,
   COURSE_ERROR,
   SET_LOADING,
   UNSET_LOADING,
@@ -23,6 +27,8 @@ const CourseState = (props) => {
   const initialState = {
     courses: [],
     authors: [],
+    userCourses: [],
+    latest: [],
     course: {},
     loading: false,
   };
@@ -119,7 +125,6 @@ const CourseState = (props) => {
         })
       alert.setAlert("No Courses matches your request", "danger");
       }else{
-        console.log(courses.data);
           dispatch({
         type: SEARCH_COURSES,
         payload: courses.data,
@@ -145,10 +150,59 @@ const CourseState = (props) => {
     
       }
     } catch (error) {
-      console.log(error)
+      dispatch({
+        type: COURSE_ERROR,
+        payload: error
+      })
     }
    
   };
+  
+  //getLatest
+  const getLatest = async () => {
+      try {
+        dispatch({
+          type: SET_LOADING,
+        });
+        const res = await axios.get(`http://localhost:5000/courses?_sort=date&_order=desc&_limit=4`);
+  
+      
+        dispatch({
+          type: GET_LATEST,
+          payload: res.data,
+        });
+      } catch (error) {
+        dispatch({
+          type: COURSE_ERROR,
+          payload: error,
+        });
+      }
+
+  }
+
+
+  //getUserCourses
+
+    const getUserCourses = async id => {
+      try {
+        dispatch({
+          type: SET_LOADING,
+        });
+    
+        const res = await axios.get(`http://localhost:5000/courses?user_id=${id}`);
+  
+        dispatch({
+          type: GET_USER_COURSES,
+          payload: res.data,
+        });
+      } catch (error) {
+        dispatch({
+          type: COURSE_ERROR,
+          payload: error,
+        });
+      }
+
+  }
 
   //editcourse
   const editCourse = () => {};
@@ -166,9 +220,13 @@ const CourseState = (props) => {
         course: state.course,
         authors: state.authors,
         loading: state.loading,
+        latest: state.latest,
+        userCourses: state.userCourses,
         addCourse,
         getCourses,
+        getLatest,
         searchCourses,
+        getUserCourses,
         editCourse,
         updCourse,
         delCourse,

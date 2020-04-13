@@ -7,6 +7,10 @@ import {
   CLEAR_CURRENT,
   UPDATE_COURSE,
   DELETE_COURSE,
+  GET_USER_COURSES,
+  GET_FAVORITES,
+  SET_FAVORITES,
+  GET_LATEST,
   COURSE_ERROR,
   SET_LOADING,
   UNSET_LOADING
@@ -33,16 +37,36 @@ const courseReducer = (state, action) => {
         }
       
     case SET_AUTHOR:
-      console.log(action.payload)
         return{
              ...state,
              authors:action.payload,
             loading: false
             }
+
+    case GET_LATEST:
+      return{
+        ...state,
+        latest: action.payload,
+        loading:false
+      }
       
     case UNSET_LOADING:
       return{
         ...state,
+        loading: false
+      }
+
+    case COURSE_ERROR:
+      return{
+        ...state,
+        error: action.payload,
+        loading: false
+      }
+
+    case GET_USER_COURSES:
+      return{
+        ...state,
+        userCourses: action.payload,
         loading: false
       }
     

@@ -12,10 +12,11 @@ const Navbar = () => {
   return (
     <nav>
        
+       <span style={{paddingTop:"0.8rem"}}>
          <Link to="/" style={logoStyle}>
              <b>T</b>
          </Link>
-       
+       </span>
       <ul style={{display:"flex"}}>
        
         <li> <Link to="/addcourse" style={linkStyle}>
@@ -77,8 +78,32 @@ const Navbar = () => {
 
       </ul>
     </nav>
-   
+  // <div>
+               
+  //               <header>
+  //               <span className = 'logo'>
+  //                  Logo
+  //               </span>
+  //                   <nav>
+  //                       <ul>
+  //                           <li  id = 'home' >
+  //                               Home
+  //                       </li>
+
+  //                           <li id = 'contact' o id = 'contact'>
+  //                               Contact
+  //                       </li>
+
+  //                           <li   id = 'about'  id = 'about'>
+  //                               About
+  //                       </li>
+  //                       </ul>
+  //                   </nav>
+  //               </header>
+
+  //           </div>
   );
+  
 };
 
 const linkStyle = {
@@ -88,8 +113,8 @@ const linkStyle = {
 };
 
 const logoStyle = {
-  fontSize: "3.7rem",
-  marginLeft: "2.5rem",
+  fontSize: "35px",
+  marginLeft: "2rem",
   fontFamily: "niconne",
   color: "#f01662",
   textDecoration: "none",
