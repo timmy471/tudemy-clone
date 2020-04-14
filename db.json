@@ -63,28 +63,6 @@
       "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
       "pic_url": "https://i.imgur.com/IyNqeHv.png?",
       "date": "1586803540553"
-    },
-    {
-      "id": 7,
-      "user_id": 4,
-      "title": "The complete guide to becomming a react developer",
-      "category": "Artistry",
-      "learnt": "everything you desire in this life",
-      "required": "Grow with knowledge",
-      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
-      "pic_url": "https://i.imgur.com/IyNqeHv.png?",
-      "date": "1586803740553"
-    },
-    {
-      "id": 9,
-      "user_id": 4,
-      "title": "The complete guide to becomming a react developer",
-      "category": "Development",
-      "learnt": "everything you desire in this life",
-      "required": "Innocence pays you knnowt",
-      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
-      "pic_url": "https://i.imgur.com/IyNqeHv.png?",
-      "date": "1586803940553"
     }
   ]
 }

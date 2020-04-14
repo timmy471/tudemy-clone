@@ -46,7 +46,6 @@ const AuthState = (props) => {
       if (res.data.length === 1) {
         localStorage.setItem("user_id", res.data[0].id);
         localStorage.setItem("userToken", token);
-        console.log(state.isAuthenticated);
         dispatch({
           type: CHECK_SUCCESS,
           payload: res.data,

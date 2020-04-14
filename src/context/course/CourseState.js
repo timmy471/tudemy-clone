@@ -46,7 +46,9 @@ const CourseState = (props) => {
 
   //add course
   const addCourse = async (course) => {
-    const { title, category, learnt, required, video } = course;
+    const { title, category, learnt, required, video, date } = course;
+
+
 
     try {
       const res = await axios.post(
@@ -66,7 +68,7 @@ const CourseState = (props) => {
     } catch (error) {
       dispatch({
         type: COURSE_ERROR,
-        payload: error.response.data,
+        payload: error.response,
       });
     }
   };
@@ -105,14 +107,14 @@ const CourseState = (props) => {
     } catch (error) {
       dispatch({
         type: COURSE_ERROR,
-        payload: error.response.data,
+        payload: error.response,
       });
     }
   };
 
 
 
-  //get course
+  //search courses
   const searchCourses = async text => {
 
     dispatch({
@@ -154,7 +156,7 @@ const CourseState = (props) => {
     } catch (error) {
       dispatch({
         type: COURSE_ERROR,
-        payload: error.response.data
+        payload: error.response
       })
     }
    
@@ -176,7 +178,7 @@ const CourseState = (props) => {
       } catch (error) {
         dispatch({
           type: COURSE_ERROR,
-          payload: error.response.data,
+          payload: error.response,
         });
       }
 
@@ -200,7 +202,7 @@ const CourseState = (props) => {
       } catch (error) {
         dispatch({
           type: COURSE_ERROR,
-          payload: error.response.data,
+          payload: error.response,
         });
       }
 
@@ -238,7 +240,7 @@ const CourseState = (props) => {
     } catch (error) {
       dispatch({
         type:COURSE_ERROR,
-        payload:error.response.data
+        payload:error.response
       })
     }
   };
