@@ -41,9 +41,9 @@ const AuthState = (props) => {
       const res = await axios.get(
         `http://tudemy-clone.herokuapp.com/users?q=${user.email}`
       );
-        console.log(res)
-        console.log(res.data);
-      if (res.data === "") {
+
+
+      if (res.response.status !== 404) {
         localStorage.setItem("user_id", res.data[0].id);
         localStorage.setItem("userToken", token);
         loadUser(localStorage.getItem("user_id"));
@@ -54,7 +54,6 @@ const AuthState = (props) => {
         
       } else {
         registerUser(user, token);
-        
       }
     } catch (error) {  
       alert(error)
@@ -76,7 +75,7 @@ const AuthState = (props) => {
           "Content-Type": "application/json",
         },
       });
-      console.log(res.data)
+
       localStorage.setItem("user_id", res.data[0].id);
       localStorage.setItem("userToken", token);
 
