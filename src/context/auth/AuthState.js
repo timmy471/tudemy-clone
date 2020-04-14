@@ -38,25 +38,25 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.get(
-        `http://tudemy-clone.herokuapp.com/users?email=${user.email}`
-      );
+      // const res = await axios.get(
+      //   `http://tudemy-clone.herokuapp.com/users?email=${user.email}`
+      // );
 
-        console.log(res);
-      if (res.response.status !== 404) {
-        console.log('hit');
-        console.log(res.response)
-        localStorage.setItem("user_id", res.data[0].id);
-        localStorage.setItem("userToken", token);
-        loadUser(localStorage.getItem("user_id"));
-        dispatch({
-          type: CHECK_SUCCESS,
-          payload: res.data,
-        });
+      //   console.log(res);
+      // if (res.response.status !== 404) {
+      //   console.log('hit');
+      //   console.log(res.response)
+      //   localStorage.setItem("user_id", res.data[0].id);
+      //   localStorage.setItem("userToken", token);
+      //   loadUser(localStorage.getItem("user_id"));
+      //   dispatch({
+      //     type: CHECK_SUCCESS,
+      //     payload: res.data,
+      //   });
         
-      } else {
+      // } else {
         registerUser(user, token);
-      }
+      // }
     } catch (error) {  
       alert(error)
       dispatch({
