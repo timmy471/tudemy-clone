@@ -41,7 +41,7 @@ const AuthState = (props) => {
       const res = await axios.get(
         `http://tudemy-clone.herokuapp.com/users?q=${user.email}`
       );
-
+        console.log(res)
         console.log(res.data);
       if (res.data === "") {
         localStorage.setItem("user_id", res.data[0].id);
