@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { GoogleLogout } from "react-google-login"
 
@@ -6,6 +6,15 @@ import AuthContext from "../../context/auth/authContext";
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
+
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    if(localStorage.getItem('user_id')){
+      setAuth(true);
+    }
+   
+  }, []);
 
   const { isAuthenticated, logOut, user, isLoggedOut } = authContext;
 
@@ -25,7 +34,8 @@ const Navbar = () => {
         <li> <Link to="/courses" style={linkStyle}>
                Learn
              </Link></li>
-             {isAuthenticated ? (
+             {console.log(auth)}
+             {auth ? (
             <div>
               <li className="dropdown" style={linkStyle}>
                 <span
@@ -35,7 +45,7 @@ const Navbar = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  {user.first_name}
+                  {user !==null && user.first_name}
                 </span>
                 <div
                   className="dropdown-menu"

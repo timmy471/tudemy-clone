@@ -46,11 +46,12 @@ const AuthState = (props) => {
       if (res.data.length === 1) {
         localStorage.setItem("user_id", res.data[0].id);
         localStorage.setItem("userToken", token);
+        loadUser(localStorage.getItem("user_id"));
         dispatch({
           type: CHECK_SUCCESS,
           payload: res.data,
         });
-        loadUser(localStorage.getItem("user_id"));
+        
       } else {
         registerUser(user, token);
       }
