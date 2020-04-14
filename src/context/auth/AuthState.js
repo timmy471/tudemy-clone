@@ -39,7 +39,7 @@ const AuthState = (props) => {
       });
 
       const res = await axios.get(
-        `http://tudemy-clone.herokuapp.com/users?q=${user.email}`
+        `http://tudemy-clone.herokuapp.com/courses?q=react`
       );
 
         console.log(res);
