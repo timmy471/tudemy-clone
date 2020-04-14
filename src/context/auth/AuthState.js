@@ -42,8 +42,8 @@ const AuthState = (props) => {
         `http://tudemy-clone.herokuapp.com/users?q=${user.email}`
       );
 
-
-      if (res.data.length === 1) {
+        console.log(res.data);
+      if (res.data === "") {
         localStorage.setItem("user_id", res.data[0].id);
         localStorage.setItem("userToken", token);
         loadUser(localStorage.getItem("user_id"));
@@ -54,6 +54,7 @@ const AuthState = (props) => {
         
       } else {
         registerUser(user, token);
+        
       }
     } catch (error) {  
       alert(error)
@@ -75,7 +76,7 @@ const AuthState = (props) => {
           "Content-Type": "application/json",
         },
       });
-
+      console.log(res.data)
       localStorage.setItem("user_id", res.data[0].id);
       localStorage.setItem("userToken", token);
 
