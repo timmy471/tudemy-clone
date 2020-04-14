@@ -182,7 +182,7 @@ const AddCourse = () => {
               </div>
             </div>
 
-            {current !== null ? (
+            {1===1 ? (
               <div className="row mt-3">
                 <input
                   className="btn btn-info "

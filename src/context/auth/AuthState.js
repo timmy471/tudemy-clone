@@ -39,7 +39,7 @@ const AuthState = (props) => {
       });
 
       const res = await axios.get(
-        `http://localhost:5000/users?q=${user.email}`
+        `http://tudemy-clone.herokuapp.com/users?q=${user.email}`
       );
 
 
@@ -70,7 +70,7 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.post("http://localhost:5000/users", user, {
+      const res = await axios.post("http://tudemy-clone.herokuapp.com/users", user, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -99,7 +99,7 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.get(`http://localhost:5000/users/${id}`);
+      const res = await axios.get(`http://tudemy-clone.herokuapp.com/users/${id}`);
 
       dispatch({
         type: LOAD_USER,
@@ -127,7 +127,7 @@ const AuthState = (props) => {
       // if(imgRes.status = 200){
 
       const id = localStorage.getItem("user_id");
-      const getUser = await axios.get(`http://localhost:5000/users/${id}`);
+      const getUser = await axios.get(`http://tudemy-clone.herokuapp.com/users/${id}`);
       
       const { googleId, email, first_name, last_name } = getUser.data;
       const updUser = {
@@ -140,7 +140,7 @@ const AuthState = (props) => {
 
  
       const updAct = await axios.put(
-        `http://localhost:5000/users/${id}`,
+        `http://tudemy-clone.herokuapp.com/users/${id}`,
         updUser,
         {
           headers: {
