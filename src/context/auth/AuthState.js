@@ -42,8 +42,10 @@ const AuthState = (props) => {
         `http://tudemy-clone.herokuapp.com/users?q=${user.email}`
       );
 
-
+        console.log(res);
       if (res.response.status !== 404) {
+        console.log('hit');
+        console.log(res.response)
         localStorage.setItem("user_id", res.data[0].id);
         localStorage.setItem("userToken", token);
         loadUser(localStorage.getItem("user_id"));
