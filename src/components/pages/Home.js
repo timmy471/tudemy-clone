@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Jumbotron from "../layouts/Jumbotron";
+import Spinner from "../layouts/Spinner";
 import ForCourses from '../layouts/ForCourses';
 import Login from "./Login";
 import { Redirect, Link } from "react-router-dom";
@@ -14,7 +15,7 @@ const Home = () => {
   const authContext = useContext(AuthContext);
   const courseContext = useContext(CourseContext);
 
-  const { latest, getLatest } = courseContext;
+  const { latest, getLatest, loading } = courseContext;
 
   const { redirect, loadUser } = authContext;
 
@@ -36,10 +37,13 @@ const Home = () => {
         <Login />
         <Jumbotron />
         <h2 className="text-center">Recent Courses</h2>
-        <ForCourses courses={latest} />
+       {loading ? (<Spinner />) : ( 
+       <div>
+       <ForCourses courses={latest} />
         <div className="text-center">
         <Link to="/courses" style={{textDecoration:"none", color:"white"}} ><button style={btnStyle}>View All</button></Link>
       </div>
+      </div>)}
       </div>
     );
   }

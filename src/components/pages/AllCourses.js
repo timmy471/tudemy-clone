@@ -38,11 +38,6 @@ const Courses = () => {
 
             <div
               className=" row mt-4"
-              style={{
-                backgroundColor: "white",
-                padding: "1rem",
-                borderRadius: "2rem",
-              }}
             >
               {/* {authors.map((author, index) => {
           const course = courses[index];

@@ -3,6 +3,7 @@ import { Redirect, Link } from "react-router-dom";
 import AuthContext from "../../context/auth/authContext";
 import AlertContext from "../../context/alert/alertContext";
 import DashboardCourses from "../layouts/DashboardCourses";
+
 import CourseContext from "../../context/course/courseContext";
 
 import Spinner from "../layouts/Spinner";
@@ -88,9 +89,12 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="row text-center mt-4">
+          <div className="row  mt-4">
             <div className="col-xs-12 col-sm-12 col-md-6">
+              <div className="text-center">
               <h2>My Courses</h2>
+              </div>
+              
               {userCourses.length > 0 ? (
                 <DashboardCourses courses={userCourses} />
               ) : (

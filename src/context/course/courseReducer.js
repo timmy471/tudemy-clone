@@ -28,8 +28,6 @@ const courseReducer = (state, action) => {
 
     case GET_COURSES:
     case SEARCH_COURSES:
-      console.log(action.payload)
-      
         return{
             ...state,
             courses:action.payload,
@@ -68,6 +66,24 @@ const courseReducer = (state, action) => {
         ...state,
         userCourses: action.payload,
         loading: false
+      }
+
+    case SET_CURRENT:
+      return{
+        ...state,
+        current:action.payload
+      }
+
+    case CLEAR_CURRENT:
+      return{
+        ...state,
+        current: null
+      }
+
+    case DELETE_COURSE:
+      return{
+        ...state,
+        userCourses: state.userCourses.filter(course=>course.id !== action.payload)
       }
     
  

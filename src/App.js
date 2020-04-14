@@ -9,6 +9,8 @@ import Dashboard from "./components/pages/Dashboard";
 import NotFound from "./components/pages/NotFound";
 import AddCourse from "./components/pages/AddCourse";
 import AllCourses from "./components/pages/AllCourses";
+import Course from "./components/pages/Course";
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 
 import AuthState from "./context/auth/AuthState";
@@ -30,11 +32,11 @@ function App() {
               <Alert />
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/dashboard" component={Dashboard} />
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <Route exact path ="/addcourse" component={AddCourse} />
                 <Route exact path ="/courses" component={AllCourses} />
                 
-                {/* <Route exact path = '/user/:login' component={User} /> */}
+                <Route exact path = '/course/:login' component={Course} />
                 <Route component={NotFound} />
               </Switch>
             </>

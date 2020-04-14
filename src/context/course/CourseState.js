@@ -28,7 +28,9 @@ const CourseState = (props) => {
     courses: [],
     authors: [],
     userCourses: [],
+    current:null,
     latest: [],
+    error: null,
     course: {},
     loading: false,
   };
@@ -64,7 +66,7 @@ const CourseState = (props) => {
     } catch (error) {
       dispatch({
         type: COURSE_ERROR,
-        payload: error,
+        payload: error.response.data,
       });
     }
   };
@@ -103,7 +105,7 @@ const CourseState = (props) => {
     } catch (error) {
       dispatch({
         type: COURSE_ERROR,
-        payload: error,
+        payload: error.response.data,
       });
     }
   };
@@ -152,7 +154,7 @@ const CourseState = (props) => {
     } catch (error) {
       dispatch({
         type: COURSE_ERROR,
-        payload: error
+        payload: error.response.data
       })
     }
    
@@ -174,7 +176,7 @@ const CourseState = (props) => {
       } catch (error) {
         dispatch({
           type: COURSE_ERROR,
-          payload: error,
+          payload: error.response.data,
         });
       }
 
@@ -198,26 +200,56 @@ const CourseState = (props) => {
       } catch (error) {
         dispatch({
           type: COURSE_ERROR,
-          payload: error,
+          payload: error.response.data,
         });
       }
 
   }
 
-  //editcourse
-  const editCourse = () => {};
+  //setCurrent
+  const setCurrent = (course) => {
+    dispatch({
+      type:SET_CURRENT,
+      payload:course
+    })
+    console.log(course);
+  };
+
+  const clearCurrent = () => {
+    dispatch({
+      type:CLEAR_CURRENT
+    })
+  }
 
   //update course
-  const updCourse = () => {};
+  const updCourse = () => {
+    clearCurrent();
+  };
 
   //delete course
-  const delCourse = () => {};
+  const delCourse = async id => {
+    try {
+      await axios.delete(`http://localhost:5000/courses/${id}`);
+      dispatch({
+        type: DELETE_COURSE,
+        payload: id
+      })
+      alert.setAlert("Course Successfully deleted", "success");
+    } catch (error) {
+      dispatch({
+        type:COURSE_ERROR,
+        payload:error.response.data
+      })
+    }
+  };
 
   return (
     <courseContext.Provider
       value={{
         courses: state.courses,
+        current: state.current,
         course: state.course,
+        error: state.error,
         authors: state.authors,
         loading: state.loading,
         latest: state.latest,
@@ -227,7 +259,8 @@ const CourseState = (props) => {
         getLatest,
         searchCourses,
         getUserCourses,
-        editCourse,
+        setCurrent,
+        clearCurrent,
         updCourse,
         delCourse,
       }}

@@ -9,6 +9,7 @@ import {
   LOGOUT_USER,
   IMAGE_SUCCESS,
   IMAGE_FAIL,
+  AUTHENTICATE_USER
 } from "../types";
 
 const authReducer = (state, action) => {
@@ -27,6 +28,12 @@ const authReducer = (state, action) => {
         redirect: true,
         loading: false,
       };
+
+    case AUTHENTICATE_USER:
+      return{
+        ...state,
+        isAuthenticated: true
+      }
       
     case CHECK_FAIL:
     case REGISTER_FAIL:

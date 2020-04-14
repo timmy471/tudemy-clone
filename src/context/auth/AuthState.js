@@ -15,20 +15,9 @@ import {
   LOAD_USER_FAIL,
   SET_LOADING,
   IMAGE_SUCCESS,
-  IMAGE_FAIL,
+  IMAGE_FAIL
 } from "../types";
 
-// let authClientId;
-// let authClientSecret;
-
-// if(process.env.NODE_ENV !== 'production'){
-//     authClientId = process.env.REACT_APP_auth_CLIENT_ID;
-//     authClientSecret = process.env.REACT_APP_auth_CLIENT_SECRET;
-
-// }else{
-//     authClientId = process.env.auth_CLIENT_ID;
-//     authClientSecret = process.auth_CLIENT_SECRET;
-// }
 
 const AuthState = (props) => {
   const initialState = {
@@ -67,7 +56,6 @@ const AuthState = (props) => {
         registerUser(user, token);
       }
     } catch (error) {  
-      alert(state.isAuthenticated);
       alert(error)
       dispatch({
         type: CHECK_FAIL,

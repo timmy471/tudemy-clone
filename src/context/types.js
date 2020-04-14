@@ -15,6 +15,7 @@ export const IMAGE_SUCCESS ='IMAGE_SUCCESS';
 export const IMAGE_FAIL = 'IMAGE_FAIL';
 export const ADD_COURSE = 'ADD_COURSE';
 export const GET_COURSES = 'GET_COURSES';
+export const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
 export const SET_AUTHOR = 'SET_AUTHOR';
 export const SEARCH_COURSES = 'SEARCH_COURSES';
 export const SET_CURRENT = 'SET_CURRENT';
