@@ -38,25 +38,25 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      // const res = await axios.get(
-      //   `http://tudemy-clone.herokuapp.com/users?email=${user.email}`
-      // );
+      const res = await axios.get(
+        `http://localhost:5000/users?email=${user.email}`
+      );
 
-      //   console.log(res);
-      // if (res.response.status !== 404) {
-      //   console.log('hit');
-      //   console.log(res.response)
-      //   localStorage.setItem("user_id", res.data[0].id);
-      //   localStorage.setItem("userToken", token);
-      //   loadUser(localStorage.getItem("user_id"));
-      //   dispatch({
-      //     type: CHECK_SUCCESS,
-      //     payload: res.data,
-      //   });
+        console.log(res);
+      if (res.data.length === 1) {
+        console.log('hit');
+        console.log(res.response)
+        localStorage.setItem("user_id", res.data[0].id);
+        localStorage.setItem("userToken", token);
+        loadUser(localStorage.getItem("user_id"));
+        dispatch({
+          type: CHECK_SUCCESS,
+          payload: res.data,
+        });
         
-      // } else {
+      } else {
         registerUser(user, token);
-      // }
+      }
     } catch (error) {  
       alert(error)
       dispatch({
@@ -72,7 +72,7 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.post("http://tudemy-clone.herokuapp.com/users", user, {
+      const res = await axios.post("http://localhost:5000/users", user, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -101,7 +101,7 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.get(`http://tudemy-clone.herokuapp.com/users/${id}`);
+      const res = await axios.get(`http://localhost:5000/users/${id}`);
 
       dispatch({
         type: LOAD_USER,
@@ -129,7 +129,7 @@ const AuthState = (props) => {
       // if(imgRes.status = 200){
 
       const id = localStorage.getItem("user_id");
-      const getUser = await axios.get(`http://tudemy-clone.herokuapp.com/users/${id}`);
+      const getUser = await axios.get(`http://localhost:5000/users/${id}`);
       
       const { googleId, email, first_name, last_name } = getUser.data;
       const updUser = {
@@ -142,7 +142,7 @@ const AuthState = (props) => {
 
  
       const updAct = await axios.put(
-        `http://tudemy-clone.herokuapp.com/users/${id}`,
+        `http://localhost:5000/users/${id}`,
         updUser,
         {
           headers: {

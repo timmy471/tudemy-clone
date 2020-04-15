@@ -190,14 +190,14 @@ const AddCourse = () => {
                   value="Update"
                 />
                 &nbsp; &nbsp;
-                <span onClick={clearCurrent()}>
+                {/* <span onClick={clearCurrent()}> */}
                   <Link
                     to="/dashboard"
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     <button className="btn btn-info">Go Back</button>
                   </Link>
-                  </span>
+                  {/* </span> */}
                 </div>
               
             ) : (
