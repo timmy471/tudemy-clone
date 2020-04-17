@@ -4,10 +4,11 @@ import { Redirect, Link } from "react-router-dom";
 import CourseContext from "../../context/course/courseContext";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
+import FileSpinner from "../layouts/FileSpinner";
 
 const AddCourse = () => {
   const courseContext = useContext(CourseContext);
-  const { addCourse, current, clearCurrent } = courseContext;
+  const { addCourse, current, clearCurrent, fLoading, updCourse } = courseContext;
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
   const authContext = useContext(AuthContext);
@@ -18,46 +19,80 @@ const AddCourse = () => {
     category: "",
     required: "",
     learnt: "",
-    video: "",
-    image: "",
+    image:"",
+    video:""
   });
+
 
   useEffect(() => {
     
     if (current !== null) {
       setCourse(current);
-      // setCourse({ ...current, title:current.title, categor:current.category})
+      // setCourse({ ...current, title:current.title, category:current.category})
     }
   }, [courseContext, current]);
 
-  const { title, category, required, learnt, video, image } = course;
+  const { title, category, required, learnt, video, image  } = course;
+
+  const formData = new FormData();
 
   const onChange = (e) => {
-    setCourse({ ...course, [e.target.name]: e.target.value });
+    setCourse({ ...course, [e.target.name]: e.target.value })
+    // formData.append('course', course);
   };
 
-  const onFileChange = (e) => {
+  const onVideoChange = (e) => {
+    
     setCourse({ ...course, video: e.target.files[0] });
+   
   };
 
   const onImageChange = (e) => {
     setCourse({ ...course, image: e.target.files[0] });
+
   };
 
+
+  
   const onSubmit = (e) => {
     e.preventDefault();
+    if(title==="" || category==="" || learnt==="" || required===""){
+      return setAlert("Please fill all fields", "danger");
+    }
     const realCourse = {
       title: title.charAt(0).toUpperCase() + title.slice(1),
       category,
-      required: required.charAt(0).toUpperCase() + required.slice(1),
       learnt: learnt.charAt(0).toUpperCase() + learnt.slice(1),
-      video,
-      image
+      required: required.charAt(0).toUpperCase() + required.slice(1),
+      image,
+      video
  
     }
-    console.log(realCourse);
 
-    // addCourse(realCourse);
+    const updData = {
+      title: title.charAt(0).toUpperCase() + title.slice(1),
+      category,
+      learnt: learnt.charAt(0).toUpperCase() + learnt.slice(1),
+      required: required.charAt(0).toUpperCase() + required.slice(1),
+      image,
+      video,
+      date: current.date,
+      id: current.id
+ 
+    }
+
+    formData.append("video", video);
+    // console.log(formData.has('video'))
+    current === null ? (addCourse(realCourse, formData)) : (updCourse(updData, formData));
+    setCourse({ 
+      title: "",
+      category:"",
+      learnt:"",
+      required:""
+    })
+
+    e.target.reset();
+    
   };
 
   if (!isAuthenticated) {
@@ -75,7 +110,7 @@ const AddCourse = () => {
           }}
         >
           <h2 className="text-center">Add Course</h2>
-          <form onSubmit={onSubmit}>
+          <form encType="multipart/form-data" onSubmit={onSubmit}>
             <div className="row" style={{ marginBottom: "2.5rem" }}>
               <div className="col-xm-12 col-sm-12 col-md-6">
                 <div className="form-group">
@@ -159,12 +194,12 @@ const AddCourse = () => {
                   <label>Course Video:</label>{" "}
                   <input
                     type="file"
-                    onChange={onFileChange}
-                    name="file"
-                    value={video}
+                    onChange={onVideoChange}
+                    name="video"
                     data-max-size="2000000"
                     accept="video/*"
-                  />
+                    required
+                  /> 
                 </div>
               </div>
               <div className="col-xm-12 col-sm-12 col-md-6">
@@ -174,15 +209,17 @@ const AddCourse = () => {
                     type="file"
                     onChange={onImageChange}
                     name="image"
-                    value={image}
                     data-max-size="5000"
                     accept="image/*"
-                  />
+                    required
+                  /> 
                 </div>
               </div>
             </div>
 
-            {1===1 ? (
+        
+
+            { current !== null ? (
               <div className="row mt-3">
                 <input
                   className="btn btn-info "
@@ -198,6 +235,7 @@ const AddCourse = () => {
                     <button className="btn btn-info">Go Back</button>
                   </Link>
                   {/* </span> */}
+                 
                 </div>
               
             ) : (
@@ -206,10 +244,16 @@ const AddCourse = () => {
                   className="btn btn-primary mt-3"
                   type="submit"
                   value="Save"
+                  
                 />
               </div>
+               
             )}
+           
           </form>
+          <span style={{position:"relative", bottom:"1rem"}}>
+          {fLoading && <FileSpinner />}
+          </span>
         </div>
       </div>
     );

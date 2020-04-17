@@ -6,7 +6,7 @@ import AlertContext from '../../context/alert/alertContext';
 
 
 const UserCourseItem = ({ course }) => {
-  const { title, category, pic_url, id } = course;
+  const { title, category, pic_url, id, user_id } = course;
   const courseContext = useContext(CourseContext);
 
 
@@ -14,6 +14,8 @@ const UserCourseItem = ({ course }) => {
     courseContext.delCourse(id);
   }
 
+  const userId = localStorage.getItem('user_id');
+  
   return (
      <div>
        <div className="card mt-4 mb-2" style={{ width: "100%" }}>
@@ -23,20 +25,23 @@ const UserCourseItem = ({ course }) => {
           
            <div className="card-title">
              <h5>
-           <Link to={`/course/:${id}`} style={{textDecoration:"none", color:"black"}} title="view Course">{title}</Link></h5> 
+           <Link to={`/course/${id}`} style={{textDecoration:"none", color:"black"}} title="view Course">{title}</Link></h5> 
              <p>{category}</p>
            </div>
      
-
-           <Link to="/addcourse" style={{textDecoration:"none"}}>
-             <span className="btn btn-primary" onClick={()=>courseContext.setCurrent(course)}>Edit</span>
-          
-           </Link> &nbsp;
-
-            <span className="pull-right">
-             <span onClick={onDelete} className="btn btn-danger">Delete</span>
-             </span>
-          
+          { user_id === parseInt(userId) && (
+             <div>
+             <Link to="/addcourse" style={{textDecoration:"none"}}>
+               <span className="btn btn-primary" onClick={()=>courseContext.setCurrent(course)}>Edit</span>
+            
+             </Link> &nbsp;
+  
+              <span className="pull-right">
+               <span onClick={onDelete} className="btn btn-danger">Delete</span>
+               </span>
+               </div>
+          )}
+         
          </div>
       </div>
      </div> 

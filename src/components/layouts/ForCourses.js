@@ -6,7 +6,7 @@ const ForCourses = ({courses}) => {
         <div className='container'>
         <div className='container'>
      
-     <div className=" row"  style={{backgroundColor:"white",  borderRadius:"1rem"}}>
+     <div className=" row">
       
        {/* {authors.map((author, index) => {
         const course = courses[index];

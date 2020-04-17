@@ -9,29 +9,27 @@ import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/course/courseContext";
 
 
-const Home = () => {
+const Home = (props) => {
 
-
+  
   const authContext = useContext(AuthContext);
   const courseContext = useContext(CourseContext);
 
-  const { latest, getLatest, loading } = courseContext;
+  const { latest, getLatest, loading, clearCurrent } = courseContext;
 
-  const { redirect, loadUser } = authContext;
+  const {  loadUser } = authContext;
 
   useEffect(() => {
     const user_id = localStorage.getItem("user_id");
     if (user_id) {
       loadUser(localStorage.getItem("user_id"));
-      
     }
     getLatest();
+    clearCurrent();
     //eslint-disable-next-line
   }, []);
 
-  if (redirect) {
-    return <Redirect to="/dashboard" />;
-  } else {
+  
     return (
       <div>
         <Login />
@@ -46,7 +44,7 @@ const Home = () => {
       </div>)}
       </div>
     );
-  }
+  
 };
 
 const btnStyle={

@@ -19,7 +19,7 @@ const CourseItem = ({ course }) => {
            </div>
           
           
-           <Link to={`/course/:${id}`} style={{textDecoration:"none"}}>
+           <Link to={`/course/${id}`} style={{textDecoration:"none"}}>
              <span className="btn btn-info">View Course</span>
           
            </Link>

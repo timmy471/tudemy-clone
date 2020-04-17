@@ -8,27 +8,34 @@ import CourseContext from "../../context/course/courseContext";
 
 const Courses = () => {
   const courseContext = useContext(CourseContext);
-  const { getCourses, courses, loading, authors } = courseContext;
+  const { getCourses, courses, loading, authors, courseCount, clearCurrent } = courseContext;
+
+  const [page, setPage] = useState(1);
+
+  const incrementPage = () => {
+    setPage(page+1)
+  }
+
+  const decrementPage = () => {
+    setPage(page-1)
+  }
+
 
   useEffect(() => {
-    
-    getCourses();
-    //eslint-disable-next-line
-  }, []);
+    clearCurrent()
+    getCourses(page);
+  }, [page]);
 
-  let i = 1;
-  const getNextPage = () => {
-    i = i + 1;
-    getCourses(i);
-    console.log(i);
-  };
-
+ 
+  
   return (
     <div>
       <Login />
       <Search />
-      {loading || courses.length < 1 || authors.length < 1 ? (
-        <Spinner />
+      {loading ? <Spinner /> :  courses.length < 1 ? (
+        <div className="container text-center mt-4">
+        <h4>There are no courses at the moment</h4>
+        </div>
       ) : (
         <div className="container">
           <div className="container">
@@ -54,10 +61,10 @@ const Courses = () => {
               <ForCourses courses={courses} />
             </div>
             <div className="text-center mt-4 mb-4">
-              <button className="btn btn-info" onClick={getNextPage}>
+             {page > 1 && <button onClick={decrementPage} className="btn btn-info" >
                 Previous
-              </button>{" "}
-              &nbsp; <button className="btn btn-info">Next</button>
+              </button>} {" "}
+              &nbsp; {courseCount >= 8 && <button onClick = {incrementPage} className="btn btn-info">Next</button> } 
             </div>
           </div>
         </div>

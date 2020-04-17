@@ -1,68 +1,167 @@
 {
   "users": [
     {
-      "id": 1,
-      "google_Id": 4533453454353425400,
-      "email": "john@yahoo.com",
-      "first_name": "John",
-      "last_name": "Doe",
-      "image_url": "https://i.imgur.com/IyNqeHv.png?1"
-    },
-    {
-      "id": 2,
-      "google_Id": 94745458458594,
-      "first_name": "Sarah",
-      "last_name": "Wilson",
-      "email": "sarahn@yahoo.com",
-      "image_url": "https://i.imgur.com/IyNqeHv.png?1"
-    },
-    {
       "googleId": "104603840349259720000",
       "email": "ayantunjitimilehin@gmail.com",
       "first_name": "Timilehin",
       "last_name": "Micheal",
-      "image_url": "https://i.imgur.com/HlKPRUg.jpg",
-      "id": 3
+      "image_url": "https://i.imgur.com/1kQgY0J.jpg",
+      "id": 1
     },
     {
       "googleId": "113321855827693925088",
       "email": "karriecarter97@gmail.com",
       "first_name": "Karrie",
       "last_name": "Carter",
-      "image_url": "https://i.imgur.com/4ukP0CW.png",
-      "id": 4
+      "image_url": "https://i.imgur.com/tEXkzjb.jpg",
+      "id": 2
     },
     {
       "googleId": "106688039375075123879",
       "email": "karriecarter49@gmail.com",
       "first_name": "Karrie",
       "last_name": "Carter",
-      "image_url": "https://i.imgur.com/IyNqeHv.png?",
-      "id": 5
+      "image_url": "https://i.imgur.com/CCZYSXF.jpg",
+      "id": 3
     }
   ],
   "courses": [
     {
-      "id": 1,
-      "user_id": 2,
-      "title": "The complete guide to becomming a react developer",
-      "category": "Development",
-      "learnt": "everything you desire in this life",
-      "required": "And it was done",
-      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
-      "pic_url": "https://i.imgur.com/IyNqeHv.png?",
-      "date": "1586803510553"
-    },
-    {
-      "id": 4,
+      "id": 2,
       "user_id": 3,
       "title": "The complete guide to becomming a react developer",
       "category": "Artistry",
-      "learnt": "everything you desire in this life",
+      "learnt": "Everything you desire in this life",
       "required": "Dare to become greater",
-      "video_url": "https://www.youtube.com/watch?v=UX36flnDv-0",
-      "pic_url": "https://i.imgur.com/IyNqeHv.png?",
+      "video_url": "UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/sGmUkpD.jpg",
+      "date": "1586803520553"
+    },
+    {
+      "id": 3,
+      "user_id": 3,
+      "title": "How to get going with development",
+      "category": "Promotion",
+      "learnt": "Yo will never regret",
+      "required": "Dare to become greater",
+      "video_url": "tJWRuSx-RYs",
+      "pic_url": "https://i.imgur.com/0LfZ3Qs.jpg",
+      "date": "1586803530553"
+    },
+    {
+      "id": 4,
+      "user_id": 1,
+      "title": "COmpletely novice in Angular",
+      "category": "Angular",
+      "learnt": "Take it or leave it",
+      "required": "Never underestimate yoursself",
+      "video_url": "UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/1kQgY0J.jpg",
       "date": "1586803540553"
+    },
+    {
+      "id": 6,
+      "user_id": 1,
+      "title": "The complete guide to becomming a react developer",
+      "category": "Artistry",
+      "learnt": "This function will also return a Promise, no matter if you explicitly return something or not. In case you return data, This function will also return a Promise, no matter if you explicitly return something or not. In case you return data, it will be wrapped in the resolving content of the promise that the function will create and return automatically it will be wrapped in the resolving content of the promise that the function will create and return automatically",
+      "required": "This function will also return a Promise, no matter if you explicitly return something or not. In case you return data, it will be wrapped in the resolving content of the promise that the function will create and return automatically This function will also return a Promise, no matter if you explicitly return something or not. In case you return data, it will be wrapped in the resolving content of the promise that the function will create and return automatically",
+      "video_url": "UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/0LfZ3Qs.jpg",
+      "date": "1586803560553"
+    },
+    {
+      "id": 7,
+      "user_id": 2,
+      "title": "Inherernt paining mode",
+      "category": "Development",
+      "learnt": "From tetiary to secondary",
+      "required": "And it was done",
+      "video_url": "tJWRuSx-RYs",
+      "pic_url": "https://i.imgur.com/1kQgY0J.jpg",
+      "date": "1586803570553"
+    },
+    {
+      "id": 8,
+      "user_id": 1,
+      "title": "COmpletely novice in Angular",
+      "category": "Angular",
+      "learnt": "Take it or leave it",
+      "required": "Never underestimate yoursself",
+      "video_url": "tJWRuSx-RYs",
+      "pic_url": "https://i.imgur.com/sGmUkpD.jpg",
+      "date": "1586803580553"
+    },
+    {
+      "id": 9,
+      "user_id": 3,
+      "title": "How to get going with development",
+      "category": "Promotion",
+      "learnt": "Yo will never regret",
+      "required": "Dare to become greater",
+      "video_url": "tJWRuSx-RYs",
+      "pic_url": "https://i.imgur.com/0LfZ3Qs.jpg",
+      "date": "1586803590553"
+    },
+    {
+      "id": 10,
+      "user_id": 3,
+      "title": "How to get going with development",
+      "category": "Promotion",
+      "learnt": "everything you desire in this life",
+      "required": "For i already told you",
+      "video_url": "tJWRuSx-RYs",
+      "pic_url": "https://i.imgur.com/1kQgY0J.jpg",
+      "date": "15868035100553"
+    },
+    {
+      "user_id": 2,
+      "title": "It is well",
+      "category": "IT and Software",
+      "learnt": "When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.",
+      "required": "When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.",
+      "video_url": "https://i.imgur.com/Fb87RXr.mp4",
+      "pic_url": "https://i.imgur.com/HFnrNXW.jpg",
+      "id": 11
+    },
+    {
+      "user_id": 2,
+      "title": "In this life",
+      "category": "Finance And Accounting",
+      "learnt": "The reset() method resets the values of all elements in a form (same as clicking the Reset button).\n\nTip: Use the submit() method to submit the form.",
+      "required": "The reset() method resets the values of all elements in a form (same as clicking the Reset button).\n\nTip: Use the submit() method to submit the form.",
+      "video_url": "https://i.imgur.com/rfkDd1N.mp4",
+      "pic_url": "https://i.imgur.com/bCVHwny.jpg",
+      "date": 1587132934674,
+      "id": 12
+    }
+  ],
+  "favorites": [
+    {
+      "course_id": 2,
+      "user_id": 3,
+      "user_fave_id": 2,
+      "title": "The complete guide to becomming a react developer",
+      "category": "Artistry",
+      "learnt": "Everything you desire in this life",
+      "required": "Dare to become greater",
+      "video_url": "UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/sGmUkpD.jpg",
+      "date": "1586803520553",
+      "id": 1
+    },
+    {
+      "course_id": 2,
+      "user_id": 3,
+      "user_fave_id": 2,
+      "title": "The complete guide to becomming a react developer",
+      "category": "Artistry",
+      "learnt": "Everything you desire in this life",
+      "required": "Dare to become greater",
+      "video_url": "UX36flnDv-0",
+      "pic_url": "https://i.imgur.com/sGmUkpD.jpg",
+      "date": "1586803520553",
+      "id": 2
     }
   ]
 }

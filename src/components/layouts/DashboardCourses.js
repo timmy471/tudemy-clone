@@ -6,7 +6,7 @@ const DashboardCourses = ({courses}) => {
         <div className='container'>
         <div className='container'>
      
-     <div className=" row mt-4"  style={{backgroundColor:"white", padding:"0.5rem", borderRadius:"0.5rem"}}>
+     <div className=" row mt-4">
     
       {
         courses.map(course=> {

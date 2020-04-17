@@ -7,14 +7,16 @@ import DashboardCourses from "../layouts/DashboardCourses";
 import CourseContext from "../../context/course/courseContext";
 
 import Spinner from "../layouts/Spinner";
+import FileSpinner from "../layouts/FileSpinner";
+
 
 const Dashboard = () => {
   const authContext = useContext(AuthContext);
   const alertContext = useContext(AlertContext);
   const courseContext = useContext(CourseContext);
 
-  const { isLoggedOut, loadUser, loading, user, setProfileImage } = authContext;
-  const { userCourses, getUserCourses } = courseContext;
+  const { isLoggedOut, loadUser, loading, user, setProfileImage, fLoading } = authContext;
+  const { userCourses, getUserCourses, userFavorites, getUserFaves, clearCurrent } = courseContext;
 
   const [image, setImage] = useState(null);
 
@@ -22,6 +24,8 @@ const Dashboard = () => {
     const id = localStorage.getItem("user_id");
     loadUser(id);
     getUserCourses(id);
+    getUserFaves(id);
+    clearCurrent()
     //eslint-disable-next-line
   }, []);
 
@@ -50,13 +54,14 @@ const Dashboard = () => {
               style={{ backgroundColor: "white", padding: "2rem" }}
             >
               <div className="col-xs-12 col-sm-12 col-md-3">
-                <span>
-                  <img
-                    src={user.image_url}
-                    height="80%"
-                    width="80%"
-                    alt="profile"
-                  />
+                <span>{
+                  fLoading ? <FileSpinner /> : <img
+                  src={user.image_url}
+                  height="80%"
+                  width="80%"
+                  alt="profile"
+                />}
+                  
                 </span>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-3">
@@ -99,7 +104,7 @@ const Dashboard = () => {
                 <DashboardCourses courses={userCourses} />
               ) : (
                 <div>
-                  <h4>You have no courses created yet</h4> <br />{" "}
+                  <h6 className='mt-4'>You have no courses created yet</h6> <br />{" "}
                   <Link to="/addcourse" className="btn btn-info">
                     {" "}
                     Add Course
@@ -108,11 +113,25 @@ const Dashboard = () => {
               )}
             </div>
 
-            <div className="col-xs-12 col-sm-12 col-md-6"></div>
+            <div className="col-xs-12 col-sm-12 col-md-6">
+            <div className="text-center">
+              <h2>My Favorites</h2>
+              </div>
+              
+              {userFavorites.length > 0 ? (
+                <DashboardCourses courses={userFavorites} />
+              ) : (
+                <div className='mt-4'>
+                  <h6>You have not favorited any course </h6> <br />{" "}
+                  <Link to="/courses" className="btn btn-info">
+                    {" "}
+                    View Courses
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      ) : isLoggedOut ? (
-        <Redirect to="/" />
       ) : (
         <Spinner />
       )}

@@ -14,6 +14,7 @@ import {
   LOAD_USER,
   LOAD_USER_FAIL,
   SET_LOADING,
+  FILE_LOADING,
   IMAGE_SUCCESS,
   IMAGE_FAIL
 } from "../types";
@@ -26,6 +27,7 @@ const AuthState = (props) => {
     isLoggedOut: false,
     redirect: false,
     loading: false,
+    fLoading: false,
     error: null,
   };
 
@@ -42,10 +44,10 @@ const AuthState = (props) => {
         `http://localhost:5000/users?email=${user.email}`
       );
 
-        console.log(res);
+       
       if (res.data.length === 1) {
-        console.log('hit');
-        console.log(res.response)
+        
+       
         localStorage.setItem("user_id", res.data[0].id);
         localStorage.setItem("userToken", token);
         loadUser(localStorage.getItem("user_id"));
@@ -118,7 +120,7 @@ const AuthState = (props) => {
   const setProfileImage = async (image) => {
     try {
         dispatch({
-            type:SET_LOADING
+            type:FILE_LOADING
         })
       const imgRes = await axios.post("https://api.imgur.com/3/image", image, {
         headers: {
@@ -205,6 +207,7 @@ const AuthState = (props) => {
       value={{
         user: state.user,
         loading: state.loading,
+        fLoading: state.fLoading,
         isAuthenticated: state.isAuthenticated,
         isLoggedOut: state.isLoggedOut,
         redirect: state.redirect,

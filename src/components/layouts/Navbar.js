@@ -25,7 +25,6 @@ const Navbar = () => {
         <li> <Link to="/courses" style={linkStyle}>
                Learn
              </Link></li>
-             {console.log(isAuthenticated)}
              {isAuthenticated ? (
             <div>
               <li className="dropdown" style={linkStyle}>

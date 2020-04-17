@@ -6,9 +6,11 @@ import {
   LOAD_USER_FAIL,
   CHECK_FAIL,
   SET_LOADING,
+  PIC_LOADING,
   LOGOUT_USER,
   IMAGE_SUCCESS,
   IMAGE_FAIL,
+  FILE_LOADING,
 } from "../types";
 
 const authReducer = (state, action) => {
@@ -18,6 +20,12 @@ const authReducer = (state, action) => {
         ...state,
         loading: true,
       };
+
+    case FILE_LOADING:
+      return {
+        ...state,
+        fLoading: true,
+      }
 
     case REGISTER_SUCCESS:
       return {
@@ -71,13 +79,14 @@ const authReducer = (state, action) => {
         return {
           ...state,
           user: action.payload,
-          loading: false
+          fLoading: false
           
         };
 
         case IMAGE_FAIL:
           return {
             ...state,
+            fLoading: false,
            error:action.payload
           };
 
