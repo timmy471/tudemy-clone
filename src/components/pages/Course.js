@@ -31,7 +31,7 @@ const Course = (props) => {
     // checkStar(parseInt(localStorage.getItem('user_id')), course.id);
     //   console.log(course)
     // }
-  
+
     //eslint-disable-next-line
   }, []);
 
@@ -61,14 +61,14 @@ const Course = (props) => {
   };
 
   const onAddStar = () => {
-    addStar(parseInt(localStorage.getItem('user_id')), course.id);
+    addStar(parseInt(localStorage.getItem("user_id")), course.id);
     alert.setAlert("You starred this Course", "success");
-  }
+  };
 
   const onRemoveStar = () => {
-    removeStar(parseInt(localStorage.getItem('user_id')), course.id)
+    removeStar(parseInt(localStorage.getItem("user_id")), course.id);
     alert.setAlert("You Unstarred this Course", "warning");
-  }
+  };
 
   return (
     <div>
@@ -76,39 +76,58 @@ const Course = (props) => {
         <div className="container mt-4">
           <div className="row">
             <div className="col-xs-8 col-sm-9 col-md-8">
-            <h5>{course.title} </h5>
+              <h5>{course.title} </h5>
             </div>
 
             <div className="col-xs-4 col-sm-4 col-md-4">
-            {course.user_id !== parseInt(user_id) &&
-            <ul style={{display:"flex"}}>
-              <li  style={{listStyleType:"none"}}>
-              {!added ? (
-              <button className="btn btn-primary" onClick={onAddhandler}>
-                Add to Favorites
-              </button>
-            ) : (
-              <button className="btn btn-danger" onClick={onRemoveHandler}>
-                Remove from favorites
-              </button>
-            )}
-              </li>
-              
-              {starred ?  <li style={{listStyleType:"none", marginLeft:"5rem"}}>
-                <i className="fa fa-star" onClick={onRemoveStar} title="Unstar this course" style={{color:"black", fontSize:"2rem"}}></i>
-              </li> :  <li style={{listStyleType:"none", marginLeft:"5rem"}}>
-                <i className="fa fa-star" onClick={onAddStar} title="star this course" style={{color:"yellow", fontSize:"2rem"}}></i>
-              </li> }
-             
-              
-            </ul>
-           }
+              {course.user_id !== parseInt(user_id) && (
+                <ul style={{ display: "flex" }}>
+                  <li style={{ listStyleType: "none" }}>
+                    {!added ? (
+                      <button
+                        className="btn btn-primary"
+                        onClick={onAddhandler}
+                      >
+                        Add to Favorites
+                      </button>
+                    ) : (
+                      <button
+                        className="btn btn-danger"
+                        onClick={onRemoveHandler}
+                      >
+                        Remove from favorites
+                      </button>
+                    )}
+                  </li>
+
+                  {starred ? (
+                    <li style={{ listStyleType: "none", marginLeft: "5rem" }}>
+                      <i
+                        className="fa fa-star"
+                        onClick={onRemoveStar}
+                        title="Unstar this course"
+                        style={{ color: "green", fontSize: "2rem" }}
+                      ></i>
+                    </li>
+                  ) : (
+                    <li style={{ listStyleType: "none", marginLeft: "5rem" }}>
+                      <i
+                        className="fa fa-star"
+                        onClick={onAddStar}
+                        title="star this course"
+                        style={{ color: "black", fontSize: "2rem" }}
+                      ></i>
+                    </li>
+                  )}
+                </ul>
+              )}
             </div>
           </div>
-         
-         
 
-          <div className="mt-3" style={{ height: "30rem", width: "100%", border:"none" }}>
+          <div
+            className="mt-3"
+            style={{ height: "30rem", width: "100%", border: "none" }}
+          >
             <ReactPlayer
               // url={course.video_url}
               height="100%"
