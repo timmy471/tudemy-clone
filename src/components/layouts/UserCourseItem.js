@@ -8,10 +8,11 @@ import AlertContext from '../../context/alert/alertContext';
 const UserCourseItem = ({ course }) => {
   const { title, category, pic_url, id, user_id } = course;
   const courseContext = useContext(CourseContext);
-
+  const alert = useContext(AlertContext)
 
   const onDelete = () => {
     courseContext.delCourse(id);
+    alert.setAlert("Course deleted Successfully", "success");
   }
 
   const userId = localStorage.getItem('user_id');

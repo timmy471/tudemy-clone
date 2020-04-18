@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { GoogleLogout } from "react-google-login"
 
@@ -7,7 +7,11 @@ import AuthContext from "../../context/auth/authContext";
 const Navbar = () => {
   const authContext = useContext(AuthContext);
 
-  const { isAuthenticated, logOut, user, isLoggedOut } = authContext;
+  useEffect(() => {
+    authContext.loadUser(localStorage.getItem('user_id'))
+  }, [])
+
+  const { isAuthenticated, logOut, user, isLoggedOut, loading } = authContext;
 
   return (
     <nav>
@@ -25,7 +29,7 @@ const Navbar = () => {
         <li> <Link to="/courses" style={linkStyle}>
                Learn
              </Link></li>
-             {isAuthenticated ? (
+             {isAuthenticated && !loading && user !== null ? (
             <div>
               <li className="dropdown" style={linkStyle}>
                 <span

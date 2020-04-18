@@ -1,15 +1,15 @@
 import {
-  ADD_COURSE,
   GET_COURSES,
   SET_AUTHOR,
   SEARCH_COURSES,
   SET_CURRENT,
   CLEAR_CURRENT,
-  UPDATE_COURSE,
   GET_COURSE,
   GET_AUTHOR,
   DELETE_FAVORITE,
   SET_ADDED,
+  STAR_SUCCESS,
+  STAR_FAIL,
   DELETE_COURSE,
   GET_USER_COURSES,
   GET_FAVORITES,
@@ -53,6 +53,7 @@ const courseReducer = (state, action) => {
       };
 
     case GET_AUTHOR:
+      
       return {
         ...state,
         author: action.payload,
@@ -100,6 +101,18 @@ const courseReducer = (state, action) => {
         added: true,
         loading: false
       }
+
+    case STAR_SUCCESS:
+      return {
+        ...state,
+        starred: true
+      }
+
+    case STAR_FAIL:
+      return {
+        ...state,
+        starred:false
+      }
       
     case UNSET_LOADING:
       return {
@@ -124,6 +137,7 @@ const courseReducer = (state, action) => {
         ...state,
         error: action.payload,
         loading: false,
+        fLoading: false
       };
 
     case GET_USER_COURSES:

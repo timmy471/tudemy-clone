@@ -4,9 +4,9 @@ import {
   REGISTER_FAIL,
   LOAD_USER,
   LOAD_USER_FAIL,
+  AUTHENTICATE_USER,
   CHECK_FAIL,
   SET_LOADING,
-  PIC_LOADING,
   LOGOUT_USER,
   IMAGE_SUCCESS,
   IMAGE_FAIL,
@@ -55,11 +55,16 @@ const authReducer = (state, action) => {
         loading: false,
       };
 
+    case AUTHENTICATE_USER:
+      return {
+        ...state,
+        isAuthenticated: true
+      }
+
     case LOAD_USER:
       return {
         ...state,
         user: action.payload,
-        isAuthenticated: true,
         isLoggedOut: false,
         loading: false,
       };

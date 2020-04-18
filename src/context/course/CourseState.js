@@ -11,7 +11,6 @@ import {
   SEARCH_COURSES,
   SET_CURRENT,
   CLEAR_CURRENT,
-  UPDATE_COURSE,
   DELETE_COURSE,
   GET_LATEST,
   GET_AUTHOR,
@@ -20,6 +19,8 @@ import {
   ADD_FAVORITE,
   SET_ADDED,
   DELETE_FAVORITE,
+  STAR_SUCCESS,
+  STAR_FAIL,
   COURSE_ERROR,
   SET_PAGE,
   SET_LOADING,
@@ -37,6 +38,7 @@ const CourseState = (props) => {
     userFavorites: [],
     current: null,
     added: false,
+    starred: false,
     courseCount: null,
     latest: [],
     error: null,
@@ -47,8 +49,6 @@ const CourseState = (props) => {
 
   const [state, dispatch] = useReducer(courseReducer, initialState);
   const alert = useContext(AlertContext);
-  const gapi = "AIzaSyBKkwlF_Fd2TgBp2VVIq_x5x5-4JdcTIBE";
-
 
   //add course
   const addCourse = async (course, formData) => {
@@ -93,7 +93,7 @@ const CourseState = (props) => {
       };
 
       const postCourse = await axios.post(
-        "http://localhost:5000/courses",
+        "http://localhost:4000/courses",
         mainCourse,
         {
           headers: {
@@ -101,6 +101,17 @@ const CourseState = (props) => {
           },
         }
       );
+
+      const starCourse = {
+        course_id: postCourse.data.id,
+        users: [],
+      };
+
+      const star = await axios.post("http://localhost:4000/stars", starCourse, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       dispatch({
         type: UNSET_FILE_LOADING,
       });
@@ -116,7 +127,6 @@ const CourseState = (props) => {
 
   //update course
   const updCourse = async (course, formData) => {
-   
     dispatch({
       type: FILE_LOADING,
     });
@@ -154,13 +164,11 @@ const CourseState = (props) => {
         required,
         video_url,
         pic_url,
-        date
+        date,
       };
 
-      console.log(mainCourse);
-
       const postCourse = await axios.put(
-        `http://localhost:5000/courses/${id}`,
+        `http://localhost:4000/courses/${id}`,
         mainCourse,
         {
           headers: {
@@ -191,7 +199,7 @@ const CourseState = (props) => {
       });
       const limit = 8;
       const res = await axios.get(
-        `http://localhost:5000/courses?_page=${page}&_limit=${limit}`
+        `http://localhost:4000/courses?_page=${page}&_limit=${limit}`
       );
       dispatch({
         type: SET_PAGE,
@@ -200,7 +208,7 @@ const CourseState = (props) => {
 
       const authors = [];
       const getUserData = async (id) => {
-        const userData = await axios.get(`http://localhost:5000/users/${id}`);
+        const userData = await axios.get(`http://localhost:4000/users/${id}`);
 
         authors.push(userData.data);
 
@@ -234,9 +242,14 @@ const CourseState = (props) => {
       dispatch({
         type: SET_LOADING,
       });
-      const res = await axios.get(`http://localhost:5000/courses/${id}`);
+      const res = await axios.get(`http://localhost:4000/courses/${id}`);
+
       getCourseAuthor(res.data.user_id);
-      checkAdded(res.data.id);
+
+      checkAdded(parseInt(res.data.id));
+
+      checkStar(parseInt(localStorage.getItem('user_id')), parseInt(id));
+
       await dispatch({
         type: GET_COURSE,
         payload: res.data,
@@ -255,7 +268,7 @@ const CourseState = (props) => {
       type: SET_LOADING,
     });
     try {
-      const res = await axios.get(`http://localhost:5000/users/${id}`);
+      const res = await axios.get(`http://localhost:4000/users/${id}`);
 
       dispatch({
         type: GET_AUTHOR,
@@ -277,7 +290,7 @@ const CourseState = (props) => {
 
     try {
       const courses = await axios.get(
-        `http://localhost:5000/courses?q=${text}`
+        `http://localhost:4000/courses?q=${text}`
       );
       if (courses.data.length < 1) {
         dispatch({
@@ -292,7 +305,7 @@ const CourseState = (props) => {
 
         const authors = [];
         const getUserData = async (id) => {
-          const userData = await axios.get(`http://localhost:5000/users/${id}`);
+          const userData = await axios.get(`http://localhost:4000/users/${id}`);
 
           authors.push(userData.data);
 
@@ -323,7 +336,7 @@ const CourseState = (props) => {
         type: SET_LOADING,
       });
       const res = await axios.get(
-        `http://localhost:5000/courses?_sort=date&_order=desc&_limit=4`
+        `http://localhost:4000/courses?_sort=date&_order=desc&_limit=4`
       );
 
       dispatch({
@@ -347,7 +360,7 @@ const CourseState = (props) => {
       });
 
       const res = await axios.get(
-        `http://localhost:5000/courses?user_id=${id}`
+        `http://localhost:4000/courses?user_id=${id}`
       );
 
       dispatch({
@@ -362,13 +375,13 @@ const CourseState = (props) => {
     }
   };
 
-  //addFavorite
+  //add course to user's favorite
   const addFavorite = async (course) => {
     try {
       dispatch({
         type: ADD_FAVORITE,
       });
-      axios.post("http://localhost:5000/favorites", course);
+      axios.post("http://localhost:4000/favorites", course);
     } catch (error) {
       dispatch({
         type: COURSE_ERROR,
@@ -377,13 +390,14 @@ const CourseState = (props) => {
     }
   };
 
+  //Remove course from user favorite list
   const removeFavorite = async (id) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/favorites?course_id=${id}`
+        `http://localhost:4000/favorites?course_id=${id}`
       );
 
-      axios.delete(`http://localhost:5000/favorites/${res.data[0].id}`);
+      axios.delete(`http://localhost:4000/favorites/${res.data[0].id}`);
       dispatch({
         type: DELETE_FAVORITE,
       });
@@ -395,12 +409,12 @@ const CourseState = (props) => {
     }
   };
 
+  //check if a user ha favorited a course
   const checkAdded = async (id) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/favorites?course_id=${id}`
+        `http://localhost:4000/favorites?course_id=${id}`
       );
-      console.log(res);
 
       if (res.data.length !== 0) {
         dispatch({
@@ -415,6 +429,7 @@ const CourseState = (props) => {
     }
   };
 
+  //get the user's favorited courses
   const getUserFaves = async (id) => {
     try {
       dispatch({
@@ -422,7 +437,7 @@ const CourseState = (props) => {
       });
 
       const res = await axios.get(
-        `http://localhost:5000/favorites?user_fave_id=${id}`
+        `http://localhost:4000/favorites?user_fave_id=${id}`
       );
 
       dispatch({
@@ -436,6 +451,100 @@ const CourseState = (props) => {
       });
     }
   };
+
+  //star a course
+  const addStar = async (user_id, course_id) => {
+    try {
+      const getCourse = await axios.get(
+        `http://localhost:4000/stars?course_id=${course_id}`
+      );
+      const users = getCourse.data[0].users;
+      const id = getCourse.data[0].id;
+      const updData = {
+        course_id,
+        users: [...users, user_id],
+      };
+
+      const res = await axios.put(
+        `http://localhost:4000/stars/${id}`,
+        updData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      dispatch({
+        type: STAR_SUCCESS
+      })
+    } catch (error) {
+      dispatch({
+        type: COURSE_ERROR,
+        payload: error,
+      });
+    }
+  };
+
+  //unStar a course
+  const removeStar = async (user_id, course_id) => {
+    try {
+      const getCourse = await axios.get(
+        `http://localhost:4000/stars?course_id=${course_id}`
+      );
+      const users = getCourse.data[0].users;
+      const id = getCourse.data[0].id;
+
+      const newUsers = users.filter( userId => userId !== user_id);
+      const updData = {
+        course_id,
+        users: newUsers,
+      };
+      const res = await axios.put(
+        `http://localhost:4000/stars/${id}`,
+        updData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      dispatch({
+        type: STAR_FAIL
+      })
+    } catch (error) {
+      dispatch({
+        type: COURSE_ERROR,
+        payload: error,
+      });
+    }
+  };
+
+  //check if a user has starred the course
+  const checkStar = async (user_id, course_id) => {
+    // dispatch({
+    //   type: SET_LOADING
+    // })
+
+    try {
+     
+      const checkUsers = await axios.get(
+        `http://localhost:4000/stars?course_id=${course_id}`
+      );
+      
+    if(checkUsers.data[0].users.includes(user_id)){
+      dispatch({
+        type: STAR_SUCCESS
+      })
+    }else{
+      dispatch({
+        type: STAR_FAIL
+      })
+    }
+
+    } catch (error) {
+      
+    }
+  }
 
   //setCurrent
   const setCurrent = (course) => {
@@ -454,7 +563,13 @@ const CourseState = (props) => {
   //delete course
   const delCourse = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/courses/${id}`);
+      await axios.delete(`http://localhost:4000/courses/${id}`);
+
+      const res = await axios.get(
+        `http://localhost:4000/stars?course_id=${id}`
+      );
+
+      await axios.delete(`http://localhost:4000/stars/${res.data[0].id}`);
       dispatch({
         type: DELETE_COURSE,
         payload: id,
@@ -477,6 +592,8 @@ const CourseState = (props) => {
         author: state.author,
         error: state.error,
         authors: state.authors,
+        added: state.added,
+        starred: state.starred,
         loading: state.loading,
         fLoading: state.fLoading,
         latest: state.latest,
@@ -494,6 +611,9 @@ const CourseState = (props) => {
         getUserFaves,
         addFavorite,
         removeFavorite,
+        addStar,
+        removeStar,
+        checkStar,
         setCurrent,
         clearCurrent,
         updCourse,

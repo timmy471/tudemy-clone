@@ -49,28 +49,6 @@
       "date": "1586803530553"
     },
     {
-      "id": 4,
-      "user_id": 1,
-      "title": "COmpletely novice in Angular",
-      "category": "Angular",
-      "learnt": "Take it or leave it",
-      "required": "Never underestimate yoursself",
-      "video_url": "UX36flnDv-0",
-      "pic_url": "https://i.imgur.com/1kQgY0J.jpg",
-      "date": "1586803540553"
-    },
-    {
-      "id": 6,
-      "user_id": 1,
-      "title": "The complete guide to becomming a react developer",
-      "category": "Artistry",
-      "learnt": "This function will also return a Promise, no matter if you explicitly return something or not. In case you return data, This function will also return a Promise, no matter if you explicitly return something or not. In case you return data, it will be wrapped in the resolving content of the promise that the function will create and return automatically it will be wrapped in the resolving content of the promise that the function will create and return automatically",
-      "required": "This function will also return a Promise, no matter if you explicitly return something or not. In case you return data, it will be wrapped in the resolving content of the promise that the function will create and return automatically This function will also return a Promise, no matter if you explicitly return something or not. In case you return data, it will be wrapped in the resolving content of the promise that the function will create and return automatically",
-      "video_url": "UX36flnDv-0",
-      "pic_url": "https://i.imgur.com/0LfZ3Qs.jpg",
-      "date": "1586803560553"
-    },
-    {
       "id": 7,
       "user_id": 2,
       "title": "Inherernt paining mode",
@@ -80,17 +58,6 @@
       "video_url": "tJWRuSx-RYs",
       "pic_url": "https://i.imgur.com/1kQgY0J.jpg",
       "date": "1586803570553"
-    },
-    {
-      "id": 8,
-      "user_id": 1,
-      "title": "COmpletely novice in Angular",
-      "category": "Angular",
-      "learnt": "Take it or leave it",
-      "required": "Never underestimate yoursself",
-      "video_url": "tJWRuSx-RYs",
-      "pic_url": "https://i.imgur.com/sGmUkpD.jpg",
-      "date": "1586803580553"
     },
     {
       "id": 9,
@@ -134,6 +101,17 @@
       "pic_url": "https://i.imgur.com/bCVHwny.jpg",
       "date": 1587132934674,
       "id": 12
+    },
+    {
+      "user_id": 1,
+      "title": "Brads lawanson",
+      "category": "Finance And Accounting",
+      "learnt": "Const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)",
+      "required": "Const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)",
+      "video_url": "https://i.imgur.com/S5oERIo.mp4",
+      "pic_url": "https://i.imgur.com/HnPFHGs.jpg",
+      "date": 1587205104886,
+      "id": 13
     }
   ],
   "favorites": [
@@ -162,6 +140,40 @@
       "pic_url": "https://i.imgur.com/sGmUkpD.jpg",
       "date": "1586803520553",
       "id": 2
+    },
+    {
+      "course_id": 11,
+      "user_id": 2,
+      "user_fave_id": 1,
+      "title": "It is well",
+      "category": "IT and Software",
+      "learnt": "When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.",
+      "required": "When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.",
+      "video_url": "https://i.imgur.com/Fb87RXr.mp4",
+      "pic_url": "https://i.imgur.com/HFnrNXW.jpg",
+      "id": 3
+    }
+  ],
+  "stars": [
+    {
+      "id": 2,
+      "course_id": 3,
+      "users": []
+    },
+    {
+      "course_id": 21,
+      "users": [],
+      "id": 3
+    },
+    {
+      "course_id": 14,
+      "users": [],
+      "id": 5
+    },
+    {
+      "course_id": 13,
+      "users": [],
+      "id": 6
     }
   ]
 }

@@ -30,6 +30,7 @@ const AddCourse = () => {
       setCourse(current);
       // setCourse({ ...current, title:current.title, category:current.category})
     }
+   
   }, [courseContext, current]);
 
   const { title, category, required, learnt, video, image  } = course;
@@ -68,7 +69,7 @@ const AddCourse = () => {
       video
  
     }
-
+    
     const updData = {
       title: title.charAt(0).toUpperCase() + title.slice(1),
       category,
@@ -76,8 +77,8 @@ const AddCourse = () => {
       required: required.charAt(0).toUpperCase() + required.slice(1),
       image,
       video,
-      date: current.date,
-      id: current.id
+      date: current && current.date,
+      id: current && current.id
  
     }
 
@@ -91,14 +92,16 @@ const AddCourse = () => {
       required:""
     })
 
+    current && clearCurrent()
+
     e.target.reset();
     
   };
 
-  if (!isAuthenticated) {
-    setAlert("Please login to teach on Tudemy", "danger");
-    return <Redirect to="/" />;
-  } else {
+  // if (!isAuthenticated) {
+  //   setAlert("Please login to teach on Tudemy", "danger");
+  //   return <Redirect to="/" />;
+  // } else {
     return (
       <div className="container">
         <div
@@ -160,7 +163,7 @@ const AddCourse = () => {
                     style={{ borderRadius: "5px" }}
                     id="organization"
                     className="form-control"
-                    rows="10"
+                    rows="8"
                     name="required"
                     value={required}
                     onChange={onChange}
@@ -179,7 +182,7 @@ const AddCourse = () => {
                     style={{ borderRadius: "20px" }}
                     id="organization"
                     className="form-control"
-                    rows="10"
+                    rows="8"
                     name="learnt"
                     value={learnt}
                     onChange={onChange}
@@ -188,7 +191,7 @@ const AddCourse = () => {
                 </div>
               </div>
             </div>
-            <div className="row mt-3">
+            <div className="row mt-2">
               <div className="col-xm-12 col-sm-12 col-md-6">
                 <div className="form-group">
                   <label>Course Video:</label>{" "}
@@ -200,6 +203,8 @@ const AddCourse = () => {
                     accept="video/*"
                     required
                   /> 
+                  <br />
+                  <small>For best performance, ensure video is 1920x1080</small>
                 </div>
               </div>
               <div className="col-xm-12 col-sm-12 col-md-6">
@@ -217,7 +222,7 @@ const AddCourse = () => {
               </div>
             </div>
 
-        
+         
 
             { current !== null ? (
               <div className="row mt-3">
@@ -257,7 +262,7 @@ const AddCourse = () => {
         </div>
       </div>
     );
-  }
+  // }
 };
 
 export default AddCourse;

@@ -15,15 +15,16 @@ const Home = (props) => {
   const authContext = useContext(AuthContext);
   const courseContext = useContext(CourseContext);
 
-  const { latest, getLatest, loading, clearCurrent } = courseContext;
+  const { latest, getLatest, loading, clearCurrent} = courseContext;
 
-  const {  loadUser } = authContext;
+  const {  loadUser, authUser } = authContext;
 
   useEffect(() => {
     const user_id = localStorage.getItem("user_id");
     if (user_id) {
       loadUser(localStorage.getItem("user_id"));
     }
+    authUser();
     getLatest();
     clearCurrent();
     //eslint-disable-next-line
@@ -32,11 +33,12 @@ const Home = (props) => {
   
     return (
       <div>
-        <Login />
-        <Jumbotron />
-        <h2 className="text-center">Recent Courses</h2>
+       
        {loading ? (<Spinner />) : ( 
        <div>
+          <Login />
+        <Jumbotron />
+        <h2 className="text-center">Recent Courses</h2>
        <ForCourses courses={latest} />
         <div className="text-center">
         <Link to="/courses" style={{textDecoration:"none", color:"white"}} ><button style={btnStyle}>View All</button></Link>

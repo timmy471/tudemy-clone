@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react";
+import ReactPlayer from "react-player";
 import CourseContext from "../../context/course/courseContext";
 import AlertContext from "../../context/alert/alertContext";
 import Spinner from "../layouts/Spinner";
@@ -6,6 +7,7 @@ import Spinner from "../layouts/Spinner";
 const Course = (props) => {
   const courseContext = useContext(CourseContext);
   const alert = useContext(AlertContext);
+
   const {
     getCourse,
     course,
@@ -16,12 +18,20 @@ const Course = (props) => {
     checkAdded,
     clearCurrent,
     removeFavorite,
+    addStar,
+    removeStar,
+    starred,
   } = courseContext;
 
   useEffect(() => {
     clearCurrent();
     getCourse(props.match.params.id);
-    checkAdded();
+    // if(course){
+    //    checkAdded(course.id);
+    // checkStar(parseInt(localStorage.getItem('user_id')), course.id);
+    //   console.log(course)
+    // }
+  
     //eslint-disable-next-line
   }, []);
 
@@ -46,27 +56,68 @@ const Course = (props) => {
   };
 
   const onRemoveHandler = () => {
-      removeFavorite(course.id);
-      alert.setAlert("Course removed from favorites", "success");
+    removeFavorite(course.id);
+    alert.setAlert("Course removed from favorites", "warining");
+  };
+
+  const onAddStar = () => {
+    addStar(parseInt(localStorage.getItem('user_id')), course.id);
+    alert.setAlert("You starred this Course", "success");
+  }
+
+  const onRemoveStar = () => {
+    removeStar(parseInt(localStorage.getItem('user_id')), course.id)
+    alert.setAlert("You Unstarred this Course", "warning");
   }
 
   return (
     <div>
       {author !== null && !loading ? (
         <div className="container mt-4">
-          <h3>{course.title} </h3>
-          {course.user_id !== parseInt(user_id) &&
-            (!added ? (
+          <div className="row">
+            <div className="col-xs-8 col-sm-9 col-md-8">
+            <h5>{course.title} </h5>
+            </div>
+
+            <div className="col-xs-4 col-sm-4 col-md-4">
+            {course.user_id !== parseInt(user_id) &&
+            <ul style={{display:"flex"}}>
+              <li  style={{listStyleType:"none"}}>
+              {!added ? (
               <button className="btn btn-primary" onClick={onAddhandler}>
                 Add to Favorites
               </button>
             ) : (
-              <button className="btn btn-danger" onClick={onRemoveHandler}>Remove from favorites</button>
-            ))}
+              <button className="btn btn-danger" onClick={onRemoveHandler}>
+                Remove from favorites
+              </button>
+            )}
+              </li>
+              
+              {starred ?  <li style={{listStyleType:"none", marginLeft:"5rem"}}>
+                <i className="fa fa-star" onClick={onRemoveStar} title="Unstar this course" style={{color:"black", fontSize:"2rem"}}></i>
+              </li> :  <li style={{listStyleType:"none", marginLeft:"5rem"}}>
+                <i className="fa fa-star" onClick={onAddStar} title="star this course" style={{color:"yellow", fontSize:"2rem"}}></i>
+              </li> }
+             
+              
+            </ul>
+           }
+            </div>
+          </div>
+         
+         
 
-          <div className="mt-3">
-            
-             <iframe
+          <div className="mt-3" style={{ height: "30rem", width: "100%", border:"none" }}>
+            <ReactPlayer
+              // url={course.video_url}
+              height="100%"
+              width="100%"
+              playing={false}
+              controls={true}
+              border="false"
+            />
+            {/* <iframe
                title={course.title}
                width="100%"
                height="400"
@@ -75,7 +126,7 @@ const Course = (props) => {
                allowFullScreen
                type="video/mp4"
                src={course.video_url}
-             ></iframe>
+             ></iframe> */}
           </div>
           <div className="row  mt-4">
             <div className="col-xs-12 col-sm-12 col-md-6">
