@@ -8,7 +8,7 @@ const Alert = () => {
     return (
         alert != null && (
             <div className = {`alert alert-${alert.type}`} style = {{ textAlign:'center' }}>
-            <h4>{alert.msg}</h4>
+            <h6>{alert.msg}</h6>
          </div>
         )
        

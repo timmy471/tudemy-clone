@@ -1,5 +1,7 @@
 import React, { useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 import ReactPlayer from "react-player";
+
 import CourseContext from "../../context/course/courseContext";
 import AlertContext from "../../context/alert/alertContext";
 import Spinner from "../layouts/Spinner";
@@ -15,23 +17,17 @@ const Course = (props) => {
     author,
     addFavorite,
     added,
-    checkAdded,
     clearCurrent,
     removeFavorite,
     addStar,
     removeStar,
+    starCount,
     starred,
   } = courseContext;
 
   useEffect(() => {
     clearCurrent();
     getCourse(props.match.params.id);
-    // if(course){
-    //    checkAdded(course.id);
-    // checkStar(parseInt(localStorage.getItem('user_id')), course.id);
-    //   console.log(course)
-    // }
-
     //eslint-disable-next-line
   }, []);
 
@@ -57,7 +53,7 @@ const Course = (props) => {
 
   const onRemoveHandler = () => {
     removeFavorite(course.id);
-    alert.setAlert("Course removed from favorites", "warining");
+    alert.setAlert("Course removed from favorites", "warning");
   };
 
   const onAddStar = () => {
@@ -99,9 +95,8 @@ const Course = (props) => {
                       </button>
                     )}
                   </li>
-
                   {starred ? (
-                    <li style={{ listStyleType: "none", marginLeft: "5rem" }}>
+                    <li style={listStyle}>
                       <i
                         className="fa fa-star"
                         onClick={onRemoveStar}
@@ -110,7 +105,7 @@ const Course = (props) => {
                       ></i>
                     </li>
                   ) : (
-                    <li style={{ listStyleType: "none", marginLeft: "5rem" }}>
+                    <li style={listStyle}>
                       <i
                         className="fa fa-star"
                         onClick={onAddStar}
@@ -118,18 +113,16 @@ const Course = (props) => {
                         style={{ color: "black", fontSize: "2rem" }}
                       ></i>
                     </li>
-                  )}
+                  )}{" "}
+                  &nbsp; <span style={{ fontSize: "1.2rem" }}>{starCount}</span>
                 </ul>
               )}
             </div>
           </div>
 
-          <div
-            className="mt-3"
-            style={{ height: "30rem", width: "100%", border: "none" }}
-          >
+          <div className="mt-3" style={detailsStyle}>
             <ReactPlayer
-              // url={course.video_url}
+              url={course.video_url}
               height="100%"
               width="100%"
               playing={false}
@@ -183,8 +176,31 @@ const Course = (props) => {
     </div>
   );
 };
-// const imgStyle={
 
-// }
+Course.propTypes = {
+  course: PropTypes.object,
+  loading: PropTypes.bool,
+  author: PropTypes.object,
+  addFavorite: PropTypes.func,
+  added: PropTypes.bool,
+  clearCurrent: PropTypes.func,
+  removeFavorite: PropTypes.func,
+  addStar: PropTypes.func,
+  removeStar: PropTypes.func,
+  starCount: PropTypes.number,
+  starred: PropTypes.bool,
+  setAlert: PropTypes.func,
+};
+
+const listStyle = {
+  listStyleType: "none",
+  marginLeft: "5rem",
+};
+
+const detailsStyle = {
+  height: "30rem",
+  width: "100%",
+  border: "none",
+};
 
 export default Course;

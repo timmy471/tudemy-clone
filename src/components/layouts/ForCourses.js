@@ -1,14 +1,14 @@
-import React from 'react'
-import CourseItem from './CourseItem';
+import React from "react";
+import PropTypes from "prop-types";
 
-const ForCourses = ({courses}) => {
-    return (
-        <div className='container'>
-        <div className='container'>
-     
-     <div className=" row">
-      
-       {/* {authors.map((author, index) => {
+import CourseItem from "./CourseItem";
+
+const ForCourses = ({ courses }) => {
+  return (
+    <div className="container">
+      <div className="container">
+        <div className=" row">
+          {/* {authors.map((author, index) => {
         const course = courses[index];
         return (
            
@@ -19,23 +19,21 @@ const ForCourses = ({courses}) => {
           </div>
         );
       })} */}
-      {
-        courses.map(course=> {
-          return (
-           
-            <div className="col-xs-12 col-sm-12 col-md-3"  key={course.id}>
-             
-              <CourseItem course={course}  />
-              
-            </div>
-          );
-        })
-      }
+          {courses.map((course) => {
+            return (
+              <div className="col-xs-12 col-sm-12 col-md-3" key={course.id}>
+                <CourseItem course={course} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
-      
-    </div>
-    </div>
-    )
-}
+  );
+};
 
-export default ForCourses
+ForCourses.propTypes = {
+  courses: PropTypes.array
+};
+
+export default ForCourses;

@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "json-server": "json-server --watch db.json --port 4000",
+    "json-server": "json-server --watch db.json --port 8000",
     "dev": "concurrently \"npm start\" \"npm run json-server\"",
     "deploy": "serve -s build",
     "test": "react-scripts test",

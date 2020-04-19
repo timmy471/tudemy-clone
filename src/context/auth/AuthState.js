@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import axios from "axios";
-import AuthReducer from "./authReducer";
+import AuthReducer from "./authReducerr";
 import AuthContext from "./authContext";
 
 
@@ -42,7 +42,7 @@ const AuthState = (props) => {
       });
 
       const res = await axios.get(
-        `http://localhost:4000/users?email=${user.email}`
+        `http://localhost:8000/users?email=${user.email}`
       );
 
        
@@ -76,7 +76,7 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.post("http://localhost:4000/users", user, {
+      const res = await axios.post("http://localhost:8000/users", user, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -114,7 +114,7 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.get(`http://localhost:4000/users/${id}`);
+      const res = await axios.get(`http://localhost:8000/users/${id}`);
 
       dispatch({
         type: LOAD_USER,
@@ -142,7 +142,7 @@ const AuthState = (props) => {
       // if(imgRes.status = 200){
 
       const id = localStorage.getItem("user_id");
-      const getUser = await axios.get(`http://localhost:4000/users/${id}`);
+      const getUser = await axios.get(`http://localhost:8000/users/${id}`);
       
       const { googleId, email, first_name, last_name } = getUser.data;
       const updUser = {
@@ -155,7 +155,7 @@ const AuthState = (props) => {
 
  
       const updAct = await axios.put(
-        `http://localhost:4000/users/${id}`,
+        `http://localhost:8000/users/${id}`,
         updUser,
         {
           headers: {
@@ -190,7 +190,7 @@ const AuthState = (props) => {
   //             type:SET_LOADING
   //         })
 
-  //         const res = await axios.get(`http://localhost:4000/users?q=${email}` )
+  //         const res = await axios.get(`http://localhost:8000/users?q=${email}` )
 
   //         console.log(res);
   //         if(res!==''){

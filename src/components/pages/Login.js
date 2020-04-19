@@ -5,7 +5,7 @@ import { GoogleLogin, GoogleLogout } from "react-google-login";
 import AuthContext from "../../context/auth/authContext";
 
 
-const Login = (props) => {
+const Login = () => {
   const authContext = useContext(AuthContext);
 
   const { checkUser, isAuthenticated, logOut } = authContext;
@@ -36,9 +36,9 @@ const Login = (props) => {
           style={{ backgroundColor: " rgba(91, 83, 83, 0.3)" }}
         >
           <div className="modal-header">
-              <span type="button"
-              data-dismiss="modal">
-           <GoogleLogin
+              {/* <span type="button"
+              data-dismiss="modal"> */}
+           {/* <GoogleLogin
              clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
              buttonText="Login"
              onSuccess={responseGoogle}
@@ -46,17 +46,19 @@ const Login = (props) => {
              
              cookiePolicy={"single_host_origin"}
              
-           />
-           </span>
-            {/* {isAuthenticated ? (
-              <span className="dropdown-item" >
+           /> */}
+           {/* </span> */}
+            {isAuthenticated ? (
+                <span type="button"
+              data-dismiss="modal">
               <GoogleLogout
                 clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
                 buttonText="Logout"
                 onLogoutSuccess={logOut}
                 
               ></GoogleLogout>
-            </span>
+              </span>
+          
             ):(
               <span type="button"
               data-dismiss="modal">
@@ -70,7 +72,7 @@ const Login = (props) => {
              
            />
            </span>
-            )} */}
+            )}
            
             ,
             <button

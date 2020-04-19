@@ -3,13 +3,14 @@ import Jumbotron from "../layouts/Jumbotron";
 import Spinner from "../layouts/Spinner";
 import ForCourses from '../layouts/ForCourses';
 import Login from "./Login";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/course/courseContext";
 
 
-const Home = (props) => {
+const Home = () => {
 
   
   const authContext = useContext(AuthContext);
@@ -23,8 +24,9 @@ const Home = (props) => {
     const user_id = localStorage.getItem("user_id");
     if (user_id) {
       loadUser(localStorage.getItem("user_id"));
+      authUser();
     }
-    authUser();
+    
     getLatest();
     clearCurrent();
     //eslint-disable-next-line
@@ -41,7 +43,7 @@ const Home = (props) => {
         <h2 className="text-center">Recent Courses</h2>
        <ForCourses courses={latest} />
         <div className="text-center">
-        <Link to="/courses" style={{textDecoration:"none", color:"white"}} ><button style={btnStyle}>View All</button></Link>
+        <Link to="/courses" style={linkStyle} ><button style={btnStyle}>View All</button></Link>
       </div>
       </div>)}
       </div>
@@ -56,9 +58,23 @@ const btnStyle={
   backgroundColor: "#f01662",
   padding:"1rem 6rem",
   border:"none",
-  color:"white",
-  
-  
+  color:"white", 
 }
+
+const linkStyle={
+  textDecoration:"none", 
+  color:"white"
+
+}
+
+
+  Home.propTypes={
+    latest:PropTypes.array,
+    getLatest:PropTypes.func,
+    loading:PropTypes.bool,
+    clearCurrent:PropTypes.func,
+    loaduser:PropTypes.func,
+    authUser:PropTypes.func,
+  }
 
 export default Home;

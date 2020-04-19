@@ -8,8 +8,10 @@ import {
   GET_AUTHOR,
   DELETE_FAVORITE,
   SET_ADDED,
+  UNSET_ADDED,
   STAR_SUCCESS,
   STAR_FAIL,
+  SET_STAR_COUNT,
   DELETE_COURSE,
   GET_USER_COURSES,
   GET_FAVORITES,
@@ -67,6 +69,12 @@ const courseReducer = (state, action) => {
         added: false,
       }
 
+      case UNSET_ADDED:
+        return{
+          ...state,
+          added: false,
+        }
+
     case SET_AUTHOR:
       return {
         ...state,
@@ -105,13 +113,22 @@ const courseReducer = (state, action) => {
     case STAR_SUCCESS:
       return {
         ...state,
-        starred: true
+        starred: true,
+        loading: false,
       }
 
     case STAR_FAIL:
       return {
         ...state,
-        starred:false
+        starred:false,
+        loading: false
+      }
+
+    case SET_STAR_COUNT:
+      return {
+        ...state,
+        starCount: action.payload,
+        loading:false
       }
       
     case UNSET_LOADING:
@@ -160,6 +177,7 @@ const courseReducer = (state, action) => {
       };
 
     case DELETE_COURSE:
+      console.log(action.payload)
       return {
         ...state,
         userCourses: state.userCourses.filter(

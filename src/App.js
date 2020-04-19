@@ -9,6 +9,7 @@ import Dashboard from "./components/pages/Dashboard";
 import NotFound from "./components/pages/NotFound";
 import AddCourse from "./components/pages/AddCourse";
 import AllCourses from "./components/pages/AllCourses";
+import Login from "./components/pages/Login";
 import Course from "./components/pages/Course";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
@@ -26,13 +27,14 @@ function App() {
           <Router>
             <div className="App">
               <Navbar />
+              <Login />
               <>
                 <Alert />
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <PrivateRoute exact path="/dashboard" component={Dashboard} />
                   <PrivateRoute exact path="/addcourse" component={AddCourse} />
-                  <Route exact path="/courses" component={AllCourses} />
+                  <PrivateRoute exact path="/courses" component={AllCourses} />
 
                   <PrivateRoute exact path="/course/:id" component={Course} />
                   <Route component={NotFound} />
@@ -48,3 +50,29 @@ function App() {
 }
 
 export default App;
+
+// import React from "react";
+
+// import Parent from "./components/pages/Parent";
+
+// import AuthState from "./context/auth/AuthState";
+// import AlertState from "./context/alert/AlertState";
+// import CourseState from "./context/course/CourseState";
+
+// import "./App.css";
+
+// const App = () => {
+//   return (
+//     <AuthState>
+//       <AlertState>
+//         <CourseState>
+//           <div>
+//             <Parent />
+//           </div>
+//         </CourseState>
+//       </AlertState>
+//     </AuthState>
+//   );
+// };
+
+// export default App;

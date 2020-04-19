@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import AuthContext from "../../context/auth/authContext";
 import AlertContext from "../../context/alert/alertContext";
 import DashboardCourses from "../layouts/DashboardCourses";
@@ -9,23 +10,27 @@ import CourseContext from "../../context/course/courseContext";
 import Spinner from "../layouts/Spinner";
 import FileSpinner from "../layouts/FileSpinner";
 
-
 const Dashboard = () => {
   const authContext = useContext(AuthContext);
   const alertContext = useContext(AlertContext);
   const courseContext = useContext(CourseContext);
 
-  const { isLoggedOut, loadUser, loading, user, setProfileImage, fLoading } = authContext;
-  const { userCourses, getUserCourses, userFavorites, getUserFaves, clearCurrent } = courseContext;
+  const { loading, user, setProfileImage, fLoading } = authContext;
+  const {
+    userCourses,
+    getUserCourses,
+    userFavorites,
+    getUserFaves,
+    clearCurrent,
+  } = courseContext;
 
   const [image, setImage] = useState(null);
 
   useEffect(() => {
     const id = localStorage.getItem("user_id");
-    loadUser(id);
     getUserCourses(id);
     getUserFaves(id);
-    clearCurrent()
+    clearCurrent();
     //eslint-disable-next-line
   }, []);
 
@@ -49,19 +54,19 @@ const Dashboard = () => {
       {!loading && user !== null ? (
         <div className="container">
           <div className="container">
-            <div
-              className="row text-center mt-4"
-              style={{ backgroundColor: "white", padding: "2rem" }}
-            >
+            <div className="row text-center mt-4" style={headerStyle}>
               <div className="col-xs-12 col-sm-12 col-md-3">
-                <span>{
-                  fLoading ? <FileSpinner /> : <img
-                  src={user.image_url}
-                  height="80%"
-                  width="80%"
-                  alt="profile"
-                />}
-                  
+                <span>
+                  {fLoading ? (
+                    <FileSpinner />
+                  ) : (
+                    <img
+                      src={user.image_url}
+                      height="80%"
+                      width="80%"
+                      alt="profile"
+                    />
+                  )}
                 </span>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-3">
@@ -97,38 +102,41 @@ const Dashboard = () => {
           <div className="row  mt-4">
             <div className="col-xs-12 col-sm-12 col-md-6">
               <div className="text-center">
-              <h2>My Courses</h2>
+                <h4>My Courses</h4>
               </div>
-              
-              {userCourses.length > 0 ? (
-                <DashboardCourses courses={userCourses} />
-              ) : (
-                <div>
-                  <h6 className='mt-4'>You have no courses created yet</h6> <br />{" "}
+
+              {loading ? <Spinner /> : (
+                userCourses.length > 0 ? <DashboardCourses courses={userCourses} /> : (
+                  <div>
+                  <h6 className="mt-4">You have no courses created yet</h6>{" "}
+                  <br />{" "}
                   <Link to="/addcourse" className="btn btn-info">
                     {" "}
                     Add Course
                   </Link>
                 </div>
+                )
               )}
+             
             </div>
 
             <div className="col-xs-12 col-sm-12 col-md-6">
-            <div className="text-center">
-              <h2>My Favorites</h2>
+              <div className="text-center">
+                <h4>My Favorites</h4>
               </div>
-              
-              {userFavorites.length > 0 ? (
-                <DashboardCourses courses={userFavorites} />
-              ) : (
-                <div className='mt-4'>
-                  <h6>You have not favorited any course </h6> <br />{" "}
-                  <Link to="/courses" className="btn btn-info">
+              {loading ? <Spinner /> : (
+                DashboardCourses.length > 0 ? <DashboardCourses courses={userFavorites} /> : (
+                  <div>
+                  <h6 className="mt-4">You have no courses created yet</h6>{" "}
+                  <br />{" "}
+                  <Link to="/addcourse" className="btn btn-info">
                     {" "}
-                    View Courses
+                    Add Course
                   </Link>
                 </div>
+                )
               )}
+            
             </div>
           </div>
         </div>
@@ -137,12 +145,23 @@ const Dashboard = () => {
       )}
     </>
   );
-  //   {{display:"flex", marginTop:"2rem", backgroundColor:"white", width:"auto", padding:"2rem"}}
 };
 
-const imgStyle = {
-  height: "20%",
-  width: "20%",
+Dashboard.propTypes = {
+  loading: PropTypes.bool,
+  user: PropTypes.object,
+  setProfileImage: PropTypes.func,
+  fLoading: PropTypes.bool,
+  userCourses: PropTypes.array,
+  userFavorites: PropTypes.array,
+  getUserCourses: PropTypes.func,
+  clearCurrent: PropTypes.func,
+  setAlert: PropTypes.func,
+};
+
+const headerStyle = {
+  backgroundColor: "white",
+  padding: "2rem 2rem 0 2rem",
 };
 
 export default Dashboard;

@@ -92,17 +92,6 @@
       "id": 11
     },
     {
-      "user_id": 2,
-      "title": "In this life",
-      "category": "Finance And Accounting",
-      "learnt": "The reset() method resets the values of all elements in a form (same as clicking the Reset button).\n\nTip: Use the submit() method to submit the form.",
-      "required": "The reset() method resets the values of all elements in a form (same as clicking the Reset button).\n\nTip: Use the submit() method to submit the form.",
-      "video_url": "https://i.imgur.com/rfkDd1N.mp4",
-      "pic_url": "https://i.imgur.com/bCVHwny.jpg",
-      "date": 1587132934674,
-      "id": 12
-    },
-    {
       "user_id": 1,
       "title": "Brads lawanson",
       "category": "Finance And Accounting",
@@ -116,32 +105,6 @@
   ],
   "favorites": [
     {
-      "course_id": 2,
-      "user_id": 3,
-      "user_fave_id": 2,
-      "title": "The complete guide to becomming a react developer",
-      "category": "Artistry",
-      "learnt": "Everything you desire in this life",
-      "required": "Dare to become greater",
-      "video_url": "UX36flnDv-0",
-      "pic_url": "https://i.imgur.com/sGmUkpD.jpg",
-      "date": "1586803520553",
-      "id": 1
-    },
-    {
-      "course_id": 2,
-      "user_id": 3,
-      "user_fave_id": 2,
-      "title": "The complete guide to becomming a react developer",
-      "category": "Artistry",
-      "learnt": "Everything you desire in this life",
-      "required": "Dare to become greater",
-      "video_url": "UX36flnDv-0",
-      "pic_url": "https://i.imgur.com/sGmUkpD.jpg",
-      "date": "1586803520553",
-      "id": 2
-    },
-    {
       "course_id": 11,
       "user_id": 2,
       "user_fave_id": 1,
@@ -152,13 +115,28 @@
       "video_url": "https://i.imgur.com/Fb87RXr.mp4",
       "pic_url": "https://i.imgur.com/HFnrNXW.jpg",
       "id": 3
+    },
+    {
+      "course_id": 13,
+      "user_id": 1,
+      "user_fave_id": 2,
+      "title": "Brads lawanson",
+      "category": "Finance And Accounting",
+      "learnt": "Const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)",
+      "required": "Const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)",
+      "video_url": "https://i.imgur.com/S5oERIo.mp4",
+      "pic_url": "https://i.imgur.com/HnPFHGs.jpg",
+      "date": 1587205104886,
+      "id": 4
     }
   ],
   "stars": [
     {
-      "id": 2,
       "course_id": 3,
-      "users": []
+      "users": [
+        1
+      ],
+      "id": 2
     },
     {
       "course_id": 21,
@@ -166,14 +144,16 @@
       "id": 3
     },
     {
-      "course_id": 14,
-      "users": [],
-      "id": 5
+      "course_id": 13,
+      "users": [
+        2
+      ],
+      "id": 6
     },
     {
-      "course_id": 13,
+      "course_id": 14,
       "users": [],
-      "id": 6
+      "id": 7
     }
   ]
 }

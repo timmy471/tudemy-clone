@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import UserCourseItem from './UserCourseItem';
 
 const DashboardCourses = ({courses}) => {
@@ -25,6 +27,10 @@ const DashboardCourses = ({courses}) => {
     </div>
     </div>
     )
+}
+
+DashboardCourses.propTypes = {
+  courses: PropTypes.array,
 }
 
 export default DashboardCourses

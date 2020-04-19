@@ -8,11 +8,15 @@ const Jumbotron = () => {
       <div className="container-fluid">
         <div className="textbox">
             <h2>Let's learn And Grow Together!</h2>
-            <Link to="/courses" style={{textDecoration:"none", color:"white"}} ><button>Get Started</button></Link>
+            <Link to="/courses" style={linkStyle} ><button>Get Started</button></Link>
         </div>
       </div>
     </div>
   );
 };
 
+const linkStyle = {
+  textDecoration: "none",
+  color: "white"
+}
 export default Jumbotron;
