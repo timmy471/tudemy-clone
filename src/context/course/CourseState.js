@@ -197,7 +197,7 @@ const CourseState = (props) => {
       });
       const limit = 8;
       const res = await axios.get(
-        `https://tudemy-clone.herokuapp.com/courses?_page=${page}&_limit=${limit}`
+        `http://localhost:8000/courses?_page=${page}&_limit=${limit}`
       );
       dispatch({
         type: SET_PAGE,
@@ -331,7 +331,7 @@ const CourseState = (props) => {
         type: SET_LOADING,
       });
       const res = await axios.get(
-        "https://cors-anywhere.herokuapp.com/http://tudemy-clone.herokuapp.com/courses?_sort=date&_order=desc&_limit=4"
+        `http://tudemy-be.herokuapp.com/favorites?_sort=date&_order=desc&_limit=4`
       );
 
       dispatch({
