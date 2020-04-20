@@ -331,7 +331,7 @@ const CourseState = (props) => {
         type: SET_LOADING,
       });
       const res = await axios.get(
-        `http://localhost:8000/courses?_sort=date&_order=desc&_limit=4`
+        `https://tudemy-clone.herokuapp.com/courses?_sort=date&_order=desc&_limit=4`
       );
 
       dispatch({
