@@ -40,7 +40,7 @@ const CourseState = (props) => {
     current: null,
     added: false,
     starred: false,
-    starCount: null,
+    starCount: 0,
     courseCount: null,
     latest: [],
     error: null,

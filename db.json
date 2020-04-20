@@ -15,107 +15,33 @@
       "last_name": "Carter",
       "image_url": "https://i.imgur.com/tEXkzjb.jpg",
       "id": 2
-    },
-    {
-      "googleId": "106688039375075123879",
-      "email": "karriecarter49@gmail.com",
-      "first_name": "Karrie",
-      "last_name": "Carter",
-      "image_url": "https://i.imgur.com/CCZYSXF.jpg",
-      "id": 3
     }
   ],
   "courses": [
     {
-      "id": 2,
-      "user_id": 3,
-      "title": "The complete guide to becomming a react developer",
-      "category": "Artistry",
-      "learnt": "Everything you desire in this life",
-      "required": "Dare to become greater",
-      "video_url": "UX36flnDv-0",
-      "pic_url": "https://i.imgur.com/sGmUkpD.jpg",
-      "date": "1586803520553"
-    },
-    {
-      "id": 3,
-      "user_id": 3,
-      "title": "How to get going with development",
-      "category": "Promotion",
-      "learnt": "Yo will never regret",
-      "required": "Dare to become greater",
-      "video_url": "tJWRuSx-RYs",
-      "pic_url": "https://i.imgur.com/0LfZ3Qs.jpg",
-      "date": "1586803530553"
-    },
-    {
-      "id": 7,
       "user_id": 2,
-      "title": "Inherernt paining mode",
+      "title": "Build Responsive Real World Websites with HTML5 and CSS3",
       "category": "Development",
-      "learnt": "From tetiary to secondary",
-      "required": "And it was done",
-      "video_url": "tJWRuSx-RYs",
-      "pic_url": "https://i.imgur.com/1kQgY0J.jpg",
-      "date": "1586803570553"
-    },
-    {
-      "id": 9,
-      "user_id": 3,
-      "title": "How to get going with development",
-      "category": "Promotion",
-      "learnt": "Yo will never regret",
-      "required": "Dare to become greater",
-      "video_url": "tJWRuSx-RYs",
-      "pic_url": "https://i.imgur.com/0LfZ3Qs.jpg",
-      "date": "1586803590553"
-    },
-    {
-      "id": 10,
-      "user_id": 3,
-      "title": "How to get going with development",
-      "category": "Promotion",
-      "learnt": "everything you desire in this life",
-      "required": "For i already told you",
-      "video_url": "tJWRuSx-RYs",
-      "pic_url": "https://i.imgur.com/1kQgY0J.jpg",
-      "date": "15868035100553"
+      "learnt": "Real-world skills to build real-world websites: professional, beautiful and truly responsive websites\nA huge project that will teach you everything you need to know to get started with HTML5 and CSS3\nThe proven 7 real-world steps from complete scratch to a fully functional and optimized website\nSimple-to-use web design guidelines and tips to make your website stand out from the crowd\nLearn super cool jQuery effects like animations, scroll effects and \"sticky\" navigation",
+      "required": "No coding or design experience necessary\nAny computer will do — Windows, OSX or Linux\nYou don’t need to buy any software — we will use the best free web development editor in the world",
+      "video_url": "https://i.imgur.com/CfHYoRZ.mp4",
+      "pic_url": "https://i.imgur.com/Bs519Gv.jpg",
+      "date": 1587307712401,
+      "id": 1
     },
     {
       "user_id": 2,
-      "title": "It is well",
+      "title": "Another test",
       "category": "IT and Software",
-      "learnt": "When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.",
-      "required": "When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.",
-      "video_url": "https://i.imgur.com/Fb87RXr.mp4",
-      "pic_url": "https://i.imgur.com/HFnrNXW.jpg",
-      "id": 11
-    },
-    {
-      "user_id": 1,
-      "title": "Brads lawanson",
-      "category": "Finance And Accounting",
-      "learnt": "Const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)",
-      "required": "Const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)",
-      "video_url": "https://i.imgur.com/S5oERIo.mp4",
-      "pic_url": "https://i.imgur.com/HnPFHGs.jpg",
-      "date": 1587205104886,
-      "id": 13
+      "learnt": "No coding or design experience necessary\nAny computer will do — Windows, OSX or Linux\nYou don’t need to buy any software — we will use the best free web development editor in the world",
+      "required": "No coding or design experience necessary\nAny computer will do — Windows, OSX or Linux\nYou don’t need to buy any software — we will use the best free web development editor in the world",
+      "video_url": "https://i.imgur.com/IIXHlwD.mp4",
+      "pic_url": "https://i.imgur.com/sU5R3TY.jpg",
+      "date": 1587308000149,
+      "id": 2
     }
   ],
   "favorites": [
-    {
-      "course_id": 11,
-      "user_id": 2,
-      "user_fave_id": 1,
-      "title": "It is well",
-      "category": "IT and Software",
-      "learnt": "When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.",
-      "required": "When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.When you go to upload content you may select video content as well as images!\nOnce you've selected your video, you will be taken to a post creation page where you can select whether or not to upload your video with sound, and the exact clip of the video that you want to upload.\nIf you wish for your upload to contain sound you will need to unmute it within post creation.",
-      "video_url": "https://i.imgur.com/Fb87RXr.mp4",
-      "pic_url": "https://i.imgur.com/HFnrNXW.jpg",
-      "id": 3
-    },
     {
       "course_id": 13,
       "user_id": 1,
@@ -154,6 +80,11 @@
       "course_id": 14,
       "users": [],
       "id": 7
+    },
+    {
+      "course_id": 2,
+      "users": [],
+      "id": 8
     }
   ]
 }

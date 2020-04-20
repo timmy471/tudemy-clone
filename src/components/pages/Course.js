@@ -76,7 +76,7 @@ const Course = (props) => {
             </div>
 
             <div className="col-xs-4 col-sm-4 col-md-4">
-              {course.user_id !== parseInt(user_id) && (
+              {course.user_id !== parseInt(user_id) ? (
                 <ul style={{ display: "flex" }}>
                   <li style={{ listStyleType: "none" }}>
                     {!added ? (
@@ -110,12 +110,21 @@ const Course = (props) => {
                         className="fa fa-star"
                         onClick={onAddStar}
                         title="star this course"
-                        style={{ color: "black", fontSize: "2rem" }}
+                        style={starStyle}
                       ></i>
                     </li>
                   )}{" "}
                   &nbsp; <span style={{ fontSize: "1.2rem" }}>{starCount}</span>
                 </ul>
+              ) : (
+                <div>
+                <span> <i
+                className="fa fa-star"
+                title="star counts"
+                style={{ color: "yellow", fontSize: "2rem" }}
+              ></i></span>
+               &nbsp; <span style={{ fontSize: "1.2rem" }}>{starCount}</span>
+               </div>
               )}
             </div>
           </div>
@@ -203,4 +212,8 @@ const detailsStyle = {
   border: "none",
 };
 
+const starStyle={
+  color: "black", 
+  fontSize: "2rem" 
+}
 export default Course;
