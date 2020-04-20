@@ -197,7 +197,7 @@ const CourseState = (props) => {
       });
       const limit = 8;
       const res = await axios.get(
-        `http://tudemy-clone.herokuapp.com/courses?_page=${page}&_limit=${limit}`
+        `https://tudemy-clone.herokuapp.com/courses?_page=${page}&_limit=${limit}`
       );
       dispatch({
         type: SET_PAGE,
