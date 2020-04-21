@@ -7,14 +7,23 @@ const Alert = () => {
   const { alert } = alertContext;
   return (
     alert != null && (
-      <div
+      <div style={divStyle}>
+         <div
         className={`alert alert-${alert.type}`}
-        style={{ textAlign: "center" }}
+        style={{ textAlign: "center"}}
       >
         <h6>{alert.msg}</h6>
       </div>
+      </div>
+     
     )
   );
+};
+
+const divStyle = {
+  width: "60%",
+  margin: "0 auto",
+  marginTop: "1rem",
 };
 
 export default Alert;

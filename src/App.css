@@ -11,7 +11,7 @@ nav, .footer{
 nav ul {
   float: right;
   display: flex;
-  margin: 1rem 6rem 1rem 0;
+  margin: 1rem 4rem 1rem 0;
   /* position: relative; */
   bottom: 4rem;
   /* /* padding: 0.5rem 0; */
@@ -32,13 +32,14 @@ nav ul li{
 }
 
 .jumbotron {
-  height:32rem;
+  height:38rem;
   background:url("./images/teach7.jpg") no-repeat;
-  /* background-position: center center; */
-  background-color: rgba(0, 0, 0, 0.828); 
+  background-position: center center;
+  /* background-color: rgba(0, 0, 0, 0.828);  */
   background-size: 100% 100%;
 
-}
+ } 
+
 
 .textbox{
   background-color: rgba(91, 83, 83, 0.3);

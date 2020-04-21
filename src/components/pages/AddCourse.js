@@ -95,6 +95,8 @@ const AddCourse = () => {
     e.target.reset();
   };
 
+  const formTitle = current !==null ? "Edit Course" : "Add Course";
+
   // if (!isAuthenticated) {
   //   setAlert("Please login to teach on Tudemy", "danger");
   //   return <Redirect to="/" />;
@@ -102,7 +104,7 @@ const AddCourse = () => {
   return (
     <div className="container">
       <div className="add-course " style={layoutStyle}>
-        <h2 className="text-center">Add Course</h2>
+        <h2 className="text-center">{formTitle}</h2>
         <form encType="multipart/form-data" onSubmit={onSubmit}>
           <div className="row" style={{ marginBottom: "2.5rem" }}>
             <div className="col-xm-12 col-sm-12 col-md-6">
