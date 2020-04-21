@@ -8,7 +8,7 @@ const CourseItem = ({ course }) => {
 
   return (
     <div>
-      <div className="card mt-4 mb-2" style={{ width: "95%", boxShadow:"-1px 2px 20px 0px #ddd" }}>
+      <div className="card mt-4 mb-2" style={{ width: "95%", boxShadow:"20px 2px 20px 0px #ddd" }}>
         <img
           src={pic_url}
           height="150"

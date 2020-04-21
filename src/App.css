@@ -11,7 +11,7 @@ nav, .footer{
 nav ul {
   float: right;
   display: flex;
-  margin: 1rem 4rem 1rem 0;
+  margin: 1.2rem 4rem 1rem 0;
   /* position: relative; */
   bottom: 4rem;
   /* /* padding: 0.5rem 0; */
@@ -21,7 +21,7 @@ nav ul li{
  
   list-style-type:none;
   margin-right: 1rem;
-  padding-top:0.5rem;
+  /* padding-top:0.5rem; */
   color:white;
 }
 
