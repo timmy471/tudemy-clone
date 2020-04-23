@@ -51,7 +51,7 @@ const CourseState = (props) => {
 
   const [state, dispatch] = useReducer(courseReducer, initialState);
   const alert = useContext(AlertContext);
-  const BASEURL ='http://tudemy-be.herokuapp.com';
+  const BASEURL ='https://tudemy-be.herokuapp.com';
 
 
   //add course
