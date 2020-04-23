@@ -90,7 +90,6 @@ const CourseState = (props) => {
       const file = video;
       const fd = new FormData();
       fd.append("file", file);
-      fd.append("api_key", "476777537544187");
 
       fd.append("upload_preset", uploadPreset);
 
@@ -179,11 +178,9 @@ const CourseState = (props) => {
       const fd = new FormData();
       fd.append("file", file);
 
-      fd.append("upload_preset", uploadPreset);
-
       const vidRes = await axios.post(url, fd);
 
-      const video_url = vidRes.data.url;
+      const video_url = vidRes.data.secure_url;
 
       const user_id = parseInt(localStorage.getItem("user_id"));
 
