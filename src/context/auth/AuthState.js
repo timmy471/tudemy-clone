@@ -33,6 +33,7 @@ const AuthState = (props) => {
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
+  const BASEURL ='http://tudemy-be.herokuapp.com/users';
  
 
   const checkUser = async (user, token) => {
@@ -42,7 +43,7 @@ const AuthState = (props) => {
       });
 
       const res = await axios.get(
-        `http://localhost:8000/users?email=${user.email}`
+        `${BASEURL}?email=${user.email}`
       );
 
        
@@ -76,7 +77,7 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.post("http://localhost:8000/users", user, {
+      const res = await axios.post(BASEURL, user, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -114,7 +115,7 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.get(`http://localhost:8000/users/${id}`);
+      const res = await axios.get(BASEURL/id);
 
       dispatch({
         type: LOAD_USER,
@@ -142,7 +143,7 @@ const AuthState = (props) => {
       // if(imgRes.status = 200){
 
       const id = localStorage.getItem("user_id");
-      const getUser = await axios.get(`http://localhost:8000/users/${id}`);
+      const getUser = await axios.get(BASEURL/id);
       
       const { googleId, email, first_name, last_name } = getUser.data;
       const updUser = {
@@ -155,7 +156,7 @@ const AuthState = (props) => {
 
  
       const updAct = await axios.put(
-        `http://localhost:8000/users/${id}`,
+        BASEURL/id,
         updUser,
         {
           headers: {

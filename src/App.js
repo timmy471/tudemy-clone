@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layouts/Navbar";
 import Alert from "./components/layouts/Alert";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import Footer from "./components/layouts/Footer";
+// import Footer from "./components/layouts/Footer";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import NotFound from "./components/pages/NotFound";
@@ -40,7 +41,7 @@ function App() {
                   <Route component={NotFound} />
                 </Switch>
               </>
-              <Footer />
+              {/* <Footer /> */}
             </div>
           </Router>
         </CourseState>

@@ -13,7 +13,7 @@
       "email": "karriecarter97@gmail.com",
       "first_name": "Karrie",
       "last_name": "Carter",
-      "image_url": "https://i.imgur.com/tEXkzjb.jpg",
+      "image_url": "https://i.imgur.com/2hcUTQE.png",
       "id": 2
     }
   ],
@@ -22,69 +22,52 @@
       "user_id": 2,
       "title": "Build Responsive Real World Websites with HTML5 and CSS3",
       "category": "Development",
-      "learnt": "Real-world skills to build real-world websites: professional, beautiful and truly responsive websites\nA huge project that will teach you everything you need to know to get started with HTML5 and CSS3\nThe proven 7 real-world steps from complete scratch to a fully functional and optimized website\nSimple-to-use web design guidelines and tips to make your website stand out from the crowd\nLearn super cool jQuery effects like animations, scroll effects and \"sticky\" navigation",
+      "learnt": "Real-world skills to build real-world websites: professional, beautiful and truly responsive websites\nA huge project that will teach you everything you need to know to get started with HTML5 and CSS3\nThe proven 7 real-world steps from complete scratch to a fully functional and optimized website\nSimple-to-use web design guidelines and tips to make your website stand out from the crowd\nLearn super cool jQuery effects like animations, scroll effects and \"sticky\" navigation\nDownloadable lectures, code and design assets for the entire project\nGet helpful support in the course Q&A\nGet my e-book \"Best Resources for Web Design and Development with HTML5 & CSS3\" for free\n",
       "required": "No coding or design experience necessary\nAny computer will do — Windows, OSX or Linux\nYou don’t need to buy any software — we will use the best free web development editor in the world",
-      "video_url": "https://i.imgur.com/CfHYoRZ.mp4",
-      "pic_url": "https://i.imgur.com/Bs519Gv.jpg",
-      "date": 1587307712401,
+      "video_url": "http://res.cloudinary.com/dflkpux1w/video/upload/v1587644563/ldxzsrnkeg3wnis6rpur.mp4",
+      "pic_url": "https://i.imgur.com/QHpbOVs.jpg",
+      "date": 1587644566436,
       "id": 1
     },
     {
       "user_id": 2,
-      "title": "Another test",
+      "title": "JavaScript - The Complete Guide 2020 (Beginner + Advanced)",
       "category": "IT and Software",
-      "learnt": "No coding or design experience necessary\nAny computer will do — Windows, OSX or Linux\nYou don’t need to buy any software — we will use the best free web development editor in the world",
-      "required": "No coding or design experience necessary\nAny computer will do — Windows, OSX or Linux\nYou don’t need to buy any software — we will use the best free web development editor in the world",
-      "video_url": "https://i.imgur.com/IIXHlwD.mp4",
-      "pic_url": "https://i.imgur.com/sU5R3TY.jpg",
-      "date": 1587308000149,
+      "learnt": "\nJavaScript from scratch - beginner to advanced\nAll core features and concepts you need to know in modern JavaScript development\nEverything you need to become a JavaScript expert and apply for JavaScript jobs\nProject-driven learning with plenty of examples\nAll about variables, functions, objects and arrays\nObject-oriented programming\nDeep dives into prototypes, JavaScript engines & how it works behind the scenes\nManipulating web pages (= the DOM) with JavaScript\nEvent handling, asynchronous coding and Http requests\nMeta-programming, performance optimization, memory leak busting\nTesting, security and deployment\nAnd so much more!\n",
+      "required": "NO prior JavaScript knowledge is required\nBasic web development knowledge is recommended\nBasic understanding of HTML and CSS helps but is NOT required",
+      "video_url": "http://res.cloudinary.com/dflkpux1w/video/upload/v1587644860/qbqgutcogkgoj1ri1jvg.mp4",
+      "pic_url": "https://i.imgur.com/nHiYZkg.jpg",
+      "date": 1587644866422,
       "id": 2
-    }
-  ],
-  "favorites": [
+    },
     {
-      "course_id": 13,
-      "user_id": 1,
-      "user_fave_id": 2,
-      "title": "Brads lawanson",
-      "category": "Finance And Accounting",
-      "learnt": "Const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)",
-      "required": "Const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)const res = axios.get(`http://localhost:4000/courses?id=${id}`)",
-      "video_url": "https://i.imgur.com/S5oERIo.mp4",
-      "pic_url": "https://i.imgur.com/HnPFHGs.jpg",
-      "date": 1587205104886,
-      "id": 4
+      "user_id": 2,
+      "title": "The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert",
+      "category": "IT and Software",
+      "learnt": "No Database, SQL, or MySQL experience needed! Complete beginners to MySQL are welcome.\nAll you need is a working computer for this course; PC, Mac, and Linux users are all welcome.\nNo previous programming language experience required, but it won't hurt :)",
+      "required": "Create your own database or interact with existing databases\nWrite complex SQL queries across multiple tables\nBuild a web app using NodeJS and MySQL\nModel real-world data and generate reports using SQL\nAnswer company performance or sales questions using data",
+      "video_url": "http://res.cloudinary.com/dflkpux1w/video/upload/v1587645660/fzxz1f7dhgrfesvscycn.mp4",
+      "pic_url": "https://i.imgur.com/UZiy9LF.jpg",
+      "date": 1587645661454,
+      "id": 3
     }
   ],
+  "favorites": [],
   "stars": [
     {
-      "course_id": 3,
-      "users": [
-        1
-      ],
-      "id": 2
-    },
-    {
-      "course_id": 21,
+      "course_id": 1,
       "users": [],
-      "id": 3
-    },
-    {
-      "course_id": 13,
-      "users": [
-        2
-      ],
-      "id": 6
-    },
-    {
-      "course_id": 14,
-      "users": [],
-      "id": 7
+      "id": 1
     },
     {
       "course_id": 2,
       "users": [],
-      "id": 8
+      "id": 2
+    },
+    {
+      "course_id": 3,
+      "users": [],
+      "id": 3
     }
   ]
 }

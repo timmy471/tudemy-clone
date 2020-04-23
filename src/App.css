@@ -6,7 +6,9 @@ nav, .footer{
 
 }
 
-
+body{
+  background-color:#f3f3f3ce;
+}
 
 nav ul {
   float: right;

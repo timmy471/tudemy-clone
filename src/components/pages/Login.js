@@ -9,7 +9,7 @@ const Login = () => {
   const authContext = useContext(AuthContext);
 
   const { checkUser, isAuthenticated, logOut } = authContext;
-
+  const clientId = "1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com";
   const responseGoogle = (res) => {
     const { googleId, email, givenName, familyName } = res.profileObj;
 
@@ -52,7 +52,7 @@ const Login = () => {
                 <span type="button"
               data-dismiss="modal">
               <GoogleLogout
-                clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
+                clientId={clientId}
                 buttonText="Logout"
                 onLogoutSuccess={logOut}
                 
@@ -63,7 +63,7 @@ const Login = () => {
               <span type="button"
               data-dismiss="modal">
            <GoogleLogin
-             clientId="1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com"
+             clientId={clientId}
              buttonText="Login"
              onSuccess={responseGoogle}
              onFailure={responseGoogle}

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Jumbotron from "../layouts/Jumbotron";
-import Spinner from "../layouts/Spinner";
+import Spiner from "../layouts/Spinner";
 import ForCourses from "../layouts/ForCourses";
 import Login from "./Login";
 import { Link } from "react-router-dom";
@@ -26,13 +26,13 @@ const Home = () => {
 
     getLatest();
     clearCurrent();
-    //eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   return (
     <div>
       {loading ? (
-        <Spinner />
+        <Spiner />
       ) : (
         <div>
           <Login />

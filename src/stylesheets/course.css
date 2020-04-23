@@ -1,0 +1,130 @@
+
+.list {
+    list-style-type: none;
+    margin-left: 5rem
+  }
+  
+  .wrapper {
+    margin-left:15%;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.wrapper iframe {
+    position: absolute;
+    margin: 0 auto;
+    display:block;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 65%;
+}
+
+  .star{
+    color: #737574; 
+    font-size: 2rem;
+    margin-top:0.5rem
+  }
+  
+  .add{
+    color:#737574;
+    font-size:2rem
+  }
+
+  .body{
+   
+    position:absolute;
+    max-width:1110px;
+    top:90%
+  }
+
+ 
+
+  .details p{
+    font-size:1.2rem;
+}
+  
+  .remove{
+    color:blue;
+    font-size:2rem
+  }
+
+  ul{ display:flex}
+
+  ul li {
+      list-style-type:none;
+  }
+
+  .addStar{
+    color: blue;
+    font-size: 2rem;
+     margin-top:0.5rem
+  }
+
+  .starCount{
+      font-size: 1.2rem;
+       
+  }
+
+  .own{
+    margin-bottom:1rem
+  }
+
+  .ownStarCount{
+      font-size: 1.2rem;
+      margin-bottom:3rem
+  }
+
+  .starlogo{
+     color:yellow;
+    font-size:2rem
+  }
+
+  .author{
+    margin-top:5rem;
+  }
+
+  .author img{ border-radius:50%}
+
+
+
+  
+@media screen and (max-width: 760px) {
+    
+    .wrapper {
+        margin-left:-1%;
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+        overflow:hidden
+    }
+    .wrapper iframe {
+        position: absolute;
+        margin: 0 auto;
+        display:block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 85%;
+    }
+
+    .body{
+        position:absolute;
+        top:50%;
+        max-width:90%;
+      }
+}
+
+@media screen and (max-width:961px){
+     .body{
+   
+        position:absolute;
+        top:50%
+      }
+}
+
+
+
+

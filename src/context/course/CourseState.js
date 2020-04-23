@@ -51,16 +51,19 @@ const CourseState = (props) => {
 
   const [state, dispatch] = useReducer(courseReducer, initialState);
   const alert = useContext(AlertContext);
-
+  const BASEURL ='http://tudemy-be.herokuapp.com';
   //add course
-  const addCourse = async (course, formData) => {
+  const addCourse = async (course) => {
     dispatch({
       type: FILE_LOADING,
     });
 
-    const { title, category, learnt, required, image } = course;
+    const { title, category, learnt, required, image, video } = course;
 
     try {
+      const cloudName = "dflkpux1w";
+      const uploadPreset = "ur1no5q5";
+
       // upload image
       const imgRes = await axios.post("https://api.imgur.com/3/image", image, {
         headers: {
@@ -70,16 +73,28 @@ const CourseState = (props) => {
 
       const pic_url = imgRes.data.data.link;
 
-      const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
-      const url = "https://api.imgur.com/3/upload";
+      //upload Video
 
-      const vidRes = await axios.post(PROXY_URL + url, formData, {
-        headers: {
-          Authorization: "Client-ID bc314740cabd71c",
-        },
-      });
+      // const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
+      // const url = "https://api.imgur.com/3/upload";
 
-      const video_url = vidRes.data.data.link;
+      // const vidRes = await axios.post(PROXY_URL + url, formData, {
+      //   headers: {
+      //     Authorization: "Client-ID bc314740cabd71c",
+      //   },
+      // });
+
+      const url = `https://api.cloudinary.com/v1_1/${cloudName}/video/upload`;
+      const file = video;
+      const fd = new FormData();
+      fd.append("file", file);
+      fd.append("api_key", "476777537544187");
+
+      fd.append("upload_preset", uploadPreset);
+
+      const vidRes = await axios.post(url, fd);
+
+      const video_url = vidRes.data.url;
 
       const user_id = parseInt(localStorage.getItem("user_id"));
 
@@ -95,7 +110,7 @@ const CourseState = (props) => {
       };
 
       const postCourse = await axios.post(
-        "http://localhost:8000/courses",
+        `${BASEURL}/courses`,
         mainCourse,
         {
           headers: {
@@ -109,7 +124,7 @@ const CourseState = (props) => {
         users: [],
       };
 
-      await axios.post("http://localhost:8000/stars", starCourse, {
+      await axios.post(`${BASEURL}/stars`, starCourse, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -117,7 +132,7 @@ const CourseState = (props) => {
       dispatch({
         type: UNSET_FILE_LOADING,
       });
-      alert.setAlert("Course Added Successfully", "success");
+      alert.setAlert("Course Created Successfully", "success");
     } catch (error) {
       alert.setAlert("Course not Added, Please try again", "danger");
       dispatch({
@@ -128,12 +143,12 @@ const CourseState = (props) => {
   };
 
   //update course
-  const updCourse = async (course, formData) => {
+  const updCourse = async course => {
     dispatch({
       type: FILE_LOADING,
     });
 
-    const { title, category, learnt, required, image, date, id } = course;
+    const { title, category, learnt, required, image, date, id, video } = course;
 
     try {
       // upload image
@@ -145,16 +160,29 @@ const CourseState = (props) => {
 
       const pic_url = imgRes.data.data.link;
 
-      const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
-      const url = "https://api.imgur.com/3/upload";
+      //upload video
 
-      const vidRes = await axios.post(PROXY_URL + url, formData, {
-        headers: {
-          Authorization: "Client-ID bc314740cabd71c",
-        },
-      });
+      // const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
+      // const url = "https://api.imgur.com/3/upload";
 
-      const video_url = vidRes.data.data.link;
+      // const vidRes = await axios.post(PROXY_URL + url, formData, {
+      //   headers: {
+      //     Authorization: "Client-ID bc314740cabd71c",
+      //   },
+      // });
+      const cloudName = "dflkpux1w";
+      const uploadPreset = "ur1no5q5";
+      const url = `https://api.cloudinary.com/v1_1/${cloudName}/video/upload`;
+      const file = video;
+      const fd = new FormData();
+      fd.append("file", file);
+      fd.append("api_key", "476777537544187");
+
+      fd.append("upload_preset", uploadPreset);
+
+      const vidRes = await axios.post(url, fd);
+
+      const video_url = vidRes.data.url;
 
       const user_id = parseInt(localStorage.getItem("user_id"));
 
@@ -169,7 +197,7 @@ const CourseState = (props) => {
         date,
       };
 
-      await axios.put(`http://localhost:8000/courses/${id}`, mainCourse, {
+      await axios.put(`${BASEURL}/courses/${id}`, mainCourse, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -197,7 +225,7 @@ const CourseState = (props) => {
       });
       const limit = 8;
       const res = await axios.get(
-        `http://localhost:8000/courses?_page=${page}&_limit=${limit}`
+        `${BASEURL}/courses?_page=${page}&_limit=${limit}`
       );
       dispatch({
         type: SET_PAGE,
@@ -238,7 +266,7 @@ const CourseState = (props) => {
       dispatch({
         type: SET_LOADING,
       });
-      const res = await axios.get(`http://localhost:8000/courses/${id}`);
+      const res = await axios.get(`${BASEURL}/courses/${id}`);
 
       getCourseAuthor(res.data.user_id);
 
@@ -265,7 +293,7 @@ const CourseState = (props) => {
       type: SET_LOADING,
     });
     try {
-      const res = await axios.get(`http://localhost:8000/users/${id}`);
+      const res = await axios.get(`${BASEURL}/users/${id}`);
 
       dispatch({
         type: GET_AUTHOR,
@@ -287,7 +315,7 @@ const CourseState = (props) => {
 
     try {
       const courses = await axios.get(
-        `http://localhost:8000/courses?q=${text}`
+        `${BASEURL}/courses?q=${text}`
       );
       if (courses.data.length < 1) {
         dispatch({
@@ -331,7 +359,7 @@ const CourseState = (props) => {
         type: SET_LOADING,
       });
       const res = await axios.get(
-        `http://tudemy-be.herokuapp.com/favorites?_sort=date&_order=desc&_limit=4`
+        `${BASEURL}/favorites?_sort=date&_order=desc&_limit=4`
       );
 
       dispatch({
@@ -355,7 +383,7 @@ const CourseState = (props) => {
       });
 
       const res = await axios.get(
-        `http://localhost:8000/courses?user_id=${id}`
+        `${BASEURL}/courses?user_id=${id}`
       );
 
       dispatch({
@@ -373,7 +401,7 @@ const CourseState = (props) => {
   //add course to user's favorite
   const addFavorite = async (course) => {
     try {
-      await axios.post("http://localhost:8000/favorites", course);
+      await axios.post(`${BASEURL}/favorites`, course);
       checkAdded(course.course_id);
       dispatch({
         type: ADD_FAVORITE,
@@ -390,10 +418,10 @@ const CourseState = (props) => {
   const removeFavorite = async (id) => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/favorites?course_id=${id}`
+        `${BASEURL}/favorites?course_id=${id}`
       );
 
-      await axios.delete(`http://localhost:8000/favorites/${res.data[0].id}`);
+      await axios.delete(`${BASEURL}/favorites/${res.data[0].id}`);
       checkAdded(id);
       dispatch({
         type: DELETE_FAVORITE,
@@ -410,7 +438,7 @@ const CourseState = (props) => {
   const checkAdded = async (id) => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/favorites?course_id=${id}`
+        `${BASEURL}/favorites?course_id=${id}`
       );
 
       if (res.data.length !== 0) {
@@ -438,7 +466,7 @@ const CourseState = (props) => {
       });
 
       const res = await axios.get(
-        `http://localhost:8000/favorites?user_fave_id=${id}`
+        `${BASEURL}/favorites?user_fave_id=${id}`
       );
 
       dispatch({
@@ -457,7 +485,7 @@ const CourseState = (props) => {
   const addStar = async (user_id, course_id) => {
     try {
       const getCourse = await axios.get(
-        `http://localhost:8000/stars?course_id=${course_id}`
+        `${BASEURL}/stars?course_id=${course_id}`
       );
       const users = getCourse.data[0].users;
       const id = getCourse.data[0].id;
@@ -466,7 +494,7 @@ const CourseState = (props) => {
         users: [...users, user_id],
       };
 
-      await axios.put(`http://localhost:8000/stars/${id}`, updData, {
+      await axios.put(`${BASEURL}/stars/${id}`, updData, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -487,7 +515,7 @@ const CourseState = (props) => {
   const removeStar = async (user_id, course_id) => {
     try {
       const getCourse = await axios.get(
-        `http://localhost:8000/stars?course_id=${course_id}`
+        `${BASEURL}/stars?course_id=${course_id}`
       );
       const users = getCourse.data[0].users;
       const id = getCourse.data[0].id;
@@ -497,7 +525,7 @@ const CourseState = (props) => {
         course_id,
         users: newUsers,
       };
-      await axios.put(`http://localhost:8000/stars/${id}`, updData, {
+      await axios.put(`${BASEURL}/stars/${id}`, updData, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -522,7 +550,7 @@ const CourseState = (props) => {
 
     try {
       const checkUsers = await axios.get(
-        `http://localhost:8000/stars?course_id=${course_id}`
+        `${BASEURL}/stars?course_id=${course_id}`
       );
 
       if (checkUsers.data[0].users.includes(user_id)) {
@@ -548,7 +576,7 @@ const CourseState = (props) => {
     });
     try {
       const checkUsers = await axios.get(
-        `http://localhost:8000/stars?course_id=${course_id}`
+        `${BASEURL}/stars?course_id=${course_id}`
       );
       const stars = checkUsers.data[0].users.length;
       dispatch({
@@ -580,13 +608,13 @@ const CourseState = (props) => {
   //delete course
   const delCourse = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/courses/${id}`);
+      await axios.delete(`${BASEURL}/courses/${id}`);
 
       const res = await axios.get(
-        `http://localhost:8000/stars?course_id=${id}`
+        `${BASEURL}/stars?course_id=${id}`
       );
 
-      await axios.delete(`http://localhost:8000/stars/${res.data[0].id}`);
+      await axios.delete(`${BASEURL}/stars/${res.data[0].id}`);
       dispatch({
         type: DELETE_COURSE,
         payload: id,

@@ -38,7 +38,6 @@ const AddCourse = () => {
 
   const { title, category, required, learnt, video, image } = course;
 
-  const formData = new FormData();
 
   const onChange = (e) => {
     setCourse({ ...course, [e.target.name]: e.target.value });
@@ -78,24 +77,25 @@ const AddCourse = () => {
       id: current && current.id,
     };
 
-    formData.append("video", video);
-    // console.log(formData.has('video'))
+    
     current === null
-      ? addCourse(realCourse, formData)
-      : updCourse(updData, formData);
-    setCourse({
-      title: "",
-      category: "",
-      learnt: "",
-      required: "",
-    });
+      ? addCourse(realCourse)
+      : updCourse(updData);
+
+      {!CourseContext.loading && setCourse({
+        title: "",
+        category: "",
+        learnt: "",
+        required: "",
+      }) }
+  
 
     current && clearCurrent();
 
     e.target.reset();
   };
 
-  const formTitle = current !==null ? "Edit Course" : "Add Course";
+  const formTitle = current !==null ? "Edit Course" : "Create Course";
 
   // if (!isAuthenticated) {
   //   setAlert("Please login to teach on Tudemy", "danger");

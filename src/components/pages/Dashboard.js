@@ -107,7 +107,7 @@ const Dashboard = () => {
 
               {loading ? <Spinner /> : (
                 userCourses.length > 0 ? <DashboardCourses courses={userCourses} /> : (
-                  <div>
+                  <div className='text-center'>
                   <h6 className="mt-4">You have no courses created yet</h6>{" "}
                   <br />{" "}
                   <Link to="/addcourse" className="btn btn-info">
@@ -125,14 +125,11 @@ const Dashboard = () => {
                 <h4>My Favorites</h4>
               </div>
               {loading ? <Spinner /> : (
-                DashboardCourses.length > 0 ? <DashboardCourses courses={userFavorites} /> : (
-                  <div>
-                  <h6 className="mt-4">You have no courses created yet</h6>{" "}
+                userFavorites.length > 0 ? <DashboardCourses courses={userFavorites} /> : (
+                  <div className='text-center'>
+                  <h6 className="mt-4">You have not favorited any course</h6>{" "}
                   <br />{" "}
-                  <Link to="/addcourse" className="btn btn-info">
-                    {" "}
-                    Add Course
-                  </Link>
+                 
                 </div>
                 )
               )}

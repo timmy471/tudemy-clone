@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import ReactPlayer from "react-player";
+import "../../stylesheets/course.css";
 
 import CourseContext from "../../context/course/courseContext";
 import AlertContext from "../../context/alert/alertContext";
@@ -77,106 +77,107 @@ const Course = (props) => {
 
             <div className="col-xs-4 col-sm-4 col-md-4">
               {course.user_id !== parseInt(user_id) ? (
-                <ul style={{ display: "flex" }}>
-                  <li style={{ listStyleType: "none" }}>
+                <ul>
+                  <li>
                     {!added ? (
-                      <button
-                        className="btn btn-primary"
+                      <span
+                        className="add"
                         onClick={onAddhandler}
+                        title="Add to favorites"
                       >
-                        Add to Favorites
-                      </button>
+                        <i className="fa fa-heart"></i>
+                      </span>
                     ) : (
-                      <button
-                        className="btn btn-danger"
+                      <span
+                        className="remove"
                         onClick={onRemoveHandler}
+                        title="Remove from favorites"
                       >
-                        Remove from favorites
-                      </button>
+                        <i className="fa fa-heart"></i>
+                      </span>
                     )}
                   </li>
                   {starred ? (
-                    <li style={listStyle}>
+                    <li className="list">
                       <i
-                        className="fa fa-star"
+                        className="fa fa-star addStar"
                         onClick={onRemoveStar}
                         title="Unstar this course"
-                        style={{ color: "green", fontSize: "2rem" }}
                       ></i>
                     </li>
                   ) : (
-                    <li style={listStyle}>
+                    <li className="list">
                       <i
-                        className="fa fa-star"
+                        className="fa fa-star starLogo"
                         onClick={onAddStar}
                         title="star this course"
-                        style={starStyle}
                       ></i>
                     </li>
                   )}{" "}
-                  &nbsp; <span style={{ fontSize: "1.2rem" }}>{starCount}</span>
+                  &nbsp; <span className="starCount">{starCount}</span>
                 </ul>
               ) : (
-                <div>
-                <span> <i
-                className="fa fa-star"
-                title="star counts"
-                style={{ color: "yellow", fontSize: "2rem" }}
-              ></i></span>
-               &nbsp; <span style={{ fontSize: "1.2rem" }}>{starCount}</span>
-               </div>
+                <div className="own">
+                  <span>
+                    {" "}
+                    <i className="fa fa-star star" title="star counts"></i>
+                  </span>
+                  &nbsp; <span className="ownStarCount">{starCount}</span>
+                </div>
               )}
             </div>
           </div>
 
-          <div className="mt-3" style={detailsStyle}>
-            <ReactPlayer
+          <div className="mt-3 text-center" className="wrapper">
+            {/* <ReactPlayer
               url={course.video_url}
               height="100%"
               width="100%"
               playing={false}
               controls={true}
               border="false"
-            />
-            {/* <iframe
-               title={course.title}
-               width="100%"
-               height="400"
-               frameBorder="0"
-               allow="encrypted-media"
-               allowFullScreen
-               type="video/mp4"
-               src={course.video_url}
-             ></iframe> */}
+            /> */}
+            <iframe
+              title={course.title}
+              height="300px"
+              width="70%"
+              frameBorder="0"
+              allow="encrypted-media"
+              allowFullScreen
+              type="video/mp4"
+              src={course.video_url}
+            ></iframe>
           </div>
-          <div className="row  mt-4">
-            <div className="col-xs-12 col-sm-12 col-md-6">
-              <div className="">
-                <h5>What is required for this course?</h5>
+          <div className="body">
+            <div className="row  mt-4">
+             
+              <div className="col-xs-12 col-sm-12 col-md-6 details">
+                <div className="">
+                  <h5>What will you learn?</h5>
+                </div>
+                <p className={starCount}>{course.learnt}</p>
               </div>
-              <p>{course.required}</p>
-            </div>
 
-            <div className="col-xs-12 col-sm-12 col-md-6">
-              <div className="">
-                <h5>What will I learn?</h5>
+              <div className="col-xs-12 col-sm-12 col-md-6 details">
+                <div className="">
+                  <h5>What is required for this course?</h5>
+                </div>
+                <p className={starCount}>{course.required}</p>
               </div>
-              <p>{course.learnt}</p>
             </div>
-          </div>
-          <div className="text-center" style={{ marginTop: "5rem" }}>
-            <h4>About the Tutor</h4>
-            <img
-              src={author.image_url}
-              style={{ borderRadius: "50%" }}
-              height="200"
-              width="200"
-              alt={author.first_name}
-            />
-            <p className="mt-2">
-              {author.first_name} {author.last_name} <br />
-              {author.email}
-            </p>
+            <div className="text-center author">
+              <h4>About the Tutor</h4>
+              <img
+                src={author.image_url}
+                height="200"
+                width="200"
+                alt={author.first_name}
+              />
+              <p className="mt-2">
+                {author.first_name} {author.last_name} <br />
+                {author.email}
+              </p>
+            </div>
           </div>
         </div>
       ) : (
@@ -201,19 +202,4 @@ Course.propTypes = {
   setAlert: PropTypes.func,
 };
 
-const listStyle = {
-  listStyleType: "none",
-  marginLeft: "5rem",
-};
-
-const detailsStyle = {
-  height: "30rem",
-  width: "100%",
-  border: "none",
-};
-
-const starStyle={
-  color: "black", 
-  fontSize: "2rem" 
-}
 export default Course;
