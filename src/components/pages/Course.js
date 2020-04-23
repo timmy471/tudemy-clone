@@ -85,7 +85,7 @@ const Course = (props) => {
                         onClick={onAddhandler}
                         title="Add to favorites"
                       >
-                        <i className="fa fa-heart"></i>
+                        <i className="fa fa-heart add"></i>
                       </span>
                     ) : (
                       <span
