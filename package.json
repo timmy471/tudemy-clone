@@ -24,8 +24,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "json-server": "json-server --watch db.json --port 8000",
-    "dev": "concurrently \"npm start\" \"npm run json-server\"",
     "deploy": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -46,7 +44,6 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^5.1.0",
-    "json-server": "^0.16.1"
+    "concurrently": "^5.1.0"
   }
 }
