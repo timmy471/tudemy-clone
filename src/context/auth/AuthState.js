@@ -83,7 +83,7 @@ const AuthState = (props) => {
         },
       });
 
-      localStorage.setItem("user_id", res.data[0].id);
+      localStorage.setItem("user_id", res.data.id);
       localStorage.setItem("userToken", token);
 
       dispatch({

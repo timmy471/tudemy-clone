@@ -16,6 +16,8 @@ const UserCourseItem = ({ course }) => {
   };
 
   const userId = localStorage.getItem("user_id");
+  const newTitle = title.length > 45 ? title.substring(0, 45) + "..." : title;
+
 
   return (
     <div>
@@ -36,7 +38,7 @@ const UserCourseItem = ({ course }) => {
                 style={{ textDecoration: "none", color: "black" }}
                 title="view Course"
               >
-                {title}
+                {newTitle}
               </Link>
             </h5>
             <p>{category}</p>

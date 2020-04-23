@@ -7,7 +7,7 @@ const Navbar = () => {
   const authContext = useContext(AuthContext);
 
   const { isAuthenticated, user, isLoggedOut, loading } = authContext;
-  console.log(user)
+
   return (
     <nav>
       <span style={{ paddingTop: "0.8rem" }}>

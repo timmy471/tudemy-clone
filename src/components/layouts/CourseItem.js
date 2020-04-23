@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 
 const CourseItem = ({ course }) => {
   const { title, category, pic_url, id } = course;
+
+  const newTitle = title.length > 45 ? title.substring(0, 45) + "..." : title;
   // const { first_name, last_name } = author;
 
   return (
@@ -19,7 +21,7 @@ const CourseItem = ({ course }) => {
 
         <div className="card-body">
           <div className="card-title">
-            <h5>{title}</h5>
+            <h5>{newTitle}</h5>
             <p>{category}</p>
           </div>
 
