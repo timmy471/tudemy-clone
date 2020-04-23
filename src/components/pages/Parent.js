@@ -21,7 +21,6 @@ import AuthContext from "../../context/auth/authContext";
 const Parent = () => {
 
     const authContext = useContext(AuthContext);
-    console.log(authContext)
 
     useEffect(() => {
         if(localStorage.getItem('user_id')){

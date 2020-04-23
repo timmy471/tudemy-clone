@@ -14,7 +14,7 @@ body{
 nav ul {
   float: right;
   display: flex;
-  margin: 1.2rem 4rem 1rem 0;
+  margin: 1.2rem 2rem 1rem 0;
   /* position: relative; */
   bottom: 4rem;
   /* /* padding: 0.5rem 0; */

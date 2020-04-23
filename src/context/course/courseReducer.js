@@ -63,7 +63,6 @@ const courseReducer = (state, action) => {
       };
 
       case DELETE_FAVORITE:
-      console.log(state.added)
       return {
         ...state,
         added: false,
@@ -177,7 +176,6 @@ const courseReducer = (state, action) => {
       };
 
     case DELETE_COURSE:
-      console.log(action.payload)
       return {
         ...state,
         userCourses: state.userCourses.filter(

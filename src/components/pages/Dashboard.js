@@ -16,7 +16,6 @@ const Dashboard = () => {
   const courseContext = useContext(CourseContext);
 
   const { loading, user, setProfileImage, fLoading } = authContext;
-  console.log(user)
   const {
     userCourses,
     getUserCourses,

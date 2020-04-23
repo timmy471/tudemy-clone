@@ -178,7 +178,6 @@ const CourseState = (props) => {
       const file = video;
       const fd = new FormData();
       fd.append("file", file);
-      fd.append("api_key", "476777537544187");
 
       fd.append("upload_preset", uploadPreset);
 
