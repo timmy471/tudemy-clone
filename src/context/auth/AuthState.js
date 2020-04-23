@@ -115,7 +115,7 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.get(BASEURL/id);
+      const res = await axios.get(`${BASEURL}/${id}`);
 
       dispatch({
         type: LOAD_USER,
@@ -143,7 +143,7 @@ const AuthState = (props) => {
       // if(imgRes.status = 200){
 
       const id = localStorage.getItem("user_id");
-      const getUser = await axios.get(BASEURL/id);
+      const getUser = await axios.get(`${BASEURL}/${id}`);
       
       const { googleId, email, first_name, last_name } = getUser.data;
       const updUser = {
@@ -156,7 +156,7 @@ const AuthState = (props) => {
 
  
       const updAct = await axios.put(
-        BASEURL/id,
+        `${BASEURL}/${id}`,
         updUser,
         {
           headers: {

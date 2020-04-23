@@ -52,6 +52,8 @@ const CourseState = (props) => {
   const [state, dispatch] = useReducer(courseReducer, initialState);
   const alert = useContext(AlertContext);
   const BASEURL ='http://tudemy-be.herokuapp.com';
+
+
   //add course
   const addCourse = async (course) => {
     dispatch({
@@ -359,7 +361,7 @@ const CourseState = (props) => {
         type: SET_LOADING,
       });
       const res = await axios.get(
-        `${BASEURL}/favorites?_sort=date&_order=desc&_limit=4`
+        `${BASEURL}/courses?_sort=date&_order=desc&_limit=4`
       );
 
       dispatch({
