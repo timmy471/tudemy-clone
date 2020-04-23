@@ -96,7 +96,7 @@ const CourseState = (props) => {
 
       const vidRes = await axios.post(url, fd);
 
-      const video_url = vidRes.data.url;
+      const video_url = vidRes.data.secure_url;
 
       const user_id = parseInt(localStorage.getItem("user_id"));
 
