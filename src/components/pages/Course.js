@@ -165,7 +165,7 @@ const Course = (props) => {
                 <p className={starCount}>{course.required}</p>
               </div>
             </div>
-            <div className="text-center author">
+            <div className="text-center author mb-4">
               <h4>About the Tutor</h4>
               <img
                 src={author.image_url}
