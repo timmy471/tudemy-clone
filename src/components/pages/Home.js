@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import Jumbotron from "../layouts/Jumbotron";
-import Spiner from "../layouts/Spinner";
 import ForCourses from "../layouts/ForCourses";
 import Login from "./Login";
 import { Link } from "react-router-dom";
@@ -30,23 +29,6 @@ const Home = () => {
   }, []);
 
   return (
-    // <div>
-    //   {loading ? (
-    //     <Spiner />
-    //   ) : (
-    //     <div>
-    //       <Login />
-    //       <Jumbotron />
-    //       <h2 className="text-center">Recent Courses</h2>
-    //       <ForCourses courses={latest} />
-    //       <div className="text-center">
-    //         <Link to="/courses" style={linkStyle}>
-    //           <button style={btnStyle}>View All</button>
-    //         </Link>
-    //       </div>
-    //     </div>
-    //   )}
-    // </div>
     <div>
       {!loading &&  (<div>
            <Login />

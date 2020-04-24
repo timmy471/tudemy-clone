@@ -109,7 +109,12 @@ nav ul li{
   }
 
   .jumbotron{
-    height:15rem
+    height:20rem
+  }
+
+  nav ul {
+    margin: 1.2rem 2rem 1rem 0;
+   
   }
 }
 
