@@ -73,7 +73,7 @@ const Courses = () => {
                 </button>
               )}{" "}
               &nbsp;{" "}
-              {courseCount > 8 && (
+              {courseCount === 8 && (
                 <button onClick={incrementPage} className="btn btn-info">
                   Next
                 </button>
