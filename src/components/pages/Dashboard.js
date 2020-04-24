@@ -99,8 +99,8 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="row  mt-4">
-            <div className="col-xs-12 col-sm-12 col-md-6">
+          <div className="row  ">
+            <div className="col-xs-12 col-sm-12 col-md-6 mt-4">
               <div className="text-center">
                 <h4>My Courses</h4>
               </div>
@@ -120,7 +120,7 @@ const Dashboard = () => {
              
             </div>
 
-            <div className="col-xs-12 col-sm-12 col-md-6">
+            <div className="col-xs-12 col-sm-12 col-md-6 mt-4">
               <div className="text-center">
                 <h4>My Favorites</h4>
               </div>

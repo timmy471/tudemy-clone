@@ -173,7 +173,7 @@ const Course = (props) => {
                 width="200"
                 alt={author.first_name}
               />
-              <p className="mt-2">
+              <p className="my-2">
                 {author.first_name} {author.last_name} <br />
                 {author.email}
               </p>

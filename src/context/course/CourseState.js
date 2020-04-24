@@ -178,6 +178,8 @@ const CourseState = (props) => {
       const fd = new FormData();
       fd.append("file", file);
 
+      fd.append("upload_preset", uploadPreset);
+
       const vidRes = await axios.post(url, fd);
 
       const video_url = vidRes.data.secure_url;
@@ -194,6 +196,7 @@ const CourseState = (props) => {
         pic_url,
         date,
       };
+
 
       await axios.put(`${BASEURL}/courses/${id}`, mainCourse, {
         headers: {
