@@ -35,7 +35,7 @@ function App() {
                   <Route exact path="/" component={Home} />
                   <PrivateRoute exact path="/dashboard" component={Dashboard} />
                   <PrivateRoute exact path="/addcourse" component={AddCourse} />
-                  <PrivateRoute exact path="/courses" component={AllCourses} />
+                  <Route exact path="/courses" component={AllCourses} />
 
                   <PrivateRoute exact path="/course/:id" component={Course} />
                   <Route component={NotFound} />
