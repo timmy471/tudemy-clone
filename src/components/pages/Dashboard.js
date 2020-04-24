@@ -46,6 +46,7 @@ const Dashboard = () => {
     } else {
       await setProfileImage(image);
       alertContext.setAlert("Profile updated successfully", "success");
+      setImage(null);
     }
   };
 
