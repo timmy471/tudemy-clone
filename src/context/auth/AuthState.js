@@ -2,7 +2,6 @@ import React, { useReducer } from "react";
 import axios from "axios";
 import AuthReducer from "./authReducerr";
 import AuthContext from "./authContext";
-import { Redirect } from 'react-router-dom';
 
 
 
@@ -58,7 +57,7 @@ const AuthState = (props) => {
           type: CHECK_SUCCESS,
           payload: res.data,
         });
-        <Redirect to ="/dashboard" />
+        
       } else {
         registerUser(user, token);
       }
@@ -91,7 +90,6 @@ const AuthState = (props) => {
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
-      <Redirect to ="/dashboard" />
     } catch (error) {
       console.log(error);
 
