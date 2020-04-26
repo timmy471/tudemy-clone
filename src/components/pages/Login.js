@@ -48,7 +48,7 @@ const Login = () => {
              
            /> */}
            {/* </span> */}
-            {isAuthenticated ? (
+            {token ? (
                 <span type="button"
               data-dismiss="modal">
               <GoogleLogout
