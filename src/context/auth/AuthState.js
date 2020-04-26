@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import AuthReducer from "./authReducer";
 import AuthContext from "./authContext";
@@ -58,7 +57,7 @@ const AuthState = (props) => {
           type: CHECK_SUCCESS,
           payload: res.data,
         });
-        redirect();
+        
       } else {
         registerUser(user, token);
       }
@@ -180,10 +179,6 @@ const AuthState = (props) => {
       });
     }
   };
-
-  const redirect = () => {
-    return <Redirect to="/dashboard" />
-  }
 
   const logOut = () => {
     dispatch({ type: LOGOUT_USER });
