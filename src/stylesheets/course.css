@@ -112,6 +112,6 @@ ul li {
 @media screen and (max-width: 961px) {
   .body {
     position: absolute;
-    top: 50%;
+    top: 80%;
   }
 }

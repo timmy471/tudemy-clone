@@ -94,7 +94,7 @@ const linkStyle = {
 
 const logoStyle = {
   fontSize: "35px",
-  marginLeft: "2rem",
+  marginLeft: "1.5rem",
   fontFamily: "niconne",
   color: "#f01662",
   textDecoration: "none",

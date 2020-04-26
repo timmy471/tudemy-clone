@@ -24,6 +24,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     </Fragment>
   );
 
+
+
   return (
     <div>
       <Route
