@@ -203,7 +203,7 @@ const CourseState = (props) => {
           "Content-Type": "application/json",
         },
       });
-      clearCurrent();
+      // clearCurrent();
       dispatch({
         type: UNSET_FILE_LOADING,
       });
