@@ -25,7 +25,7 @@ const AuthState = (props) => {
   const initialState = {
     user: null,
     isAuthenticated: false,
-    isLoggedOut: false,
+    isLoggedOut: true,
     redirect: false,
     loading: false,
     fLoading: false,

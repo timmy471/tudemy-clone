@@ -8,7 +8,7 @@ import AuthContext from "../../context/auth/authContext";
 const Login = () => {
   const authContext = useContext(AuthContext);
 
-  const { checkUser, isAuthenticated, logOut } = authContext;
+  const { checkUser, isAuthenticated, logOut, isLoggedOut } = authContext;
   const clientId = "1023197123408-m12bk63thidlatpglrq7g7jvjmhd072v.apps.googleusercontent.com";
   const responseGoogle = (res) => {
     const { googleId, email, givenName, familyName } = res.profileObj;
@@ -48,7 +48,7 @@ const Login = () => {
              
            /> */}
            {/* </span> */}
-            {isAuthenticated ? (
+            {!isLoggedOut ? (
                 <span type="button"
               data-dismiss="modal">
               <GoogleLogout
