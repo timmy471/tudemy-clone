@@ -17,6 +17,7 @@ import {
   FILE_LOADING,
   IMAGE_SUCCESS,
   AUTHENTICATE_USER,
+  UNSET_REDIRECT,
   IMAGE_FAIL
 } from "../types";
 
@@ -184,6 +185,9 @@ const AuthState = (props) => {
     dispatch({ type: LOGOUT_USER });
   };
 
+  const unsetRedirect = () => {
+    dispatch ({ type: UNSET_REDIRECT })
+  }
   // const loginUser = async (email, token) => {
 
   //     try {
@@ -230,6 +234,7 @@ const AuthState = (props) => {
         authUser,
         setProfileImage,
         logOut,
+        unsetRedirect
       }}
     >
       <div>{props.children}</div>

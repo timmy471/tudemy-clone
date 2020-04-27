@@ -10,6 +10,7 @@ import {
   LOGOUT_USER,
   IMAGE_SUCCESS,
   IMAGE_FAIL,
+  UNSET_REDIRECT,
   FILE_LOADING,
 } from "../types";
 
@@ -79,6 +80,11 @@ const authReducer = (state, action) => {
         isAuthenticated: false,
         isLoggedOut: true,
       };
+      case UNSET_REDIRECT:
+        return{
+          ...state,
+          redirect: false
+        };
 
       case IMAGE_SUCCESS:
         return {

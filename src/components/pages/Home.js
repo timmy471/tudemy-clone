@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Jumbotron from "../layouts/Jumbotron";
 import ForCourses from "../layouts/ForCourses";
 import Login from "./Login";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import AuthContext from "../../context/auth/authContext";
@@ -14,7 +14,7 @@ const Home = () => {
 
   const { latest, getLatest, loading, clearCurrent } = courseContext;
 
-  const { loadUser, authUser } = authContext;
+  const { loadUser, authUser, redirect } = authContext;
 
   useEffect(() => {
     const user_id = localStorage.getItem("user_id");
@@ -25,8 +25,13 @@ const Home = () => {
 
     getLatest();
     clearCurrent();
+    
     // eslint-disable-next-line
   }, []);
+
+  if(redirect){
+    return <Redirect to ="/dashboard" />;
+  }
 
   return (
     <div>

@@ -7,11 +7,11 @@ import Spinner from "../layouts/Spinner";
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const authContext = useContext(AuthContext);
 
-  const { isAuthenticated, loading, authUser } = authContext;
+  const { isAuthenticated, loading, authUser, isLoggedOut } = authContext;
 
   useEffect(() => {
     authUser();
-    if (!isAuthenticated) {
+    if (isLoggedOut) {
       alert("Please login to visit this page");
     }
     //eslint-disable-next-line
@@ -20,11 +20,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const isAuth = (props) => (
     <Fragment>
       {" "}
-      {isAuthenticated ? <Component {...props} /> : <Redirect to="/" />}{" "}
+      {!isLoggedOut ? <Component {...props} /> : <Redirect to="/" />}{" "}
+      {/* {isAuthenticated ? <Component {...props} /> : <Redirect to="/" />}{" "} */}
     </Fragment>
   );
-
-
 
   return (
     <div>
@@ -37,7 +36,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 };
 
 PrivateRoute.propTypes = {
-  isAuthenticated: PropTypes.bool,
+  isLoggedOut: PropTypes.bool,
   loading: PropTypes.bool,
   authUser: PropTypes.func,
 };

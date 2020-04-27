@@ -8,6 +8,7 @@ export const LOAD_USER_FAIL = 'LOAD_USER_FAIL';
 export const SET_LOADING = 'SET_LOADING';
 export const FILE_LOADING = 'FILE_LOADING';
 export const UNSET_LOADING = 'UNSET_LOADING';
+export const UNSET_REDIRECT = 'UNSET_REDIRECT';
 export const UNSET_FILE_LOADING = 'UNSET_FILE_LOADING';
 export const GET_LATEST = 'GET_LATEST';
 export const GET_USER_COURSES = 'GET_USER_COURSES';

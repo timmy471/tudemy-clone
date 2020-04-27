@@ -15,7 +15,7 @@ const Dashboard = () => {
   const alertContext = useContext(AlertContext);
   const courseContext = useContext(CourseContext);
 
-  const { loading, user, setProfileImage, fLoading } = authContext;
+  const { loading, user, setProfileImage, fLoading, unsetRedirect } = authContext;
   const {
     userCourses,
     getUserCourses,
@@ -31,6 +31,7 @@ const Dashboard = () => {
     getUserCourses(id);
     getUserFaves(id);
     clearCurrent();
+    unsetRedirect()
     //eslint-disable-next-line
   }, []);
 

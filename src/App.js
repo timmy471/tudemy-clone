@@ -33,9 +33,9 @@ function App() {
                 <Alert />
                 <Switch>
                   <Route exact path="/" component={Home} />
-                  <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                  <Route exact path="/dashboard" component={Dashboard} />
                   <PrivateRoute exact path="/addcourse" component={AddCourse} />
-                  <Route exact path="/courses" component={AllCourses} />
+                  <PrivateRoute exact path="/courses" component={AllCourses} />
 
                   <PrivateRoute exact path="/course/:id" component={Course} />
                   <Route component={NotFound} />
