@@ -3,8 +3,6 @@ import axios from "axios";
 import AuthReducer from "./authReducer";
 import AuthContext from "./authContext";
 
-
-
 import {
   REGISTER_SUCCESS,
   CHECK_SUCCESS,
@@ -18,9 +16,8 @@ import {
   IMAGE_SUCCESS,
   AUTHENTICATE_USER,
   UNSET_REDIRECT,
-  IMAGE_FAIL
+  IMAGE_FAIL,
 } from "../types";
-
 
 const AuthState = (props) => {
   const initialState = {
@@ -34,9 +31,8 @@ const AuthState = (props) => {
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
-  // const BASEURL ='https://tudemy-be.herokuapp.com/users';
-  const BASEURL = 'http://localhost:8080/users';
- 
+  const BASEURL ='https://tudemy-be.herokuapp.com/users';
+  // const BASEURL = "http://localhost:8080/users";
 
   const checkUser = async (user, token) => {
     try {
@@ -44,14 +40,9 @@ const AuthState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.get(
-        `${BASEURL}?email=${user.email}`
-      );
+      const res = await axios.get(`${BASEURL}?email=${user.email}`);
 
-       
       if (res.data.length === 1) {
-        
-       
         localStorage.setItem("user_id", res.data[0].id);
         localStorage.setItem("userToken", token);
         loadUser(localStorage.getItem("user_id"));
@@ -59,16 +50,15 @@ const AuthState = (props) => {
           type: CHECK_SUCCESS,
           payload: res.data,
         });
-        
       } else {
         registerUser(user, token);
       }
-    authUser();
-    } catch (error) {  
-      alert(error)
+      authUser();
+    } catch (error) {
+      alert(error);
       dispatch({
         type: CHECK_FAIL,
-        payload: error
+        payload: error,
       });
     }
   };
@@ -97,19 +87,18 @@ const AuthState = (props) => {
 
       dispatch({
         type: REGISTER_FAIL,
-        payload: error
+        payload: error,
       });
     }
   };
 
   const authUser = () => {
-    if(localStorage.getItem('user_id')){
+    if (localStorage.getItem("user_id")) {
       dispatch({
-        type: AUTHENTICATE_USER
-      })
+        type: AUTHENTICATE_USER,
+      });
     }
-  
-  }
+  };
 
   const loadUser = async (id) => {
     try {
@@ -133,20 +122,20 @@ const AuthState = (props) => {
 
   const setProfileImage = async (image) => {
     try {
-        dispatch({
-            type:FILE_LOADING
-        })
+      dispatch({
+        type: FILE_LOADING,
+      });
       const imgRes = await axios.post("https://api.imgur.com/3/image", image, {
         headers: {
           Authorization: "Client-ID bc314740cabd71c",
         },
       });
-      
+
       // if(imgRes.status = 200){
 
       const id = localStorage.getItem("user_id");
       const getUser = await axios.get(`${BASEURL}/${id}`);
-      
+
       const { googleId, email, first_name, last_name } = getUser.data;
       const updUser = {
         googleId,
@@ -156,22 +145,16 @@ const AuthState = (props) => {
         image_url: imgRes.data.data.link,
       };
 
- 
-      const updAct = await axios.put(
-        `${BASEURL}/${id}`,
-        updUser,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      
+      const updAct = await axios.put(`${BASEURL}/${id}`, updUser, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
       dispatch({
         type: IMAGE_SUCCESS,
         payload: updAct.data,
       });
-      
 
       // }
     } catch (error) {
@@ -187,8 +170,8 @@ const AuthState = (props) => {
   };
 
   const unsetRedirect = () => {
-    dispatch ({ type: UNSET_REDIRECT })
-  }
+    dispatch({ type: UNSET_REDIRECT });
+  };
   // const loginUser = async (email, token) => {
 
   //     try {
@@ -235,7 +218,7 @@ const AuthState = (props) => {
         authUser,
         setProfileImage,
         logOut,
-        unsetRedirect
+        unsetRedirect,
       }}
     >
       <div>{props.children}</div>
