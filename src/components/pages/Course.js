@@ -35,23 +35,23 @@ const Course = (props) => {
 
   const user_id = parseInt(localStorage.getItem("user_id"));
 
-  const onAddhandler = () => {
-    addFavorite(user_id, course.id);
+  const onAddhandler = async () => {
+   await addFavorite(user_id, course.id);
     alert.setAlert("Course added to favorites", "success");
   };
 
-  const onRemoveHandler = () => {
-    removeFavorite(user_id, course.id);
+  const onRemoveHandler = async () => {
+    await removeFavorite(user_id, course.id);
     alert.setAlert("Course removed from favorites", "warning");
   };
 
-  const onAddStar = () => {
-    addStar(user_id, course.id);
+  const onAddStar = async () => {
+    await addStar(user_id, course.id);
     alert.setAlert("You starred this Course", "success");
   };
 
-  const onRemoveStar = () => {
-    removeStar(user_id, course.id);
+  const onRemoveStar = async () => {
+    await removeStar(user_id, course.id);
     alert.setAlert("You Unstarred this Course", "warning");
   };
 

@@ -188,6 +188,7 @@ const AddCourse = () => {
                 />
                 <br />
                 <small>For best performance, ensure video is 1920x1080</small>
+                <small>Have your internet connecction at its best</small>
               </div>
             </div>
             <div className="col-xm-12 col-sm-12 col-md-6">

@@ -136,7 +136,7 @@ const CourseState = (props) => {
       });
       alert.setAlert("Course Created Successfully", "success");
     } catch (error) {
-      alert.setAlert("Course not Added, Please try again", "danger");
+      alert.setAlert("Course Not Added, Please try again", "danger");
       dispatch({
         type: COURSE_ERROR,
         payload: error,
