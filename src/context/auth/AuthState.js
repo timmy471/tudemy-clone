@@ -34,7 +34,8 @@ const AuthState = (props) => {
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
-  const BASEURL ='https://tudemy-be.herokuapp.com/users';
+  // const BASEURL ='https://tudemy-be.herokuapp.com/users';
+  const BASEURL = 'http://localhost:8080/users';
  
 
   const checkUser = async (user, token) => {

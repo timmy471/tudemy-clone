@@ -18,8 +18,6 @@ const AddCourse = () => {
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
 
-
-
   const [course, setCourse] = useState({
     title: "",
     category: "",
@@ -37,7 +35,6 @@ const AddCourse = () => {
   }, [courseContext, current]);
 
   const { title, category, required, learnt, video, image } = course;
-
 
   const onChange = (e) => {
     setCourse({ ...course, [e.target.name]: e.target.value });
@@ -77,25 +74,23 @@ const AddCourse = () => {
       id: current && current.id,
     };
 
-    
-    current === null
-      ? addCourse(realCourse)
-      : updCourse(updData);
+    current === null ? addCourse(realCourse) : updCourse(updData);
 
-      {!CourseContext.loading && setCourse({
-        title: "",
-        category: "",
-        learnt: "",
-        required: "",
-      }) }
-  
+    {
+      !CourseContext.fLoading &&
+        setCourse({
+          title: "",
+          category: "",
+          learnt: "",
+          required: "",
+        });
+      current && clearCurrent();
 
-    current && clearCurrent();
-
-    e.target.reset();
+      e.target.reset();
+    }
   };
 
-  const formTitle = current !==null ? "Edit Course" : "Create Course";
+  const formTitle = current !== null ? "Edit Course" : "Create Course";
 
   // if (!isAuthenticated) {
   //   setAlert("Please login to teach on Tudemy", "danger");

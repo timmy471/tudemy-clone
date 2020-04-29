@@ -15,7 +15,13 @@ const Dashboard = () => {
   const alertContext = useContext(AlertContext);
   const courseContext = useContext(CourseContext);
 
-  const { loading, user, setProfileImage, fLoading, unsetRedirect } = authContext;
+  const {
+    loading,
+    user,
+    setProfileImage,
+    fLoading,
+    unsetRedirect,
+  } = authContext;
   const {
     userCourses,
     getUserCourses,
@@ -31,7 +37,7 @@ const Dashboard = () => {
     getUserCourses(id);
     getUserFaves(id);
     clearCurrent();
-    unsetRedirect()
+    unsetRedirect();
     //eslint-disable-next-line
   }, []);
 
@@ -107,9 +113,12 @@ const Dashboard = () => {
                 <h4>My Courses</h4>
               </div>
 
-              {loading ? <Spinner /> : (
-                userCourses.length > 0 ? <DashboardCourses courses={userCourses} /> : (
-                  <div className='text-center'>
+              {loading ? (
+                <Spinner />
+              ) : userCourses.length > 0 ? (
+                <DashboardCourses courses={userCourses} />
+              ) : (
+                <div className="text-center">
                   <h6 className="mt-4">You have no courses created yet</h6>{" "}
                   <br />{" "}
                   <Link to="/addcourse" className="btn btn-info">
@@ -117,25 +126,23 @@ const Dashboard = () => {
                     Add Course
                   </Link>
                 </div>
-                )
               )}
-             
             </div>
 
             <div className="col-xs-12 col-sm-12 col-md-6 mt-4">
               <div className="text-center">
                 <h4>My Favorites</h4>
               </div>
-              {loading ? <Spinner /> : (
-                userFavorites.length > 0 ? <DashboardCourses courses={userFavorites} /> : (
-                  <div className='text-center'>
+              {loading ? (
+                <Spinner />
+              ) : userFavorites.length > 0 ? (
+                <DashboardCourses courses={userFavorites} />
+              ) : (
+                <div className="text-center">
                   <h6 className="mt-4">You have not favorited any course</h6>{" "}
                   <br />{" "}
-                 
                 </div>
-                )
               )}
-            
             </div>
           </div>
         </div>

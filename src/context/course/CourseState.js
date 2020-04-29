@@ -52,7 +52,7 @@ const CourseState = (props) => {
   const [state, dispatch] = useReducer(courseReducer, initialState);
   const alert = useContext(AlertContext);
   const BASEURL ='https://tudemy-be.herokuapp.com';
-
+  // const BASEURL = "http://localhost:8080";
 
   //add course
   const addCourse = async (course) => {
@@ -110,20 +110,21 @@ const CourseState = (props) => {
         date: Date.now(),
       };
 
-      const postCourse = await axios.post(
-        `${BASEURL}/courses`,
-        mainCourse,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const postCourse = await axios.post(`${BASEURL}/courses`, mainCourse, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       const starCourse = {
-        course_id: postCourse.data.id,
         users: [],
       };
+
+      await axios.post(`${BASEURL}/favorites`, starCourse, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       await axios.post(`${BASEURL}/stars`, starCourse, {
         headers: {
@@ -144,12 +145,21 @@ const CourseState = (props) => {
   };
 
   //update course
-  const updCourse = async course => {
+  const updCourse = async (course) => {
     dispatch({
       type: FILE_LOADING,
     });
 
-    const { title, category, learnt, required, image, date, id, video } = course;
+    const {
+      title,
+      category,
+      learnt,
+      required,
+      image,
+      date,
+      id,
+      video,
+    } = course;
 
     try {
       // upload image
@@ -196,7 +206,6 @@ const CourseState = (props) => {
         pic_url,
         date,
       };
-
 
       await axios.put(`${BASEURL}/courses/${id}`, mainCourse, {
         headers: {
@@ -271,7 +280,7 @@ const CourseState = (props) => {
 
       getCourseAuthor(res.data.user_id);
 
-      checkAdded(parseInt(res.data.id));
+      checkAdded(parseInt(localStorage.getItem("user_id")), parseInt(id));
 
       checkStar(parseInt(localStorage.getItem("user_id")), parseInt(id));
 
@@ -315,9 +324,7 @@ const CourseState = (props) => {
     });
 
     try {
-      const courses = await axios.get(
-        `${BASEURL}/courses?q=${text}`
-      );
+      const courses = await axios.get(`${BASEURL}/courses?q=${text}`);
       if (courses.data.length < 1) {
         dispatch({
           type: UNSET_LOADING,
@@ -383,9 +390,7 @@ const CourseState = (props) => {
         type: SET_LOADING,
       });
 
-      const res = await axios.get(
-        `${BASEURL}/courses?user_id=${id}`
-      );
+      const res = await axios.get(`${BASEURL}/courses?user_id=${id}`);
 
       dispatch({
         type: GET_USER_COURSES,
@@ -400,13 +405,24 @@ const CourseState = (props) => {
   };
 
   //add course to user's favorite
-  const addFavorite = async (course) => {
+  const addFavorite = async (user_id, course_id) => {
     try {
-      await axios.post(`${BASEURL}/favorites`, course);
-      checkAdded(course.course_id);
+      const getCourse = await axios.get(`${BASEURL}/favorites?id=${course_id}`);
+      const users = getCourse.data[0].users;
+      const id = getCourse.data[0].id;
+      const updData = {
+        users: [...users, user_id],
+      };
+
+      await axios.put(`${BASEURL}/favorites/${id}`, updData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       dispatch({
         type: ADD_FAVORITE,
       });
+      checkAdded(user_id, course_id);
     } catch (error) {
       dispatch({
         type: COURSE_ERROR,
@@ -416,14 +432,22 @@ const CourseState = (props) => {
   };
 
   //Remove course from user favorite list
-  const removeFavorite = async (id) => {
+  const removeFavorite = async (user_id, course_id) => {
     try {
-      const res = await axios.get(
-        `${BASEURL}/favorites?course_id=${id}`
-      );
+      const getCourse = await axios.get(`${BASEURL}/favorites?id=${course_id}`);
+      const users = getCourse.data[0].users;
+      const id = getCourse.data[0].id;
 
-      await axios.delete(`${BASEURL}/favorites/${res.data[0].id}`);
-      checkAdded(id);
+      const newUsers = users.filter((userId) => userId !== user_id);
+      const updData = {
+        users: newUsers,
+      };
+      await axios.put(`${BASEURL}/favorites/${id}`, updData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      checkAdded(user_id, course_id);
       dispatch({
         type: DELETE_FAVORITE,
       });
@@ -436,13 +460,13 @@ const CourseState = (props) => {
   };
 
   //check if a user ha favorited a course
-  const checkAdded = async (id) => {
+  const checkAdded = async (user_id, course_id) => {
     try {
-      const res = await axios.get(
-        `${BASEURL}/favorites?course_id=${id}`
+      const checkUsers = await axios.get(
+        `${BASEURL}/favorites?id=${course_id}`
       );
 
-      if (res.data.length !== 0) {
+      if (checkUsers.data[0].users.includes(user_id)) {
         dispatch({
           type: SET_ADDED,
         });
@@ -459,20 +483,25 @@ const CourseState = (props) => {
     }
   };
 
-  //get the user's favorited courses
   const getUserFaves = async (id) => {
     try {
       dispatch({
         type: SET_LOADING,
       });
-
-      const res = await axios.get(
-        `${BASEURL}/favorites?user_fave_id=${id}`
-      );
-
-      dispatch({
-        type: GET_FAVORITES,
-        payload: res.data,
+      const userFaves = await axios.get(`${BASEURL}/favorites`);
+      const courseIds = [];
+      const getCourses = async (id) => {
+        const res = await axios.get(`${BASEURL}/courses?id=${id}`);
+        courseIds.push(res.data[0]);
+        dispatch({
+          type: GET_FAVORITES,
+          payload: courseIds,
+        });
+      };
+      await userFaves.data.map((data) => {
+        if (data.users.includes(parseInt(id))) {
+          getCourses(data.id);
+        }
       });
     } catch (error) {
       dispatch({
@@ -485,13 +514,10 @@ const CourseState = (props) => {
   //star a course
   const addStar = async (user_id, course_id) => {
     try {
-      const getCourse = await axios.get(
-        `${BASEURL}/stars?course_id=${course_id}`
-      );
+      const getCourse = await axios.get(`${BASEURL}/stars?id=${course_id}`);
       const users = getCourse.data[0].users;
       const id = getCourse.data[0].id;
       const updData = {
-        course_id,
         users: [...users, user_id],
       };
 
@@ -515,15 +541,12 @@ const CourseState = (props) => {
   //unStar a course
   const removeStar = async (user_id, course_id) => {
     try {
-      const getCourse = await axios.get(
-        `${BASEURL}/stars?course_id=${course_id}`
-      );
+      const getCourse = await axios.get(`${BASEURL}/stars?id=${course_id}`);
       const users = getCourse.data[0].users;
       const id = getCourse.data[0].id;
 
       const newUsers = users.filter((userId) => userId !== user_id);
       const updData = {
-        course_id,
         users: newUsers,
       };
       await axios.put(`${BASEURL}/stars/${id}`, updData, {
@@ -550,9 +573,7 @@ const CourseState = (props) => {
     });
 
     try {
-      const checkUsers = await axios.get(
-        `${BASEURL}/stars?course_id=${course_id}`
-      );
+      const checkUsers = await axios.get(`${BASEURL}/stars?id=${course_id}`);
 
       if (checkUsers.data[0].users.includes(user_id)) {
         dispatch({
@@ -576,9 +597,7 @@ const CourseState = (props) => {
       type: SET_LOADING,
     });
     try {
-      const checkUsers = await axios.get(
-        `${BASEURL}/stars?course_id=${course_id}`
-      );
+      const checkUsers = await axios.get(`${BASEURL}/stars?id=${course_id}`);
       const stars = checkUsers.data[0].users.length;
       dispatch({
         type: SET_STAR_COUNT,
@@ -611,11 +630,12 @@ const CourseState = (props) => {
     try {
       await axios.delete(`${BASEURL}/courses/${id}`);
 
-      const res = await axios.get(
-        `${BASEURL}/stars?course_id=${id}`
-      );
+      const res = await axios.get(`${BASEURL}/stars?id=${id}`);
 
       await axios.delete(`${BASEURL}/stars/${res.data[0].id}`);
+
+      await axios.delete(`${BASEURL}/favorites/${res.data[0].id}`);
+
       dispatch({
         type: DELETE_COURSE,
         payload: id,

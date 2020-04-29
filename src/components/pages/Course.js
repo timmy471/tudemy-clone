@@ -1,5 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import PropTypes from "prop-types";
+import { Player } from 'video-react';
+import '../../../node_modules/video-react/dist/video-react.css';
 import "../../stylesheets/course.css";
 
 import CourseContext from "../../context/course/courseContext";
@@ -31,38 +33,25 @@ const Course = (props) => {
     //eslint-disable-next-line
   }, []);
 
-  const user_id = localStorage.getItem("user_id");
+  const user_id = parseInt(localStorage.getItem("user_id"));
 
   const onAddhandler = () => {
-    const faveCourse = {
-      course_id: course.id,
-      user_id: course.user_id,
-      user_fave_id: parseInt(user_id),
-      title: course.title,
-      category: course.category,
-      learnt: course.learnt,
-      required: course.required,
-      video_url: course.video_url,
-      pic_url: course.pic_url,
-      date: course.date,
-    };
-
-    addFavorite(faveCourse);
+    addFavorite(user_id, course.id);
     alert.setAlert("Course added to favorites", "success");
   };
 
   const onRemoveHandler = () => {
-    removeFavorite(course.id);
+    removeFavorite(user_id, course.id);
     alert.setAlert("Course removed from favorites", "warning");
   };
 
   const onAddStar = () => {
-    addStar(parseInt(localStorage.getItem("user_id")), course.id);
+    addStar(user_id, course.id);
     alert.setAlert("You starred this Course", "success");
   };
 
   const onRemoveStar = () => {
-    removeStar(parseInt(localStorage.getItem("user_id")), course.id);
+    removeStar(user_id, course.id);
     alert.setAlert("You Unstarred this Course", "warning");
   };
 
@@ -147,6 +136,13 @@ const Course = (props) => {
               type="video/mp4"
               src={course.video_url}
             ></iframe>
+            {/* <Player 
+            playsInline
+            src={course.video_url}
+            fluid={false}
+            width="80%"
+            height={400}
+            /> */}
           </div>
           <div className="body">
             <div className="row  mt-4">

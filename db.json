@@ -5,7 +5,7 @@
       "email": "ayantunjitimilehin@gmail.com",
       "first_name": "Timilehin",
       "last_name": "Micheal",
-      "image_url": "https://i.imgur.com/1kQgY0J.jpg",
+      "image_url": "https://i.imgur.com/AxaafsX.png",
       "id": 1
     },
     {
@@ -13,61 +13,234 @@
       "email": "karriecarter97@gmail.com",
       "first_name": "Karrie",
       "last_name": "Carter",
-      "image_url": "https://i.imgur.com/2hcUTQE.png",
+      "image_url": "https://i.imgur.com/zQKzlLb.jpg",
       "id": 2
+    },
+    {
+      "googleId": "106461526707403214594",
+      "email": "aiyegbusitope@gmail.com",
+      "first_name": "TemiTope",
+      "last_name": "Aiyegbusi",
+      "image_url": "https://i.imgur.com/28CZax9.png",
+      "id": 3
+    },
+    {
+      "googleId": "110877954945910828438",
+      "email": "johnson.ayan99@gmail.com",
+      "first_name": "Johnson",
+      "last_name": "O",
+      "image_url": "https://i.imgur.com/mPDTYpr.png",
+      "id": 4
+    },
+    {
+      "googleId": "106688039375075123879",
+      "email": "karriecarter49@gmail.com",
+      "first_name": "Karrie",
+      "last_name": "Carter",
+      "image_url": "https://i.imgur.com/IyNqeHv.png?",
+      "id": 5
     }
   ],
   "courses": [
     {
       "user_id": 2,
-      "title": "Build Responsive Real World Websites with HTML5 and CSS3",
+      "title": "Learn HTML5 Programming From Scratch",
       "category": "Development",
-      "learnt": "Real-world skills to build real-world websites: professional, beautiful and truly responsive websites\nA huge project that will teach you everything you need to know to get started with HTML5 and CSS3\nThe proven 7 real-world steps from complete scratch to a fully functional and optimized website\nSimple-to-use web design guidelines and tips to make your website stand out from the crowd\nLearn super cool jQuery effects like animations, scroll effects and \"sticky\" navigation\nDownloadable lectures, code and design assets for the entire project\nGet helpful support in the course Q&A\nGet my e-book \"Best Resources for Web Design and Development with HTML5 & CSS3\" for free\n",
-      "required": "No coding or design experience necessary\nAny computer will do — Windows, OSX or Linux\nYou don’t need to buy any software — we will use the best free web development editor in the world",
-      "video_url": "http://res.cloudinary.com/dflkpux1w/video/upload/v1587644563/ldxzsrnkeg3wnis6rpur.mp4",
-      "pic_url": "https://i.imgur.com/QHpbOVs.jpg",
-      "date": 1587644566436,
+      "learnt": "By the end of the course you will be able to create full fledged HTML5 websites\nYou will be able to use features like Drag and Drop, Geo location and Web Storage to create immersible user experience.\nYou will have through understanding of both HTML and CSS\nYou will be able to create web applications for mobile phones as wel",
+      "required": "HTML5 is one of the hot web technologies and is widely gaining acceptance across mobile and web. In our course you get a complete resource which can get you started on application development for HTML5. In our course you work on actual examples and go through important concepts required for through knowledge.\n\nIn our course you will start with basic HTML tags. You will learn how to create HTML websites and use CSS in your work before we start discussing HTML5",
+      "video_url": "https://res.cloudinary.com/dflkpux1w/video/upload/v1588025711/yjr3hk2vj14uujpkr87w.mp4",
+      "pic_url": "https://i.imgur.com/SYFBtyZ.jpg",
+      "date": 1588025710675,
       "id": 1
     },
     {
       "user_id": 2,
-      "title": "JavaScript - The Complete Guide 2020 (Beginner + Advanced)",
-      "category": "IT and Software",
-      "learnt": "\nJavaScript from scratch - beginner to advanced\nAll core features and concepts you need to know in modern JavaScript development\nEverything you need to become a JavaScript expert and apply for JavaScript jobs\nProject-driven learning with plenty of examples\nAll about variables, functions, objects and arrays\nObject-oriented programming\nDeep dives into prototypes, JavaScript engines & how it works behind the scenes\nManipulating web pages (= the DOM) with JavaScript\nEvent handling, asynchronous coding and Http requests\nMeta-programming, performance optimization, memory leak busting\nTesting, security and deployment\nAnd so much more!\n",
-      "required": "NO prior JavaScript knowledge is required\nBasic web development knowledge is recommended\nBasic understanding of HTML and CSS helps but is NOT required",
-      "video_url": "http://res.cloudinary.com/dflkpux1w/video/upload/v1587644860/qbqgutcogkgoj1ri1jvg.mp4",
-      "pic_url": "https://i.imgur.com/nHiYZkg.jpg",
-      "date": 1587644866422,
+      "title": "Learn Object Oriented PHP By Building a Complete Website",
+      "category": "Development",
+      "learnt": "\nBuild a complete website using classes and objects in PHP\nUnderstand the concepts behind object oriented PHP\nLearn all about Abstraction and Inheritance\nLearn how to deal with RDBMS within OOPS framework",
+      "required": "Basic Knowledge of PHP, JavaScript and HTML. One of the most powerful server-scripting languages requires an equally powerful course to help break down the tricky concepts of Object Oriented PHP in a step by step manner to help you master OOP PHP",
+      "video_url": "https://res.cloudinary.com/dflkpux1w/video/upload/v1588086182/ztshbjgugnka2xsuodfq.mp4",
+      "pic_url": "https://i.imgur.com/OHPNe34.jpg",
+      "date": 1588086181452,
       "id": 2
     },
     {
       "user_id": 2,
-      "title": "The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert",
+      "title": "SQL for Data Analysis: Weekender Crash Course for Beginners",
       "category": "IT and Software",
-      "learnt": "No Database, SQL, or MySQL experience needed! Complete beginners to MySQL are welcome.\nAll you need is a working computer for this course; PC, Mac, and Linux users are all welcome.\nNo previous programming language experience required, but it won't hurt :)",
-      "required": "Create your own database or interact with existing databases\nWrite complex SQL queries across multiple tables\nBuild a web app using NodeJS and MySQL\nModel real-world data and generate reports using SQL\nAnswer company performance or sales questions using data",
-      "video_url": "http://res.cloudinary.com/dflkpux1w/video/upload/v1587645660/fzxz1f7dhgrfesvscycn.mp4",
-      "pic_url": "https://i.imgur.com/UZiy9LF.jpg",
-      "date": 1587645661454,
+      "learnt": "\nAnalyze user behavior\nFind actionable customer/business insights\nMake data-driven decisions\nMeasure and track marketing efforts\nDiscover sexy marketing stats (e.g. 1 in 4 people love toast!)",
+      "required": "No previous technical knowledge required. This SQL course has been taken by fine marketing folks at Google, Facebook, Amazon, Lyft, and Udemy",
+      "video_url": "https://res.cloudinary.com/dflkpux1w/video/upload/v1588086301/uwc6ccb7mg8zw3ny2hgu.mp4",
+      "pic_url": "https://i.imgur.com/upZtdKI.jpg",
+      "date": 1588086303654,
       "id": 3
+    },
+    {
+      "user_id": 3,
+      "title": "Modern JavaScript From The Beginning",
+      "category": "IT and Software",
+      "learnt": "Modular learning sections & 10 real world projects with pure JavaScript\nMaster the DOM (document object model) WITHOUT jQuery\nAsynchronous programming with Ajax, Fetch API, Promises & Async / Await\nOOP including ES5 prototypes & ES2015 classes\nLearn JavaScript Patterns",
+      "required": "Basic HTML / CSS knowledge. This is a front to back JavaScript course for absolutely everybody. We start with the basic fundamentals and work our way to advanced programming WITHOUT relying on frameworks or libraries at all",
+      "video_url": "https://res.cloudinary.com/dflkpux1w/video/upload/v1588086537/e0wy8cu3q6iamzeovhj0.mp4",
+      "pic_url": "https://i.imgur.com/LZdlmWl.jpg",
+      "date": 1588086538566,
+      "id": 4
+    },
+    {
+      "user_id": 3,
+      "title": "Learn Python Programming Masterclass",
+      "category": "IT and Software",
+      "learnt": "Have a fundamental understanding of the Python programming language.\nHave the skills and understanding of Python to confidently apply for Python programming jobs.\nAcquire the pre-requisite Python skills to move into specific branches - Machine Learning, Data Science, etc..",
+      "required": "You’ve either already got it or it’s FREE. Here’s the checklist:\nA computer - Windows, Mac, and Linux are all supported. Setup and installation instructions are included for each platform.\nYour enthusiasm to learn this go-to programming language. It’s a valuable lifetime skill which you can’t un-learn!\nEverything else needed to start programming in Python is already included in the course.",
+      "video_url": "https://res.cloudinary.com/dflkpux1w/video/upload/v1588086646/gvzmhtamgsvw1n4wcotd.mp4",
+      "pic_url": "https://i.imgur.com/DiLdtSB.jpg",
+      "date": 1588086645365,
+      "id": 5
+    },
+    {
+      "user_id": 3,
+      "title": "CSS - The Complete Guide 2020 (incl. Flexbox, Grid & Sass)",
+      "category": "Development",
+      "learnt": "Build beautiful websites which don't just contain great content but also look good\nUse basic as well as advanced CSS features\nUnderstand the concepts and theory behind CSS and certain CSS features",
+      "required": "You should know the very basics about HTML and web development in general\nNO advanced HTML or web development knowledge is required though\nNO CSS knowledge is required at all! You'll learn it all in this course!",
+      "video_url": "https://res.cloudinary.com/dflkpux1w/video/upload/v1588087991/qzgrgi9pn6ecpc30g2i8.mp4",
+      "pic_url": "https://i.imgur.com/oSAbVYK.jpg",
+      "date": 1588087990985,
+      "id": 6
+    },
+    {
+      "user_id": 1,
+      "title": "AJAX using Javascript and JQuery + 2 Projects",
+      "category": "IT and Software",
+      "learnt": "Implement GET and POST Method of AJAX using both Javascript and Jquery\nImplement AJAX for both Web as well as Mobile Applications\nUnderstand differences in Implementation of AJAX for Javascript and Jquery\nUnderstand Differences between GET and POST Method of AJAX and also understand which one to use under what circumstances",
+      "required": "Should be Familiar with basic Javascript and Jquery\nShould have a basic understanding of PHP / MySQL",
+      "video_url": "https://res.cloudinary.com/dflkpux1w/video/upload/v1588088441/sh0wbsjijha19nlgmfpj.mp4",
+      "pic_url": "https://i.imgur.com/bhvcm3A.jpg",
+      "date": 1588088441334,
+      "id": 7
+    },
+    {
+      "user_id": 1,
+      "title": "SQL - MySQL for Data Analytics and Business Intelligence",
+      "category": "IT and Software",
+      "learnt": "No prior experience is required. We will start from the very basics",
+      "required": "Become an expert in SQL\nLearn how to code in SQL\nBoost your resume by learning an in-demand skill\nCreate, design, and operate with SQL database",
+      "video_url": "https://res.cloudinary.com/dflkpux1w/video/upload/v1588088615/bgjwu2zhqznvyftvwtym.mp4",
+      "pic_url": "https://i.imgur.com/GfvQQDR.jpg",
+      "date": 1588088616599,
+      "id": 8
+    },
+    {
+      "user_id": 1,
+      "title": "Oracle DBA 11g/12c - Database Administration for Junior DBA",
+      "category": "Development",
+      "learnt": "As a Oracle Database Administrator (Oracle DBA), you would be able understand the Database Architecture, which will help you to perform your DBA duties with better understanding.\nAs a Oracle Database Administrator (Oracle DBA), you would be able to Install the necessary Oracle Software/Database\nAs a Oracle Database Administrator (Oracle DBA), you would be able to Administer User accounts in the Database",
+      "required": "Students should have basic SQL Knowledge\nStudents should know the basic UNIX/LINUX commands\nAn open mind to understand Architecture, before jumping into demo's",
+      "video_url": "https://res.cloudinary.com/dflkpux1w/video/upload/v1588088775/dgeny2to1ommdipeekg0.mp4",
+      "pic_url": "https://i.imgur.com/K7CjEwr.jpg",
+      "date": 1588088775395,
+      "id": 9
     }
   ],
-  "favorites": [],
-  "stars": [
+  "favorites": [
     {
-      "course_id": 1,
-      "users": [],
+      "users": [
+        3,
+        1,
+        4
+      ],
       "id": 1
     },
     {
-      "course_id": 2,
-      "users": [],
+      "users": [
+        1,
+        5,
+        3
+      ],
       "id": 2
     },
     {
-      "course_id": 3,
-      "users": [],
+      "users": [
+        3,
+        4
+      ],
       "id": 3
+    },
+    {
+      "users": [],
+      "id": 4
+    },
+    {
+      "users": [],
+      "id": 5
+    },
+    {
+      "users": [],
+      "id": 6
+    },
+    {
+      "users": [
+        3
+      ],
+      "id": 7
+    },
+    {
+      "users": [
+        3
+      ],
+      "id": 8
+    },
+    {
+      "users": [],
+      "id": 9
+    }
+  ],
+  "stars": [
+    {
+      "users": [
+        1,
+        5
+      ],
+      "id": 1
+    },
+    {
+      "users": [
+        1,
+        3
+      ],
+      "id": 2
+    },
+    {
+      "users": [
+        3
+      ],
+      "id": 3
+    },
+    {
+      "users": [],
+      "id": 4
+    },
+    {
+      "users": [],
+      "id": 5
+    },
+    {
+      "users": [],
+      "id": 6
+    },
+    {
+      "users": [
+        3
+      ],
+      "id": 7
+    },
+    {
+      "users": [],
+      "id": 8
+    },
+    {
+      "users": [],
+      "id": 9
     }
   ]
 }

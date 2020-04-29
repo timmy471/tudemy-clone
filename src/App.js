@@ -52,28 +52,3 @@ function App() {
 
 export default App;
 
-// import React from "react";
-
-// import Parent from "./components/pages/Parent";
-
-// import AuthState from "./context/auth/AuthState";
-// import AlertState from "./context/alert/AlertState";
-// import CourseState from "./context/course/CourseState";
-
-// import "./App.css";
-
-// const App = () => {
-//   return (
-//     <AuthState>
-//       <AlertState>
-//         <CourseState>
-//           <div>
-//             <Parent />
-//           </div>
-//         </CourseState>
-//       </AlertState>
-//     </AuthState>
-//   );
-// };
-
-// export default App;

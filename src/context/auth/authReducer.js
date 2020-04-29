@@ -26,7 +26,7 @@ const authReducer = (state, action) => {
       return {
         ...state,
         fLoading: true,
-      }
+      };
 
     case REGISTER_SUCCESS:
       return {
@@ -36,7 +36,7 @@ const authReducer = (state, action) => {
         redirect: true,
         loading: false,
       };
-      
+
     case CHECK_FAIL:
     case REGISTER_FAIL:
     case LOAD_USER_FAIL:
@@ -59,8 +59,8 @@ const authReducer = (state, action) => {
     case AUTHENTICATE_USER:
       return {
         ...state,
-        isAuthenticated: true
-      }
+        isAuthenticated: true,
+      };
 
     case LOAD_USER:
       return {
@@ -80,26 +80,25 @@ const authReducer = (state, action) => {
         isAuthenticated: false,
         isLoggedOut: true,
       };
-      case UNSET_REDIRECT:
-        return{
-          ...state,
-          redirect: false
-        };
+    case UNSET_REDIRECT:
+      return {
+        ...state,
+        redirect: false,
+      };
 
-      case IMAGE_SUCCESS:
-        return {
-          ...state,
-          user: action.payload,
-          fLoading: false
-          
-        };
+    case IMAGE_SUCCESS:
+      return {
+        ...state,
+        user: action.payload,
+        fLoading: false,
+      };
 
-        case IMAGE_FAIL:
-          return {
-            ...state,
-            fLoading: false,
-           error:action.payload
-          };
+    case IMAGE_FAIL:
+      return {
+        ...state,
+        fLoading: false,
+        error: action.payload,
+      };
 
     default:
       return state;
