@@ -33,6 +33,7 @@ const authReducer = (state, action) => {
         ...state,
         user: action.payload,
         isAuthenticated: true,
+        isLoggedOut:false,
         redirect: true,
         loading: false,
       };
