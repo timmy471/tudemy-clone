@@ -49,9 +49,8 @@ const AddCourse = () => {
     setCourse({ ...course, image: e.target.files[0] });
   };
 
-  const process = (word) => {
-    word.charAt(0).toUpperCase() + word.slice(1);
-  };
+  const process = word =>  word.charAt(0).toUpperCase() + word.slice(1);
+  
 
   const onSubmit = (e) => {
     e.preventDefault();
