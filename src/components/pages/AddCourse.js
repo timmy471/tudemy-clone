@@ -49,25 +49,29 @@ const AddCourse = () => {
     setCourse({ ...course, image: e.target.files[0] });
   };
 
+    const process = word => {
+     word.charAt(0).toUpperCase() + word.slice(1)
+    } 
+
   const onSubmit = (e) => {
     e.preventDefault();
     if (title === "" || category === "" || learnt === "" || required === "") {
       return setAlert("Please fill all fields", "danger");
     }
     const realCourse = {
-      title: title.charAt(0).toUpperCase() + title.slice(1),
+      title: preocess(title),
       category,
-      learnt: learnt.charAt(0).toUpperCase() + learnt.slice(1),
-      required: required.charAt(0).toUpperCase() + required.slice(1),
+      learnt: process(learnt),
+      required: process(required),
       image,
       video,
     };
 
     const updData = {
-      title: title.charAt(0).toUpperCase() + title.slice(1),
+      title: process(title),
       category,
-      learnt: learnt.charAt(0).toUpperCase() + learnt.slice(1),
-      required: required.charAt(0).toUpperCase() + required.slice(1),
+      learnt: process(learnt),
+      required: process(required),
       image,
       video,
       date: current && current.date,
@@ -187,7 +191,10 @@ const AddCourse = () => {
                   required
                 />
                 <br />
-                <small>For best performance, ensure video is 1920x1080 and have your internet connection at its best</small>
+                <small>
+                  For best performance, ensure video is 1920x1080 and have your
+                  internet connection at its best
+                </small>
               </div>
             </div>
             <div className="col-xm-12 col-sm-12 col-md-6">
