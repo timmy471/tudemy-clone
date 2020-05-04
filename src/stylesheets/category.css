@@ -1,0 +1,50 @@
+.categoryItem {
+  background-color: white;
+  height: 7.5rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  box-shadow: 20px 2px 20px 0px #ddd;
+  cursor: pointer;
+}
+
+.categories {
+  margin-top: 4rem;
+}
+
+.icon {
+  font-size: 3rem;
+  color: rgb(221, 62, 168);
+}
+
+.testimonial {
+  margin-top: 5rem;
+}
+
+.item{
+         text-align: center;
+        height: 320px;
+ 
+}
+
+.testimonial p {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.testimonial h4 {
+ color: black
+}
+
+
+.testimonial h4 i{
+    color: rgb(221, 62, 168)!important;
+   }
+
+   @media screen and (max-width: 760px) {
+    .item{
+        text-align: center;
+       height: 450px;
+
+}
+
+}

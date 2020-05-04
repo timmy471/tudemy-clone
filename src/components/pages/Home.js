@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import Jumbotron from "../layouts/Jumbotron";
+import Categories from "../layouts/Categories";
 import ForCourses from "../layouts/ForCourses";
+import Testimonials from "../layouts/Testimonials";
+
 import Login from "./Login";
 import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -35,18 +38,22 @@ const Home = () => {
 
   return (
     <div>
-      {!loading &&  (<div>
+       
            <Login />
-           <Jumbotron />
-           <h2 className="text-center">Recent Courses</h2>
-           <ForCourses courses={latest} />
+           <Jumbotron /> 
+           <Categories />
+           <div  style={coursesStyle}> 
+           <h3 className="text-center ">RECENT COURSES</h3>
+           {!loading &&  (<ForCourses courses={latest} />)}
            <div className="text-center">
              <Link to="/courses" style={linkStyle}>
                <button style={btnStyle}>View All</button>
              </Link>
            </div>
-         </div>)}
-    </div>
+         </div>
+         <Testimonials />
+         </div> 
+     
   );
 };
 
@@ -63,6 +70,11 @@ const linkStyle = {
   textDecoration: "none",
   color: "white",
 };
+
+const coursesStyle= {
+marginTop:"3rem"
+
+}
 
 Home.propTypes = {
   latest: PropTypes.array,
