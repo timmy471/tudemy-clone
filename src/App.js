@@ -20,13 +20,7 @@ import CourseState from "./context/course/CourseState";
 
 import "./App.css";
 
-  // "scripts": { 
-  //   "start": "serve -s build",
-  //   "build": "react-scripts build",
-  //   "deploy": "serve -s build",
-  //   "test": "react-scripts test",
-  //   "eject": "react-scripts eject"
-  // },
+  
 
 function App() {
   return (

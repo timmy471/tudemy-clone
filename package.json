@@ -24,10 +24,8 @@
     "video-react": "^0.14.1"
   },
 
-  "scripts": {
-    "start": "react-scripts start",
-    "json-server": "json-server --watch db.json --port 5000",
-    "dev": "concurrently \"npm start\" \"npm run json-server\"",
+  "scripts": { 
+    "start": "serve -s build",
     "build": "react-scripts build",
     "deploy": "serve -s build",
     "test": "react-scripts test",
