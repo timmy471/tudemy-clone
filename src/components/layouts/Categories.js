@@ -39,10 +39,10 @@ const Categories = () => {
   ];
 
   return <div className="container categories">
-      <h3 className="text-center">TOP CATEGORIES</h3>
+      <h3 className="text-center">TO<span className="underline">P CATEGO</span>RIES</h3>
       <div className="row">
           {categoryData.map(category => (
-              <div className="col-xs-6 col-sm-6 col-md-4" key={category.id}>
+              <div className="col-xs-6 col-sm-6 col-md-4 mt-4" key={category.id}>
                   <CategoryItem category={category} />
                   </div>
           ))}

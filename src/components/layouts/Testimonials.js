@@ -9,14 +9,15 @@ import ann from "../../images/ann.jpg";
 const Testimonials = () => {
   return (
     <div className="container testimonial">
-      <h2 className="text-center mb-4">TESTIMONIALS</h2>
+      <h2 className="text-center mb-4 ">TES<span className="underline">TIMONI</span>ALS</h2>
+      <div className="carousel-div">
       <Carousel>
         <Carousel.Item className="item">
           <img style={imgStyle} src={susan} alt="susan" />
           <Carousel.Caption>
             <p>
               On Tudemy, You can learn absolutely anything worth learning. I
-              lernt HTML & CSS and a bit of javascript/jquery. I have decent
+              learnt HTML & CSS and a bit of javascript/jquery. I have decent
               knowledge of html/css & js. Whether if you're newbie or just
               looking for a refresher course, look no further. This is it!
               Thanks again Tudemy!
@@ -58,13 +59,14 @@ const Testimonials = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      </div>
     </div>
   );
 };
 
 const imgStyle = {
   height: "150px",
-  width: "150px",
+  width: "150px", 
   borderRadius: "50%",
 };
 

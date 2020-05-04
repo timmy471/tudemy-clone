@@ -1,7 +1,7 @@
 .categoryItem {
   background-color: white;
   height: 7.5rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   border-radius: 5px;
   box-shadow: 20px 2px 20px 0px #ddd;
   cursor: pointer;
@@ -20,10 +20,17 @@
   margin-top: 5rem;
 }
 
-.item{
-         text-align: center;
-        height: 320px;
- 
+.carousel-div{
+    margin-top: 3rem;
+}
+
+.item {
+  text-align: center;
+  height: 320px;
+}
+.underline{
+    padding-bottom:0.5rem;
+    border-bottom: 5px solid rgb(221, 62, 168); 
 }
 
 .testimonial p {
@@ -32,19 +39,21 @@
 }
 
 .testimonial h4 {
- color: black
+  color: black;
 }
 
-
-.testimonial h4 i{
-    color: rgb(221, 62, 168)!important;
-   }
-
-   @media screen and (max-width: 760px) {
-    .item{
-        text-align: center;
-       height: 450px;
-
+.testimonial h4 i {
+  color: rgb(221, 62, 168) !important;
 }
 
+@media screen and (max-width: 760px) {
+  .item {
+    text-align: center;
+    height: 450px;
+  }
+
+  .testimonial p {
+    font-size: 0.9rem;
+  margin-top:1rem
+  }
 }

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Jumbotron from "../layouts/Jumbotron";
+import Spinner from '../layouts/Spinner';
 import Categories from "../layouts/Categories";
 import ForCourses from "../layouts/ForCourses";
 import Testimonials from "../layouts/Testimonials";
@@ -28,32 +29,37 @@ const Home = () => {
 
     getLatest();
     clearCurrent();
-    
+
     // eslint-disable-next-line
   }, []);
 
-  if(redirect){
-    return <Redirect to ="/dashboard" />;
+  if (redirect) {
+    return <Redirect to="/dashboard" />;
   }
 
   return (
     <div>
-       
-           <Login />
-           <Jumbotron /> 
-           <Categories />
-           <div  style={coursesStyle}> 
-           <h3 className="text-center ">RECENT COURSES</h3>
-           {!loading &&  (<ForCourses courses={latest} />)}
-           <div className="text-center">
-             <Link to="/courses" style={linkStyle}>
-               <button style={btnStyle}>View All</button>
-             </Link>
-           </div>
-         </div>
-         <Testimonials />
-         </div> 
-     
+      <Login />
+      <Jumbotron />
+      <Categories />
+      <div style={coursesStyle}>
+        <h3 className="text-center mt-4">
+          REC<span style={underline}>ENT COUR</span>SES
+        </h3>
+        <div className="mt-4">
+          {!loading ? (
+          <>
+          <ForCourses courses={latest} />
+          <div className="text-center">
+            <Link to="/courses" style={linkStyle}>
+              <button style={btnStyle}>View All</button>
+            </Link>
+          </div>
+          </>) : <Spinner />}
+        </div>
+      </div>
+      <Testimonials />
+    </div>
   );
 };
 
@@ -71,10 +77,15 @@ const linkStyle = {
   color: "white",
 };
 
-const coursesStyle= {
-marginTop:"3rem"
+const coursesStyle = {
+  marginTop: "4rem",
+};
 
-}
+const underline = {
+  marginTop: "8rem",
+  borderBottom: "5px solid rgb(221, 62, 168)",
+  paddingBottom: "0.5rem",
+};
 
 Home.propTypes = {
   latest: PropTypes.array,
