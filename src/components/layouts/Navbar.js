@@ -29,7 +29,7 @@ const Navbar = () => {
             Learn
           </Link>
         </li>
-        {isAuthenticated && !loading && user !== null ? (
+        {!isLoggedOut && !loading && user !== null ? (
           <div>
             <li className="dropdown" style={linkStyle}>
               <span
