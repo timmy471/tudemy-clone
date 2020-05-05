@@ -18,7 +18,7 @@ const Categories = () => {
     },
     {
       id: 3,
-      icon: <i className="fa fa-wallet"></i>,
+      icon: <i className="fa fa-percent"></i>,
       title: "Finance and Accounting",
     },
     {
