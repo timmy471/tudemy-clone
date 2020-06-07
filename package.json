@@ -23,7 +23,7 @@
     "serve": "^11.3.0",
     "video-react": "^0.14.1"
   },
-
+  
   "scripts": { 
     "start": "serve -s build",
     "build": "react-scripts build",

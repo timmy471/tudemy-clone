@@ -10,7 +10,7 @@ const CourseItem = ({ course }) => {
 
   return (
     <div>
-      <div className="card mt-4 mb-2" style={cardStyle}>
+      <div className="card mt-4 mb-2 border-0" style={cardStyle}>
         <img
           src={pic_url}
           height="150"
@@ -40,7 +40,8 @@ CourseItem.propTypes = {
 
 const cardStyle={ 
   width: "95%", 
-  boxShadow:"20px 2px 20px 0px #ddd"
+  boxShadow:"20px 2px 20px 0px #ddd",
+  margin:"0, auto"
 }
 
 export default CourseItem;

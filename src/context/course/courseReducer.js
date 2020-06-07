@@ -38,6 +38,7 @@ const courseReducer = (state, action) => {
       return {
         ...state,
         courses: action.payload,
+        courseCount: action.payload.length,
         loading: false,
       };
     

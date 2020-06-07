@@ -56,11 +56,11 @@ const AddCourse = () => {
     e.preventDefault();
     if (title === "" || category === "" || learnt === "" || required === "") {
       return setAlert("Please fill all fields", "danger");
-    }else if (learnt.length < 80){
-      return setAlert("Please make sure 'What will be learnt?' field is well detailed(not less than 80 characters)", "danger");
-
     }else if (required.length < 80){
       return setAlert("Please make sure 'Course Requirement?' field is well detailed(not less than 80 characters)", "danger");
+
+    }else if (learnt.length < 80){
+      return setAlert("Please make sure 'What will be learnt?' field is well detailed(not less than 80 characters)", "danger");
 
     }
     const realCourse = {
@@ -157,7 +157,7 @@ const AddCourse = () => {
                   placeholder="What is required of a student willing to take this course?"
                   id="organization"
                   className="form-control"
-                  rows="8"
+                  rows="6"
                   name="required"
                   value={required}
                   onChange={onChange}
@@ -175,7 +175,7 @@ const AddCourse = () => {
                   placeholder="What will your students learn?"
                   id="organization"
                   className="form-control"
-                  rows="8"
+                  rows="6"
                   name="learnt"
                   value={learnt}
                   onChange={onChange}
