@@ -32,6 +32,9 @@
   margin-top: 0.5rem;
 }
 
+.add:hover, .starLogo:hover, .star:hover {
+  color: rgb(221, 62, 168);
+}
 .body {
   position: absolute;
   max-width: 1110px;
@@ -43,7 +46,7 @@
 }
 
 .remove {
-  color: blue;
+  color: rgb(221, 62, 168);
   font-size: 2rem;
 }
 
@@ -56,7 +59,7 @@ ul li {
 }
 
 .addStar {
-  color: blue;
+  color: rgb(221, 62, 168);
   font-size: 2rem;
   margin-top: 0.5rem;
 }

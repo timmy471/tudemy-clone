@@ -97,19 +97,19 @@ const Course = (props) => {
                   ) : (
                     <li className="list">
                       <i
-                        className="fa fa-star starLogo"
+                        className="fa fa-star starLogo pink"
                         onClick={onAddStar}
                         title="star this course"
                       ></i>
                     </li>
                   )}{" "}
-                  &nbsp; <span className="starCount">{starCount}</span>
+                  &nbsp; <span className="starCount ">{starCount}</span>
                 </ul>
               ) : (
                 <div className="own">
                   <span>
                     {" "}
-                    <i className="fa fa-star star" title="star counts"></i>
+                    <i className="fa fa-star star pink" title="star counts"></i>
                   </span>
                   &nbsp; <span className="ownStarCount">{starCount}</span>
                 </div>

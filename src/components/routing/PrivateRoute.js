@@ -9,8 +9,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
   const { isAuthenticated, loading, authUser, isLoggedOut } = authContext;
 
-  useEffect(() => {
-    authUser();
+  useEffect( async () => {
+    await authUser();
     if (isLoggedOut) {
       alert("Please login to visit this page");
     }
