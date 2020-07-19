@@ -18,6 +18,7 @@ const UserCourseItem = ({ course }) => {
   const userId = localStorage.getItem("user_id");
   let newTitle;
   if(title){
+    console.log(title);
   newTitle = title.length > 45 ? title.substring(0, 45) + "..." : title;
   }
 
