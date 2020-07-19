@@ -39,7 +39,7 @@ const Home = () => {
 
   return (
     <div>
-      <Login />
+      {/* <Login /> */}
       <Jumbotron />
       <Categories />
       <div style={coursesStyle}>

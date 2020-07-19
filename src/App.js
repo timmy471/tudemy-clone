@@ -35,6 +35,7 @@ function App() {
                 <Alert />
                 <Switch>
                   <Route exact path="/" component={Home} />
+                  {/* <Route exact path="/login" component={Login} /> */}
                   <Route exact path="/dashboard" component={Dashboard} />
                   <PrivateRoute exact path="/addcourse" component={AddCourse} />
                   <PrivateRoute exact path="/courses" component={AllCourses} />
