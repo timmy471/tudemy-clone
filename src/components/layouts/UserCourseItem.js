@@ -16,13 +16,9 @@ const UserCourseItem = ({ course }) => {
   };
 
   const userId = localStorage.getItem("user_id");
-  let newTitle;
-  if(title){
-    console.log(title);
-  newTitle = title.length > 45 ? title.substring(0, 45) + "..." : title;
-  }
+  // const title = title.length > 45 ? title.substring(0, 45) + "..." : title;
 
-if(course){
+
   return (
     <div>
       <div className="card mt-2 mb-2" style={{ width: "100%" }}>
@@ -42,7 +38,7 @@ if(course){
                 style={{ textDecoration: "none", color: "black" }}
                 title="view Course"
               >
-                {newTitle}
+                {title}
               </Link>
             </h5>
             <p>{category}</p>
@@ -70,12 +66,6 @@ if(course){
       </div>
     </div>
   );
-}else{
-  return (
-    <p></p>
-  );
-}
-  
 };
 
 UserCourseItem.propTypes = {
